@@ -1,0 +1,44 @@
+<footer>
+    <div class="container info">
+        <div class="row">
+            <div class="col-sm-4">
+                <h4>{{ theme.footer.description.title }}</h4>
+                <p>{{ theme.footer.description.text }}</p>
+                <p><a class="scout-symbol" href="{{ theme.footer.socials.facebook }}" target="_blank">«</a></p>
+            </div>
+            <div class="col-sm-4">
+                <h4>{{ theme.footer.links.title }}</h4>
+                <ul>
+                    {% for link in theme.footer.links.list %}
+                        <li><a href="{{ link.url }}" target="_blank">{{ link.text }}</a>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-sm-4">
+                <h4>{{ theme.footer.contact.title }}</h4>
+                <p>
+                    {{ theme.footer.contact.name }}<br/>
+                    {{ theme.footer.contact.address }}<br/>
+                    {{ theme.footer.contact.country }}
+                </p>
+                <p>
+                    E-mail: <a href="mailto:{{ theme.footer.contact.email }}">{{ theme.footer.contact.email }}</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container copyright">
+        <div class="row">
+            <div class="col-sm-6 text-left">
+                <p>
+                    Theme made by <a href="https://github.com/PraserX" target="_blank">Praser</a>. Based on Grav CMS.<br />
+                    &copy; {{ theme.footer.copyright }}
+                </p>
+            </div>
+            <div class="col-sm-6 text-right">
+                <p>{{ theme.footer.othercopytext }}</p>
+            </div>
+        </div>
+    </div>
+</footer>

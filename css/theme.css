@@ -1,0 +1,311 @@
+/**
+ * asdfasdf 
+ * asdfasdf asd
+ */
+
+/*****************************************************************************
+ **************************  Global definition  ******************************
+ *****************************************************************************/
+
+body {
+    color: #526066;
+    font-family: TheMix, sans-serif;
+    font-size: 15px;
+    background-color: #1c1c1c;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: TheMix, sans-serif;
+}
+
+p {
+    line-height: 1.6em;
+}
+
+/*****************************************************************************
+ *************************  Main menu definition  ****************************
+ *****************************************************************************/
+
+header {
+    background-color: #ffffff;
+}
+
+header .x .menu {
+    padding: 5px 20px 10px 0px;
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
+header .x .menu .item:before {
+    background: none;
+}
+
+header .x .menu .custom {
+    border-bottom: 2px solid rgba(0, 0, 0, 0);
+}
+
+header .x .menu .custom:hover {
+    border-bottom: 2px solid #20649B;
+}
+
+header .x .menu .item,
+header .x .menu .dropdown.item,
+header .x .menu .link.item,
+header .x .menu a.item {
+    background: none;
+    padding: 20px 0px 5px 0px;
+    margin: 0px 0px 0px 30px;
+    font-family: TheMix, sans-serif;
+    font-size: 15px;
+    color: #20649B;
+}
+
+header .x .menu .item:hover,
+header .x .menu .dropdown.item:hover,
+header .x .menu .link.item:hover,
+header .x .menu a.item:hover {
+    background: none;
+    color: #20649B;
+}
+
+header.modular {
+    position: relative;
+    width: 100%;
+    height: 700px;
+    /* background-image: url("../images/header-bg.png"); */
+    background-position: bottom center;
+}
+
+header.modular .x .menu .custom:hover {
+    border-bottom: 2px solid #ffffff;
+}
+
+header.modular .x .menu .item,
+header.modular .x .menu .dropdown.item,
+header.modular .x .menu .link.item,
+header.modular .x .menu a.item {
+    color: #ffffff;
+}
+
+header.modular .x .menu .item:hover,
+header.modular .x .menu .dropdown.item:hover,
+header.modular .x .menu .link.item:hover,
+header.modular .x .menu a.item:hover {
+    color: #ffffff;
+}
+
+header.modular .organization {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+header.modular .organization h1 {
+    padding: 0px;
+    margin: 0px;
+    font-family: Skaut, sans-serif;
+    font-size: 50px;
+    text-align: center;
+    color: #ffffff;
+}
+
+header.modular img.main-logo {
+    position: absolute;
+    width: 200px;
+    height: auto;
+    top: 79%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/*****************************************************************************
+ ************************  Modular pages definitions  ************************
+ *****************************************************************************/
+
+section {
+    background-color: #ffffff;
+}
+
+.recruiting {
+    padding: 100px 0px 120px 0px;
+    text-align: center;
+}
+
+.recruiting h2 {
+    font-size: 32px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.recruiting .btn {
+    font-size: 16px;
+}
+
+.stats p {
+    font-size: 36px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+}
+
+.sponsors {
+    padding: 60px 0px;
+}
+
+.sponsors img {
+    max-height: 80px;
+}
+
+/*****************************************************************************
+ *************************  Default page definition  *************************
+ *****************************************************************************/
+
+.title {
+    padding: 0px 14px;
+}
+
+.title h2 {
+    padding: 20px 0px;
+    font-size: 36px;
+    font-weight: bold;
+    font-family: Skaut, sans-serif;
+    letter-spacing: 2px;
+    line-height: 1.6em;
+    color: #ffffff;
+}
+
+.image-background {
+    background-image: url('../images/content-bg.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.breadcrumbs {
+    padding: 10px 14px 0px 14px;
+}
+
+.breadcrumbs #breadcrumbs {
+    padding: 0px;
+}
+
+.page {
+    padding: 0px 14px 20px 14px;
+}
+
+.page h1, .page h2 {
+    font-weight: bold;
+    font-family: Skaut, sans-serif;
+    letter-spacing: 0px;
+}
+
+.page h1 {
+    font-size: 30px;
+}
+
+.page h2 {
+    font-size: 24px;
+}
+
+.page h3, .page h4 {
+    font-weight: bold;
+    font-family: TheMix, sans-serif;
+}
+
+.page h3 {
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.page h4 {
+    font-size: 15px;
+}
+
+.page img {
+    width: 100%;
+}
+
+.page .img {
+    width: 100%;
+    height: 100%;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/*****************************************************************************
+ **************************  Footer definition  ******************************
+ *****************************************************************************/
+
+footer {
+    width: 100%;
+    background-color: #1c1c1c !important;
+    color: #888;
+}
+
+footer a {
+    color: #ddd;
+}
+
+footer .info {
+    margin: 0 auto;
+    padding: 30px 0px 10px 0px;
+}
+
+footer .info h4 {
+    font-size: 17px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: left;
+}
+
+footer .info p {
+    text-align: left;
+}
+
+footer .info ul {
+    padding: 0px;
+    text-align: left;
+}
+
+footer .info ul li {
+    padding-bottom: 5px;
+    list-style: none;
+}
+
+footer .info ul li a {
+    text-decoration: none;
+    color: #888888;
+}
+
+footer .info .scout-symbol {
+    font-family: Skaut;
+    font-size: 50px;
+    text-decoration: none;
+}
+
+footer .copyright {
+    margin: 0 auto;
+    padding: 0px 0px 30px 0px;
+}
+
+footer .copyright p {
+    font-size: 13px;
+}
+
+/*****************************************************************************
+ *************************  Bootstrap redefinition  **************************
+ *****************************************************************************/
+
+.container-fluid {
+    padding: 0px;
+}

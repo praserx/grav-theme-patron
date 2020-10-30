@@ -1,0 +1,154 @@
+name: Patron
+version: 1.0.0
+description: "Patron theme orginaly made for non-profit organization"
+icon: asterisk
+author:
+  name: Praser
+  email: praserx@gmail.com
+  url: https://github.com/PraserX
+homepage: https://github.com/getgrav/grav-theme-antimatter
+demo: http://demo.getgrav.org/blog-skeleton
+keywords: patron, theme, core, modern, fast, responsive, html5, css3, non-profit
+bugs: https://github.com/PraserX/grav-theme-patron/issues
+license: MIT
+
+dependencies:
+  - { name: grav, version: '>=1.7.0' }
+  - { name: form, version: '>=4.1.0' }
+  - { name: login, version: '>=3.3.0' }
+
+form:
+  validation: strict
+  fields:
+    theme.tabs:
+      type: tabs
+      fields:
+        settings.tab:
+          type: tab
+          title: Settings
+
+        modules.tab:
+          type: tab
+          title: Modular pages settings
+          fields:
+
+            section.header:
+              type: section
+              title: Header modular
+              underline: true
+
+            modules.header.logo:
+              name: logo
+              type: file
+              label: Organization logo
+              destination: 'theme@:/images'
+              multiple: false
+              autofocus: false
+              accept:
+                - image/*
+
+            modules.header.background:
+              name: background
+              type: file
+              label: Background image
+              destination: 'theme@:/images'
+              multiple: false
+              autofocus: false
+              accept:
+                - image/*
+        
+        footer.tab:
+          type: tab
+          title: Footer
+          fields:
+
+            section.description:
+              type: section
+              title: Description
+              underline: true
+            
+            footer.description.title:
+              type: text
+              label: Title
+              placeholder: "Place title here"
+              help: Footer left side block title.
+            footer.description.text:
+              type: text
+              label: Text
+              placeholder: "Place text here"
+              help: Footer left side block text.
+
+            footer.socials.facebook:
+              type: text
+              label: Facebook link
+              placeholder: "Place text here"
+              help: Footer left side block socials links.
+          
+            section.links:
+              type: section
+              title: Links
+              underline: true
+
+            footer.links.title:
+              type: text
+              label: Title
+              placeholder: "Place title here"
+              help: Footer middle block title.
+            footer.links.list:
+              type: list
+              label: Links
+              fields:
+                .text:
+                  type: text
+                  label: Title
+                .url:
+                  type: text
+                  label: URL
+            
+            section.contact:
+              type: section
+              title: Contact
+              underline: true
+
+            footer.contact.title:
+              type: text
+              label: Title
+              placeholder: "Place title here"
+              help: Footer right side block title.
+            footer.contact.name:
+              type: text
+              label: Name
+              placeholder: "Place text here"
+              help: Footer right side block text.
+            footer.contact.address:
+              type: text
+              label: Address
+              placeholder: "Place text here"
+              help: Footer right side block text.
+            footer.contact.country:
+              type: text
+              label: Country
+              placeholder: "Place text here"
+              help: Footer right side block text.
+            footer.contact.email:
+              type: text
+              label: E-mail
+              placeholder: "Place text here"
+              help: Footer right side block text.
+
+            section.copyright:
+              type: section
+              title: Copyright
+              underline: true
+
+            footer.copyright:
+              type: text
+              label: Copyright
+              placeholder: "Place title here"
+              help: Footer copyright block text.
+            
+            footer.othercopytext:
+              type: text
+              label: Additional text
+              placeholder: "Place title here"
+              help: Footer copyright block additional text.

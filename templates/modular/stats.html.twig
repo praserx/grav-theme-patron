@@ -1,0 +1,14 @@
+<div class="container-fluid image-background stats">
+    <div class="row">
+        <div class="col-sm-12">
+            <p>
+                {% for stat in page.header.stats %}
+                    {{ stat.count }} {{ stat.label }}
+                    {% if not loop.last %}
+                        &nbsp;<span style="font-family: Skaut; padding: 0px 15px;">¬</span>&nbsp;
+                    {% endif %}
+                {% endfor %}
+            </p>
+        </div>
+    </div>
+</div>

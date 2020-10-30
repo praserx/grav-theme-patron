@@ -1,0 +1,18 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 breadcrumbs">
+            {% include 'partials/breadcrumbs.html.twig' %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 page">
+            <p>{{ page.content }}</p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

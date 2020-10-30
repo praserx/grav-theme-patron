@@ -1,0 +1,18 @@
+.login {
+    padding: 20px 14px 40px 14px;
+    text-align: left;
+}
+
+.login h1, .page h2 {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: Skaut, sans-serif;
+    letter-spacing: 0px;
+    margin-right: 0px;
+    margin-bottom: 1rem;
+    margin-left: 0px;
+}
+
+.login .form-field {
+    margin-bottom: 20px;
+}

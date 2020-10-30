@@ -1,0 +1,15 @@
+<div class="container recruiting">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>{{ page.header.text }}</h2>
+            <p>
+                {% for link in page.header.buttons %}
+                    <a class="btn {{ link.css }}" href="{{ link.url }}">{{ link.label }}</a>
+                    {% if not loop.last %}
+                        &nbsp;
+                    {% endif %}
+                {% endfor %}
+            </p>
+        </div>
+    </div>
+</div>

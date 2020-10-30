@@ -1,0 +1,47 @@
+{% macro renderMenuItem(visiblePage) %}
+    {% if visiblePage.children.visible is empty or visiblePage.header.showsubnav == false %}
+    <a class="item custom" href="{{ visiblePage.url }}">{{ visiblePage.title }}</a>
+    {% else %}
+    <div class="ui pointing dropdown link item top left custom">
+        <span class="text">{{ visiblePage.title }}</span>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+            {% for gps_item in visiblePage.children.visible %}
+            <a class="item" href="{{ gps_item.url }}">{{ gps_item.title }}</a>
+            {% endfor %}
+
+            {% for ps_item in visiblePage.header.subnav.items %}
+            <a class="item" href="{{ ps_item.url }}">{{ ps_item.text }}</a>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+{% endmacro %}
+
+<div class="right menu">
+{% for visiblePage in page.find("/", true).parent.children.visible %}
+    {% if visiblePage.header.visibility_requires_access|default(false) %}
+        {% if config.plugins.login.enabled and grav.user.username %}
+            {{ _self.renderMenuItem(visiblePage) }}
+        {% endif %}
+    {% else %}
+        {{ _self.renderMenuItem(visiblePage) }}
+    {% endif %}
+{% endfor %}
+
+{% if config.plugins.login.enabled and grav.user.username %}
+    <div class="ui pointing dropdown link item top left custom">
+        <span class="text"><i class="far fa-user"></i>&ensp;{{ grav.user.fullname }}</span>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+            <a class="item" href="{{ config.plugins.login.route_profile }}"><i class="fas fa-user-circle"></i>&ensp;{{ 'LOGIN.ACCOUNT'|t }}</a>
+            {% if grav.user.access.admin.login|lower == "true" %}
+            <a class="item" href="{{ config.plugins.admin.route }}" target="_blank"><i class="fas fa-sliders-h"></i>&ensp;{{ 'LOGIN.ADMIN'|t }}</a>
+            {% endif %}
+            <a class="item" href="#"><i class="fas fa-sign-out-alt"></i>&ensp;{{ 'LOGIN.LOGOUT'|t }}</a>
+        </div>
+    </div>
+{% else %}
+    <a class="item custom" href="{{ config.plugins.login.route }}"><i class="fas fa-sign-in-alt"></i>&ensp;{{ 'LOGIN.LOGIN'|t }}</a>
+{% endif %}
+</div>

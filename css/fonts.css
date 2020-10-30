@@ -1,0 +1,34 @@
+/* Fonts definition */
+
+@font-face {
+    font-family: Skaut;
+    src: url(../fonts/skaut/skaut-bold-webfont.woff);
+}
+
+@font-face {
+    font-family: TheMix;
+    src: url(../fonts/the-mix/TheMix_LT_400.woff);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: TheMix;
+    src: url(../fonts/the-mix/TheMix_LT_400i.woff);
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: TheMix;
+    src: url(../fonts/the-mix/TheMix_LT_700.woff);
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: TheMix;
+    src: url(../fonts/the-mix/TheMix_LT_700i.woff);
+    font-weight: bold;
+    font-style: italic;
+}
