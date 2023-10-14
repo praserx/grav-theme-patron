@@ -7,7 +7,7 @@
 			<div class="col-sm-12 page" style="padding-top: 20px;">
 				<h1>{{ 'ERROR'|t }} {{ page.header.http_response_code }}</h1>
 			 	<p>
-					{{ page.content }}
+					{{ page.content|raw }}
 				</p>
 			</div>
 		</div>
