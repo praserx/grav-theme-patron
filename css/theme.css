@@ -10,8 +10,14 @@
 body {
     color: #526066;
     font-family: TheMix, sans-serif;
-    font-size: 15px;
+    font-size: 16px;
     background-color: #1c1c1c;
+}
+
+/* Font Enforcing*/
+.fe {
+    font-family: TheMix, sans-serif !important;
+    font-size: 16px !important;
 }
 
 h1,
@@ -60,7 +66,7 @@ header .x .menu a.item {
     padding: 20px 0px 5px 0px;
     margin: 0px 0px 0px 30px;
     font-family: TheMix, sans-serif;
-    font-size: 15px;
+    font-size: 16px;
     color: #20649B;
 }
 
@@ -133,23 +139,11 @@ section {
     background-color: #ffffff;
 }
 
-.recruiting {
-    padding: 100px 0px 120px 0px;
-    text-align: center;
+.news {
+    padding: 50px 0px;
 }
 
-.recruiting h2 {
-    font-size: 32px;
-    font-weight: 500;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-}
-
-.recruiting .btn {
-    font-size: 16px;
-}
-
-.stats p {
+.banner-text p {
     font-size: 36px;
     font-weight: bold;
     letter-spacing: 2px;
@@ -158,12 +152,8 @@ section {
     padding: 20px;
 }
 
-.sponsors {
+.custom-content {
     padding: 60px 0px;
-}
-
-.sponsors img {
-    max-height: 80px;
 }
 
 /*****************************************************************************
@@ -199,7 +189,7 @@ section {
 }
 
 .page {
-    padding: 0px 14px 20px 14px;
+    padding: 20px 14px 40px 14px;
 }
 
 .page h1, .page h2 {
@@ -305,6 +295,10 @@ footer .copyright p {
 /*****************************************************************************
  *************************  Bootstrap redefinition  **************************
  *****************************************************************************/
+
+.container {
+    max-width: 960px;
+}
 
 .container-fluid {
     padding: 0px;

@@ -5,17 +5,19 @@ icon: asterisk
 author:
   name: Praser
   email: praserx@gmail.com
-  url: https://github.com/PraserX
-homepage: https://github.com/getgrav/grav-theme-antimatter
-demo: http://demo.getgrav.org/blog-skeleton
+  url: https://github.com/praserx
+homepage: https://github.com/praserx/grav-theme-patron
 keywords: patron, theme, core, modern, fast, responsive, html5, css3, non-profit
-bugs: https://github.com/PraserX/grav-theme-patron/issues
+bugs: https://github.com/praserx/grav-theme-patron/issues
 license: MIT
 
 dependencies:
   - { name: grav, version: '>=1.7.0' }
   - { name: form, version: '>=4.1.0' }
   - { name: login, version: '>=3.3.0' }
+  - { name: pagination, version: '>=1.4.0' }
+  - { name: breadcrumbs, version: '>=1.6.0' }
+  - { name: unitegallery, version: '>=1.1.0' }
 
 form:
   validation: strict
@@ -23,132 +25,171 @@ form:
     theme.tabs:
       type: tabs
       fields:
-        settings.tab:
+        organization.tab:
           type: tab
-          title: Settings
-
-        modules.tab:
-          type: tab
-          title: Modular pages settings
+          title: Your organization
           fields:
-
-            section.header:
-              type: section
-              title: Header modular
-              underline: true
-
-            modules.header.logo:
+            organization.logo:
               name: logo
               type: file
               label: Organization logo
               destination: 'theme@:/images'
+              help: Landing page header logo.
               multiple: false
               autofocus: false
               accept:
                 - image/*
 
-            modules.header.background:
+            organization.background:
               name: background
               type: file
               label: Background image
+              destination: 'theme@:/images'
+              help: Landing page header background.
+              multiple: false
+              autofocus: false
+              accept:
+                - image/*
+
+            organization.main_contact.name:
+              type: text
+              label: Organization name
+              placeholder: "Acme inc."
+              help: Official organization or branch full name.
+
+            organization.main_contact.address:
+              type: text
+              label: Address
+              placeholder: "Super palm street 125"
+              help: Official organization or branch address.
+
+            organization.main_contact.country:
+              type: text
+              label: Country
+              placeholder: "Moria"
+              help: Official main organization or current branch country.
+
+            organization.main_contact.email:
+              type: text
+              label: E-mail
+              placeholder: "myorg@example.com"
+              help: Main organization or current branch e-mail.
+
+            organization.description:
+              type: text
+              label: Description
+              placeholder: "This is my organization and we making the world better"
+              help: Short organization or branch description.
+
+            organization.headquarters.contacts:
+              type: list
+              label: HQ Contacts
+              help: Add contact to importart peopel in your organization.
+              fields:
+                .name:
+                  type: text
+                  label: Name
+                .nickname:
+                  type: text
+                  label: Nickname
+                .title:
+                  type: text
+                  label: Title
+                .phone:
+                  type: text
+                  label: Phone
+                .email:
+                  type: text
+                  label: E-mail 
+                  validate:
+                    type: email
+                .photo:
+                  type: file
+                  label: Photo
+                  destination: 'theme@:/images'
+                  multiple: false
+                  autofocus: false
+                  accept:
+                    - image/*
+
+        socials.tab:
+          type: tab
+          title: Socials & Links
+          fields:
+            socials.facebook:
+              type: text
+              label: Organization or branch facebook link
+              placeholder: "https://facebook.com/my-corp"
+
+            socials.links:
+              type: array
+              label: Important links
+              help: Partner organization or headquarters links
+              placeholder_key: title
+              placeholder_value: link
+
+        settings.tab:
+          type: tab
+          title: Settings
+          fields:
+            settings.favicon:
+              name: favicon
+              type: file
+              label: Favicon
               destination: 'theme@:/images'
               multiple: false
               autofocus: false
               accept:
                 - image/*
-        
-        footer.tab:
+
+            settings.show_login:
+              type: toggle
+              label: Show login
+              highlight: 1
+              help: Show login link in main menu.
+              options:
+                  1: Yes
+                  0: No
+              validate:
+                  type: bool
+            
+            settings.copyright:
+              type: text
+              label: Web page copyright
+
+            settings.additional_page_info:
+              type: text
+              label: Additional page info
+
+            settings.flash_news_path:
+              type: text
+              label: Landing page flash news
+              placeholder: "/path/to/page/category"
+              help: Landing page flash news section (shows 5 latest news).
+
+            settings.sticky_info:
+              type: textarea
+              label: Landing page sticky information
+              placeholder: "Some text for visitors"
+              help: Landing page sticky information section.
+              rows: 5
+
+        advanced_settings.tab:
           type: tab
-          title: Footer
+          title: Advanced Settings
           fields:
-
-            section.description:
-              type: section
-              title: Description
-              underline: true
-            
-            footer.description.title:
-              type: text
-              label: Title
-              placeholder: "Place title here"
-              help: Footer left side block title.
-            footer.description.text:
-              type: text
-              label: Text
-              placeholder: "Place text here"
-              help: Footer left side block text.
-
-            footer.socials.facebook:
-              type: text
-              label: Facebook link
-              placeholder: "Place text here"
-              help: Footer left side block socials links.
-          
-            section.links:
-              type: section
-              title: Links
-              underline: true
-
-            footer.links.title:
-              type: text
-              label: Title
-              placeholder: "Place title here"
-              help: Footer middle block title.
-            footer.links.list:
-              type: list
-              label: Links
-              fields:
-                .text:
-                  type: text
-                  label: Title
-                .url:
-                  type: text
-                  label: URL
-            
-            section.contact:
-              type: section
-              title: Contact
-              underline: true
-
-            footer.contact.title:
-              type: text
-              label: Title
-              placeholder: "Place title here"
-              help: Footer right side block title.
-            footer.contact.name:
-              type: text
-              label: Name
-              placeholder: "Place text here"
-              help: Footer right side block text.
-            footer.contact.address:
-              type: text
-              label: Address
-              placeholder: "Place text here"
-              help: Footer right side block text.
-            footer.contact.country:
-              type: text
-              label: Country
-              placeholder: "Place text here"
-              help: Footer right side block text.
-            footer.contact.email:
-              type: text
-              label: E-mail
-              placeholder: "Place text here"
-              help: Footer right side block text.
-
-            section.copyright:
-              type: section
-              title: Copyright
-              underline: true
-
-            footer.copyright:
-              type: text
-              label: Copyright
-              placeholder: "Place title here"
-              help: Footer copyright block text.
-            
-            footer.othercopytext:
-              type: text
-              label: Additional text
-              placeholder: "Place title here"
-              help: Footer copyright block additional text.
+            advanced_settings.landing_page_custom_content:
+              classes: frontmatter
+              type: editor
+              label: Landing Page Custom Content
+              help: Landing page custom content section (add plaintext or HTML).
+              autofocus: true
+              codemirror:
+                mode: 'html'
+                indentUnit: 4
+                autofocus: true
+                indentWithTabs: false
+                lineNumbers: true
+                styleActiveLine: true
+                gutters: ['CodeMirror-lint-markers']
+                lint: true

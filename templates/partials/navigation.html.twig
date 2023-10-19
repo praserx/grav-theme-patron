@@ -41,7 +41,7 @@
             <a class="item" href="#"><i class="fas fa-sign-out-alt"></i>&ensp;{{ 'LOGIN.LOGOUT'|t }}</a>
         </div>
     </div>
-{% else %}
+{% elseif theme.settings.show_login %}
     <a class="item custom" href="{{ config.plugins.login.route }}"><i class="fas fa-sign-in-alt"></i>&ensp;{{ 'LOGIN.LOGIN'|t }}</a>
 {% endif %}
 </div>

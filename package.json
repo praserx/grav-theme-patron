@@ -19,7 +19,7 @@
     "@fortawesome/fontawesome-free": "^5.15.4",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^4.6.0",
-    "jquery": "^3.7.0",
+    "jquery": "^3.7.1",
     "semantic-ui-css": "^2.5.0"
   }
 }

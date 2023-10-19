@@ -1,5 +1,7 @@
 {% extends 'partials/base.html.twig' %}
 
+{% set show_pagination = header_var('show_pagination', [page, blog])|defined(true) %}
+
 {% block content %}
 
 <div class="container">
@@ -10,18 +12,22 @@
     </div>
     <div class="row">
         <div class="col-sm-12 page">
-            <table class="ui selectable celled table">
-                <thead>
-                    <tr>
-                        <th>Titulek</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Bilbovky 2023</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="ui fluid vertical menu fe">
+                {% for child in page.collection() %}
+                {% set tag = child.header.taxonomy.tag|length > 0 ? child.header.taxonomy.tag|first : '' %}
+                <a href="{{ child.url }}" class="item">
+                    {{ child.header.title }}
+                    {% if tag != '' %}
+                    &nbsp;<span class="ui red horizontal label">{{ tag }}</span>
+                    {% endif %}
+                </a>
+                {% endfor %}
+            </div>
+            {% if show_pagination and config.plugins.pagination.enabled and page.collection().params.pagination %}
+                <div id="listing-footer">
+                    {% include 'partials/pagination.html.twig' with {base_url: page.url, pagination: page.collection().params.pagination} %}
+                </div>
+            {% endif %}
         </div>
     </div>
 </div>

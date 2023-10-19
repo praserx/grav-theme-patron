@@ -2,27 +2,27 @@
     <div class="container info">
         <div class="row">
             <div class="col-sm-4">
-                <h4>{{ theme.footer.description.title }}</h4>
-                <p>{{ theme.footer.description.text }}</p>
-                <p><a class="scout-symbol" href="{{ theme.footer.socials.facebook }}" target="_blank">«</a></p>
+                <h4>{{ config.site.title }}</h4>
+                <p>{{ theme.organization.description }}</p>
+                <p><a class="scout-symbol" href="{{ theme.socials.facebook }}" target="_blank">«</a></p>
             </div>
             <div class="col-sm-4">
-                <h4>{{ theme.footer.links.title }}</h4>
+                <h4>Užitečné odkazy</h4>
                 <ul>
-                    {% for link in theme.footer.links.list %}
-                        <li><a href="{{ link.url }}" target="_blank">{{ link.text }}</a>
+                    {% for title, link in theme.socials.links %}
+                        <li><a href="{{ link }}" target="_blank">{{ title }}</a>
                     {% endfor %}
                 </ul>
             </div>
             <div class="col-sm-4">
-                <h4>{{ theme.footer.contact.title }}</h4>
+                <h4>Kontaktní informace</h4>
                 <p>
-                    {{ theme.footer.contact.name }}<br/>
-                    {{ theme.footer.contact.address }}<br/>
-                    {{ theme.footer.contact.country }}
+                    {{ theme.organization.main_contact.name|raw }}<br/>
+                    {{ theme.organization.main_contact.address|raw }}<br/>
+                    {{ theme.organization.main_contact.country|raw }}
                 </p>
                 <p>
-                    E-mail: <a href="mailto:{{ theme.footer.contact.email }}">{{ theme.footer.contact.email }}</a>
+                    E-mail: <a href="mailto:{{ theme.organization.main_contact.email }}">{{ theme.organization.main_contact.email }}</a>
                 </p>
             </div>
         </div>
@@ -32,12 +32,12 @@
         <div class="row">
             <div class="col-sm-6 text-left">
                 <p>
-                    Theme made by <a href="https://github.com/PraserX" target="_blank">Praser</a>. Based on Grav CMS.<br />
-                    &copy; {{ theme.footer.copyright }}
+                    <a href="https://github.com/praserx/grav-theme-patron" target="_blank">Theme Patron</a> made by <a href="https://github.com/praserx" target="_blank">Praser</a>. Based on Grav CMS.<br />
+                    &copy; {{ theme.settings.copyright }}
                 </p>
             </div>
             <div class="col-sm-6 text-right">
-                <p>{{ theme.footer.othercopytext }}</p>
+                <p>{{ theme.settings.additional_page_info }}</p>
             </div>
         </div>
     </div>

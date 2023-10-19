@@ -1,0 +1,21 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 breadcrumbs">
+            {% include 'partials/breadcrumbs.html.twig' %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 page">
+            <p>{{ page.content|raw }}</p>
+            <div class="gallery-container {{ page.header.class }}">
+    	    {{ unite_gallery(page.media.images, '{"gallery_theme":"' ~ page.header.unitegallery.gallery_theme ~ '"}')|raw }}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

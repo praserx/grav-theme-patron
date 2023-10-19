@@ -5,7 +5,7 @@
 
 {% block content %}
     <!-- Header -->
-    <header class="modular" style="background-image: url({{ (theme.modules.header.background | first).path }});">
+    <header class="modular" style="background-image: url({{ (theme.organization.background | first).path }});">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-12 x">
@@ -22,44 +22,44 @@
         </div>
 
         <!-- Organization logo -->
-        <img class="main-logo" src="{{ (theme.modules.header.logo | first).path }}" />
+        <img class="main-logo" src="{{ (theme.organization.logo | first).path }}" />
     </header>
 
-    <div class="container recruiting">
+    <div class="container news">
         <div class="row">
-            <div class="col-sm-12">
-                <h2>{{ page.header.text }}</h2>
-                <p>
-                    {% for link in page.header.buttons %}
-                        <a class="btn {{ link.css }}" href="{{ link.url }}">{{ link.label }}</a>
-                        {% if not loop.last %}
-                            &nbsp;
-                        {% endif %}
-                    {% endfor %}
-                </p>
+            <div class="col-sm-6">
+                <div class="ui fluid vertical menu fe">
+                {% for child in pages.find(theme.settings.flash_news_path).collection()|slice(0, 5) %}
+                {% set tag = child.header.taxonomy.tag|length > 0 ? child.header.taxonomy.tag|first : '' %}
+                <a href="{{ child.url }}" class="item">
+                    {{ child.header.title }}
+                    {% if tag != '' %}
+                    &nbsp;<span class="ui red horizontal label">{{ tag }}</span>
+                    {% endif %}
+                </a>
+                {% endfor %}
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="ui piled segment fe">
+                    <p>{{ theme.settings.sticky_info|raw }}</p>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="container sponsors">
+    <div class="container-fluid image-background banner-text">
         <div class="row">
             <div class="col-sm-12">
-                <img src="http://www.zlin.eu/clanky/aktuality/3332/zlin.jpg" />
+                <p>{{ theme.landing.banner.text|raw }}</p>
             </div>
         </div>
     </div>
 
-    <div class="container-fluid image-background stats">
+    <div class="container custom-content">
         <div class="row">
             <div class="col-sm-12">
-                <p>
-                    {% for stat in page.header.stats %}
-                        {{ stat.count }} {{ stat.label }}
-                        {% if not loop.last %}
-                            &nbsp;<span style="font-family: Skaut; padding: 0px 15px;">¬</span>&nbsp;
-                        {% endif %}
-                    {% endfor %}
-                </p>
+                {{ theme.advanced_settings.landing_page_custom_content|raw }}
             </div>
         </div>
     </div>
