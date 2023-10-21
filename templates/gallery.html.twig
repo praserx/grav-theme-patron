@@ -12,7 +12,11 @@
         <div class="col-sm-12 page">
             <p>{{ page.content|raw }}</p>
             <div class="gallery-container {{ page.header.class }}">
+            {% if page.header.unitegallery.gallery_theme is not defined %}
+            {{ unite_gallery(page.media.images, '{"gallery_theme":"tiles"}')|raw }}
+            {% else %}
     	    {{ unite_gallery(page.media.images, '{"gallery_theme":"' ~ page.header.unitegallery.gallery_theme ~ '"}')|raw }}
+            {% endif %}
             </div>
         </div>
     </div>

@@ -3,6 +3,9 @@ LOGIN:
   LOGOUT: Log Out
   ACCOUNT: My account
   ADMIN: Administration
+
+ERROR: Error
+
 TRANSLATION_TEST: Antimatter!
 BLOG:
   ITEM:
@@ -27,4 +30,3 @@ SIDEBAR:
     HEADLINE: Syndicate
 FORM_DATA:
   SUMMARY: "Here is the summary of what you wrote to us:"
-ERROR: Error
