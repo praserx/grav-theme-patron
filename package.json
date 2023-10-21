@@ -1,0 +1,25 @@
+{
+  "name": "grav-theme-patron",
+  "version": "1.0.0",
+  "description": "Grav theme patron dependency build",
+  "scripts": {
+    "build": "bash prepare.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/praserx/grav-theme-patron.git"
+  },
+  "author": "PraserX",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/praserx/grav-theme-patron/issues"
+  },
+  "homepage": "https://github.com/praserx/grav-theme-patron#readme",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.4",
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^4.6.0",
+    "jquery": "^3.7.1",
+    "semantic-ui-css": "^2.5.0"
+  }
+}

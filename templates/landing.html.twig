@@ -1,0 +1,76 @@
+{% extends 'partials/base.html.twig' %}
+
+{% set show_onpage_menu = header.onpage_menu == true or header.onpage_menu is null %}
+{% macro pageLinkName(text) %}{{ text|lower|replace({' ':'_'}) }}{% endmacro %}
+
+{% block content %}
+    <!-- Header -->
+    {% if theme.organization.background|length > 0 %}
+    <header class="modular" style="background-image: url({{ (theme.organization.background | first).path }});">
+    {% else %}
+    <header class="modular" style="background-image: url({{ theme_dir }}/images/header-bg.png);">
+    {% endif %}
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 x">
+                    <div class="ui menu">
+                        {% include 'partials/navigation.html.twig' %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Organization name -->
+        <div class="organization">
+            <h1>{{ site.title }}</h1>
+        </div>
+
+        <!-- Organization logo -->
+        {% if theme.organization.logo|length > 0 %}
+        <img class="main-logo" src="{{ (theme.organization.logo | first).path }}" />
+        {% else %}
+        <img class="main-logo" src="{{ theme_dir }}/images/default-logo.png" />
+        {% endif %}
+    </header>
+
+    <div class="container news">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="ui fluid vertical menu fe">
+                {% for child in pages.find(theme.settings.flash_news_path).collection()|slice(0, 5) %}
+                {% set tag = child.header.taxonomy.tag|length > 0 ? child.header.taxonomy.tag|first : '' %}
+                <a href="{{ child.url }}" class="item">
+                    {{ child.header.title }}
+                    {% if tag != '' %}
+                    &nbsp;<span class="ui red horizontal label">{{ tag }}</span>
+                    {% endif %}
+                </a>
+                {% endfor %}
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="ui piled segment fe">
+                    <p>{{ theme.settings.sticky_info|raw }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid image-background banner-text">
+        <div class="row">
+            <div class="col-sm-12">
+                <p>{{ theme.settings.banner_text|raw }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container custom-content">
+        <div class="row">
+            <div class="col-sm-12">
+                {{ theme.advanced_settings.landing_page_custom_content|raw }}
+            </div>
+        </div>
+    </div>
+
+    {{ page.content }}
+{% endblock %}

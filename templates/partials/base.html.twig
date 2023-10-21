@@ -7,7 +7,7 @@
         <title>{% if header.title %}{{ header.title }} | {% endif %}{{ site.title }}</title>
         {% include 'partials/metadata.html.twig' %}
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-        <link rel="icon" type="image/png" href="{{ theme_url }}/images/favicon.png" />
+        <link rel="icon" type="image/png" href="{{ base_url }}/{{ (theme.settings.favicon | first).path }}" />
 
         {% block stylesheets %}
             {% do assets.addCss('theme://assets/bootstrap/css/bootstrap.min.css',150) %}
@@ -18,11 +18,21 @@
             {% do assets.addCss('theme://css/plugin-login.css',104) %}
             {% do assets.addCss('theme://css/custom.css',100) %}
         {% endblock %}
-        {{ assets.css() }}
-    {% endblock head%}
+
+         {% block javascripts %}
+            {% do assets.addJs('theme://assets/jquery/jquery.min.js',101) %}
+            {% do assets.addJs('theme://assets/semantic-ui/semantic.min.js',100) %}
+            {% do assets.addJs('theme://js/slidebars.min.js') %}
+        {% endblock %}
+
+        {% block assets deferred %}
+            {{ assets.css()|raw }}
+            {{ assets.js()|raw }}
+        {% endblock %}
+    {% endblock %}
     </head>
     <body id="top" class="{{ page.header.body_classes }}">
-        {% if page.template != 'modular' %}
+        {% if page.template != 'landing' %}
         <!-- Header -->
         {% include 'partials/header.html.twig' %}
         <!-- Header -->
@@ -38,15 +48,8 @@
         {% include 'partials/footer.html.twig' %}
         <!-- Footer -->
 
-        {% block javascripts %}
-            {% do assets.addJs('theme://assets/jquery/jquery.min.js',101) %}
-            {% do assets.addJs('theme://assets/semantic-ui/semantic.min.js',100) %}
-            {% do assets.addJs('theme://js/slidebars.min.js') %}
-        {% endblock %}
-        {{ assets.js() }}
-
         {% block bottom %}
-            {{ assets.js('bottom') }}
+            {{ assets.js('bottom')|raw }}
         {% endblock %}
 
         <script>
