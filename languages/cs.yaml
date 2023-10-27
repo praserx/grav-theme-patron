@@ -6,6 +6,11 @@ LOGIN:
 
 ERROR: Něco se pokazilo
 
+THEME_PATRON:
+  FOOTER:
+    USEFUL_LINKS: Užitečné odkazy
+    CONTACT_INFORMATION: Kontaktní informace
+
 PLUGIN_LOGIN:
   USERNAME: "Uživatelské jméno"
   EMAIL: "E-mail"

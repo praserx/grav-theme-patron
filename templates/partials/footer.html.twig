@@ -7,7 +7,7 @@
                 <p><a class="scout-symbol" href="{{ theme.socials.facebook }}" target="_blank">«</a></p>
             </div>
             <div class="col-sm-4">
-                <h4>Užitečné odkazy</h4>
+                <h4>{{ 'THEME_PATRON.FOOTER.USEFUL_LINKS'|t }}</h4>
                 <ul>
                     {% for title, link in theme.socials.links %}
                         <li><a href="{{ link }}" target="_blank">{{ title }}</a>
@@ -15,7 +15,7 @@
                 </ul>
             </div>
             <div class="col-sm-4">
-                <h4>Kontaktní informace</h4>
+                <h4>{{ 'THEME_PATRON.FOOTER.CONTACT_INFORMATION'|t }}</h4>
                 <p>
                     {{ theme.organization.main_contact.name|raw }}<br/>
                     {{ theme.organization.main_contact.address|raw }}<br/>
