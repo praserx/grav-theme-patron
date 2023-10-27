@@ -8,7 +8,7 @@
     {% if theme.organization.background|length > 0 %}
     <header class="modular" style="background-image: url({{ (theme.organization.background | first).path }});">
     {% else %}
-    <header class="modular" style="background-image: url({{ theme_dir }}/images/header-bg.png);">
+    <header class="modular" style="background-image: url({{ theme_url }}/images/header-bg.png);">
     {% endif %}
         <div class="container-fluid">
             <div class="row">
@@ -29,7 +29,7 @@
         {% if theme.organization.logo|length > 0 %}
         <img class="main-logo" src="{{ (theme.organization.logo | first).path }}" />
         {% else %}
-        <img class="main-logo" src="{{ theme_dir }}/images/default-logo.png" />
+        <img class="main-logo" src="{{ theme_url }}/images/default-logo.png" />
         {% endif %}
     </header>
 
