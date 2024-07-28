@@ -37,21 +37,24 @@
                     {% endif %}
                 {% endfor %}
 
-                <div class="ui checkbox">
-                    {% if config.plugins.login.rememberme.enabled and page.header.form.login.rememberme ?? true %}
-                        <div class="form-data rememberme" data-grav-default="null" data-grav-disabled="true" data-grav-field="checkbox">
-                            <div class="form-input-wrapper">
-                                <input type="checkbox" value="1" name="rememberme" id="#rememberme">
-                                <label class="inline" for="#rememberme" title="{{ 'PLUGIN_LOGIN.REMEMBER_ME_HELP'|t }}">{{ 'PLUGIN_LOGIN.REMEMBER_ME'|t }}</label>
+                <div class="form-actions secondary-accent">
+                    <div class="ui checkbox">
+                        {% if config.plugins.login.rememberme.enabled and page.header.form.login.rememberme ?? true %}
+                            <div class="form-data rememberme" data-grav-default="null" data-grav-disabled="true" data-grav-field="checkbox">
+                                <div class="form-input-wrapper">
+                                    <input type="checkbox" value="1" name="rememberme" id="#rememberme">
+                                    <label class="inline" for="#rememberme" title="{{ 'PLUGIN_LOGIN.REMEMBER_ME_HELP'|t }}">{{ 'PLUGIN_LOGIN.REMEMBER_ME'|t }}</label>
+                                </div>
                             </div>
-                        </div>
-                    {% endif %}
+                        {% endif %}
+                    </div>
 
-                    {% if page.header.form.login.forgot_button ?? true %}
-                    <a class="ui basic button" href="{{ base_url_relative }}{{ config.plugins.login.route_forgot }}"><i class="fa fa-exclamation-circle"></i> {{ 'PLUGIN_LOGIN.BTN_FORGOT'|t }}</a>
-                    {% endif %}
-
-                    <button class="ui button {{ form_button_classes ?: 'button primary' }}" type="submit"  name="task" value="login.login"><i class="fa fa-sign-in"></i> {{ 'PLUGIN_LOGIN.BTN_LOGIN'|t }}</button>
+                    <div class="ui">
+                        {% if page.header.form.login.forgot_button ?? true %}
+                        <a class="ui basic button" href="{{ base_url_relative }}{{ config.plugins.login.route_forgot }}"><i class="fa fa-exclamation-circle"></i> {{ 'PLUGIN_LOGIN.BTN_FORGOT'|t }}</a>&nbsp;
+                        {% endif %}
+                        <button class="ui button {{ form_button_classes ?: 'button primary' }}" type="submit"  name="task" value="login.login"><i class="fa fa-sign-in"></i> {{ 'PLUGIN_LOGIN.BTN_LOGIN'|t }}</button>
+                    </div>                    
                 </div>
 
                 {{ nonce_field('login-form', 'login-form-nonce')|raw }}

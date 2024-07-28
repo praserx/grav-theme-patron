@@ -16,3 +16,26 @@
 .login .form-field {
     margin-bottom: 20px;
 }
+
+.profile {
+    padding: 30px 14px;
+}
+
+.profile .form-field {
+    margin-bottom: 20px;
+}
+
+#grav-login {
+    margin: 20px 0px 30px 0px !important;
+    text-align: left !important;
+}
+
+#grav-login p,
+#grav-login .form-actions {
+    text-align: left !important;
+}
+
+#grav-login h4 {
+    font-size: 18px;
+    padding-top: 25px;
+}

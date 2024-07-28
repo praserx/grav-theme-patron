@@ -4,7 +4,9 @@
 1. [](#new)
     * Added modular page layout which replaced landing page layout
 2. [](#bugfix)
-    * Do not show facebook icon at footer if link is empty
+    * Fixed facebook icon visibility if link is empty
+    * Fixed login links if base URI is customized
+    * Fixed login form styles
 
 # v1.0.2
 ## 29-10-2023
