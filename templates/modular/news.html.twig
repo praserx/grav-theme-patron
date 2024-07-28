@@ -1,0 +1,22 @@
+<div class="container news">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="ui fluid vertical menu fe">
+            {% for child in pages.find(page.header.flash_news_path).collection()|slice(0, 5) %}
+            {% set tag = child.header.taxonomy.tag|length > 0 ? child.header.taxonomy.tag|first : '' %}
+            <a href="{{ child.url }}" class="item">
+                {{ child.header.title }}
+                {% if tag != '' %}
+                &nbsp;<span class="ui red horizontal label">{{ tag }}</span>
+                {% endif %}
+            </a>
+            {% endfor %}
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="ui piled segment fe">
+                {{ content|raw }}
+            </div>
+        </div>
+    </div>
+</div>

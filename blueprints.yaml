@@ -29,57 +29,72 @@ form:
           type: tab
           title: Your organization
           fields:
-            organization.logo:
-              name: logo
-              type: file
-              label: Organization logo
-              destination: 'theme@:/images'
-              help: Landing page header logo.
-              multiple: false
-              autofocus: false
-              accept:
-                - image/*
+            tab.columns:
+              type: columns
+              fields:
+                col1:
+                  type: column
+                  fields:
+                    organization.main_contact.name:
+                      type: text
+                      style: vertical
+                      label: Organization name
+                      placeholder: "Acme inc."
+                      help: Official organization or branch full name.
 
-            organization.background:
-              name: background
-              type: file
-              label: Background image
-              destination: 'theme@:/images'
-              help: Landing page header background.
-              multiple: false
-              autofocus: false
-              accept:
-                - image/*
+                    organization.main_contact.address:
+                      type: text
+                      style: vertical
+                      label: Address
+                      placeholder: "Super palm street 125"
+                      help: Official organization or branch address.
 
-            organization.main_contact.name:
-              type: text
-              label: Organization name
-              placeholder: "Acme inc."
-              help: Official organization or branch full name.
+                    organization.main_contact.country:
+                      type: text
+                      style: vertical
+                      label: Country
+                      placeholder: "Moria"
+                      help: Official main organization or current branch country.
 
-            organization.main_contact.address:
-              type: text
-              label: Address
-              placeholder: "Super palm street 125"
-              help: Official organization or branch address.
+                    organization.main_contact.email:
+                      type: text
+                      style: vertical
+                      label: E-mail
+                      placeholder: "myorg@example.com"
+                      help: Main organization or current branch e-mail.
 
-            organization.main_contact.country:
-              type: text
-              label: Country
-              placeholder: "Moria"
-              help: Official main organization or current branch country.
+                    organization.description:
+                      type: text
+                      style: vertical
+                      label: Description
+                      placeholder: "This is my organization and we making the world better"
+                      help: Short organization or branch description.
+                col2:
+                  type: column
+                  fields:
+                    organization.logo:
+                      name: logo
+                      type: file
+                      style: vertical
+                      label: Organization logo
+                      destination: 'theme@:/images'
+                      help: Landing page header logo.
+                      multiple: false
+                      autofocus: false
+                      accept:
+                        - image/*
 
-            organization.main_contact.email:
-              type: text
-              label: E-mail
-              placeholder: "myorg@example.com"
-              help: Main organization or current branch e-mail.
-
-            organization.description:
-              type: text
-              label: Description
-              placeholder: "This is my organization and we making the world better"
-              help: Short organization or branch description.
+                    organization.background:
+                      name: background
+                      type: file
+                      style: vertical
+                      label: Background image
+                      destination: 'theme@:/images'
+                      help: Landing page header background.
+                      multiple: false
+                      autofocus: false
+                      accept:
+                        - image/*
 
             organization.headquarters.contacts:
               type: list
@@ -116,86 +131,75 @@ form:
           type: tab
           title: Socials & Links
           fields:
-            socials.facebook:
-              type: text
-              label: Organization or branch facebook link
-              placeholder: "https://facebook.com/my-corp"
+            tab.columns:
+              type: columns
+              fields:
+                col1:
+                  type: column
+                  fields:
+                    socials.facebook:
+                      type: text
+                      style: vertical
+                      label: Organization or branch facebook link
+                      placeholder: "https://facebook.com/my-corp"
 
-            socials.links:
-              type: array
-              label: Important links
-              help: Partner organization or headquarters links
-              placeholder_key: title
-              placeholder_value: link
+                    socials.links:
+                      type: array
+                      style: vertical
+                      label: Important links
+                      help: Partner organization or headquarters links
+                      placeholder_key: title
+                      placeholder_value: link
+                col2:
+                  type: column
+                  fields:
+                    spacer:
+                      name: honeypot
+                      type: honeypot
 
         settings.tab:
           type: tab
           title: Settings
           fields:
-            settings.favicon:
-              name: favicon
-              type: file
-              label: Favicon
-              destination: 'theme@:/images'
-              multiple: false
-              autofocus: false
-              accept:
-                - image/*
-
-            settings.show_login:
-              type: toggle
-              label: Show login
-              highlight: 1
-              help: Show login link in main menu.
-              options:
-                  1: Yes
-                  0: No
-              validate:
-                  type: bool
-            
-            settings.copyright:
-              type: text
-              label: Web page copyright
-
-            settings.additional_page_info:
-              type: text
-              label: Additional page info
-
-            settings.flash_news_path:
-              type: text
-              label: Landing page flash news
-              placeholder: "/path/to/page/category"
-              help: Landing page flash news section (shows 5 latest news).
-
-            settings.sticky_info:
-              type: textarea
-              label: Landing page sticky information
-              placeholder: "Some text for visitors"
-              help: Landing page sticky information section.
-              rows: 5
-
-            settings.banner_text:
-              type: text
-              label: Landing page banner text
-              placeholder: "Banner text here"
-              help: Landing page banner text section (some oneliner text).
-
-        advanced_settings.tab:
-          type: tab
-          title: Advanced Settings
-          fields:
-            advanced_settings.landing_page_custom_content:
-              classes: frontmatter
-              type: editor
-              label: Landing Page Custom Content
-              help: Landing page custom content section (add plaintext or HTML).
-              autofocus: true
-              codemirror:
-                mode: 'html'
-                indentUnit: 4
-                autofocus: true
-                indentWithTabs: false
-                lineNumbers: true
-                styleActiveLine: true
-                gutters: ['CodeMirror-lint-markers']
-                lint: true
+            tab.columns:
+              type: columns
+              fields:
+                col1:
+                  type: column
+                  fields:
+                    settings.copyright:
+                      type: text
+                      style: vertical
+                      label: Web page copyright
+                    settings.favicon:
+                      name: favicon
+                      type: file
+                      style: vertical
+                      label: Web page favicon
+                      destination: 'theme@:/images'
+                      multiple: false
+                      autofocus: false
+                      accept:
+                        - image/*
+                    settings.show_login:
+                      type: toggle
+                      style: vertical
+                      label: Show login
+                      highlight: 1
+                      help: Show login link in main menu.
+                      default: 1
+                      options:
+                          1: Yes
+                          0: No
+                      validate:
+                          type: bool
+                    settings.additional_page_info:
+                      type: text
+                      style: vertical
+                      label: Additional page info
+                col2:
+                  type: column
+                  fields:
+                    spacer:
+                      name: honeypot
+                      type: honeypot

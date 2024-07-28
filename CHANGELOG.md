@@ -1,3 +1,11 @@
+# v2.0.0
+## 28-07-2024
+
+1. [](#new)
+    * Added modular page layout which replaced landing page layout
+2. [](#bugfix)
+    * Do not show facebook icon at footer if link is empty
+
 # v1.0.2
 ## 29-10-2023
 

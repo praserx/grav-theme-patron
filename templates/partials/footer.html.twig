@@ -4,7 +4,9 @@
             <div class="col-sm-4">
                 <h4>{{ config.site.title }}</h4>
                 <p>{{ theme.organization.description }}</p>
+                {% if theme.socials.facebook is not empty %}
                 <p><a class="scout-symbol" href="{{ theme.socials.facebook }}" target="_blank">«</a></p>
+                {% endif %}
             </div>
             <div class="col-sm-4">
                 <h4>{{ 'THEME_PATRON.FOOTER.USEFUL_LINKS'|t }}</h4>
