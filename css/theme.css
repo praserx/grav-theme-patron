@@ -1,8 +1,3 @@
-/**
- * asdfasdf 
- * asdfasdf asd
- */
-
 /*****************************************************************************
  **************************  Global definition  ******************************
  *****************************************************************************/
@@ -14,7 +9,7 @@ body {
     background-color: #1c1c1c;
 }
 
-/* Font Enforcing*/
+/* Font Enforcing */
 .fe {
     font-family: TheMix, sans-serif !important;
     font-size: 16px !important;
@@ -37,45 +32,45 @@ p {
 
 header {
     background-color: #ffffff;
-}
 
-header .x .menu {
-    padding: 5px 20px 10px 0px;
-    background: none;
-    border: none;
-    box-shadow: none;
-}
+    .x .menu {
+        padding: 5px 20px 10px 0;
+        background: none;
+        border: none;
+        box-shadow: none;
 
-header .x .menu .item:before {
-    background: none;
-}
+        .item:before {
+            background: none;
+        }
 
-header .x .menu .custom {
-    border-bottom: 2px solid rgba(0, 0, 0, 0);
-}
+        .custom {
+            border-bottom: 2px solid rgba(0, 0, 0, 0);
+        }
 
-header .x .menu .custom:hover {
-    border-bottom: 2px solid #20649B;
-}
+        .custom:hover {
+            border-bottom: 2px solid #20649b;
+        }
 
-header .x .menu .item,
-header .x .menu .dropdown.item,
-header .x .menu .link.item,
-header .x .menu a.item {
-    background: none;
-    padding: 20px 0px 5px 0px;
-    margin: 0px 0px 0px 30px;
-    font-family: TheMix, sans-serif;
-    font-size: 16px;
-    color: #20649B;
-}
+        .item,
+        .dropdown.item,
+        .link.item,
+        a.item {
+            background: none;
+            padding: 20px 0 5px 0;
+            margin: 0 0 0 30px;
+            font-family: TheMix, sans-serif;
+            font-size: 16px;
+            color: #20649b;
+        }
 
-header .x .menu .item:hover,
-header .x .menu .dropdown.item:hover,
-header .x .menu .link.item:hover,
-header .x .menu a.item:hover {
-    background: none;
-    color: #20649B;
+        .item:hover,
+        .dropdown.item:hover,
+        .link.item:hover,
+        a.item:hover {
+            background: none;
+            color: #20649b;
+        }
+    }
 }
 
 header.modular {
@@ -84,51 +79,50 @@ header.modular {
     height: 700px;
     background-position: bottom center;
     background-size: cover;
-}
 
-header.modular .x .menu .custom:hover {
-    border-bottom: 2px solid #ffffff;
-}
+    .x .menu {
+        .custom:hover {
+            border-bottom: 2px solid #ffffff;
+        }
 
-header.modular .x .menu .item,
-header.modular .x .menu .dropdown.item,
-header.modular .x .menu .link.item,
-header.modular .x .menu a.item {
-    color: #ffffff;
-}
+        .item,
+        .dropdown.item,
+        .link.item,
+        a.item {
+            color: #ffffff;
+        }
 
-header.modular .x .menu .item:hover,
-header.modular .x .menu .dropdown.item:hover,
-header.modular .x .menu .link.item:hover,
-header.modular .x .menu a.item:hover {
-    color: #ffffff;
-}
+        .item:hover,
+        .dropdown.item:hover,
+        .link.item:hover,
+        a.item:hover {
+            color: #ffffff;
+        }
+    }
 
-header.modular .organization {
-    position: absolute;
-    width: 100%;
-    height: auto;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
+    .organization {
+        position: absolute;
+        width: 100%;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
 
-header.modular .organization h1 {
-    padding: 0px;
-    margin: 0px;
-    font-family: Skaut, sans-serif;
-    font-size: 50px;
-    text-align: center;
-    color: #ffffff;
-}
+        h1 {
+            margin: 0;
+            font-family: Skaut, sans-serif;
+            font-size: 50px;
+            text-align: center;
+            color: #ffffff;
+        }
+    }
 
-header.modular img.main-logo {
-    position: absolute;
-    width: 200px;
-    height: auto;
-    top: 79%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    img.main-logo {
+        position: absolute;
+        width: 200px;
+        top: 79%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 }
 
 /*****************************************************************************
@@ -140,7 +134,7 @@ section {
 }
 
 .news {
-    padding: 50px 0px;
+    padding: 50px 0;
 }
 
 .banner-text p {
@@ -153,7 +147,7 @@ section {
 }
 
 .custom-content {
-    padding: 60px 0px;
+    padding: 60px 0;
 }
 
 /*****************************************************************************
@@ -161,75 +155,77 @@ section {
  *****************************************************************************/
 
 .title {
-    padding: 0px 14px;
-}
+    padding: 0 14px;
 
-.title h2 {
-    padding: 20px 0px;
-    font-size: 36px;
-    font-weight: bold;
-    font-family: Skaut, sans-serif;
-    letter-spacing: 2px;
-    line-height: 1.6em;
-    color: #ffffff;
+    h2 {
+        padding: 20px 0;
+        font-size: 36px;
+        font-weight: bold;
+        font-family: Skaut, sans-serif;
+        letter-spacing: 2px;
+        line-height: 1.6em;
+        color: #ffffff;
+    }
 }
 
 .image-background {
-    background-image: url('../images/content-bg.png');
+    background-image: url("../images/content-bg.png");
     background-repeat: no-repeat;
     background-size: 100%;
 }
 
 .breadcrumbs {
-    padding: 10px 14px 0px 14px;
-}
+    padding: 10px 14px 0;
 
-.breadcrumbs #breadcrumbs {
-    padding: 0px;
+    #breadcrumbs {
+        padding: 0;
+    }
 }
 
 .page {
-    padding: 20px 14px 40px 14px;
-}
+    padding: 20px 14px 40px;
 
-.page h1, .page h2 {
-    font-weight: bold;
-    font-family: Skaut, sans-serif;
-    letter-spacing: 0px;
-}
+    h1,
+    h2 {
+        font-weight: bold;
+        font-family: Skaut, sans-serif;
+        letter-spacing: 0;
+    }
 
-.page h1 {
-    font-size: 30px;
-}
+    h1 {
+        font-size: 30px;
+    }
 
-.page h2 {
-    font-size: 24px;
-}
+    h2 {
+        font-size: 24px;
+    }
 
-.page h3, .page h4 {
-    font-weight: bold;
-    font-family: TheMix, sans-serif;
-}
+    h3,
+    h4 {
+        font-weight: bold;
+        font-family: TheMix, sans-serif;
+    }
 
-.page h3 {
-    font-size: 18px;
-    text-transform: uppercase;
-}
+    h3 {
+        font-size: 18px;
+        text-transform: uppercase;
+    }
 
-.page h4 {
-    font-size: 15px;
-}
+    h4 {
+        font-size: 15px;
+    }
 
-.page img {
-    width: 100%;
-}
+    img {
+        width: 100%;
+    }
 
-.page .img {
-    width: 100%;
-    height: 100%;
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    .img {
+        width: 100%;
+        height: 100%;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
 }
 
 /*****************************************************************************
@@ -240,56 +236,56 @@ footer {
     width: 100%;
     background-color: #1c1c1c !important;
     color: #888;
-}
 
-footer a {
-    color: #ddd;
-}
+    a {
+        color: #ddd;
+    }
 
-footer .info {
-    margin: 0 auto;
-    padding: 30px 0px 10px 0px;
-}
+    .info {
+        margin: 0 auto;
+        padding: 30px 0 10px;
 
-footer .info h4 {
-    font-size: 17px;
-    font-weight: bold;
-    text-transform: uppercase;
-    text-align: left;
-}
+        h4 {
+            font-size: 17px;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-align: left;
+        }
 
-footer .info p {
-    text-align: left;
-}
+        p {
+            text-align: left;
+        }
 
-footer .info ul {
-    padding: 0px;
-    text-align: left;
-}
+        ul {
+            padding: 0;
+            text-align: left;
 
-footer .info ul li {
-    padding-bottom: 5px;
-    list-style: none;
-}
+            li {
+                padding-bottom: 5px;
+                list-style: none;
 
-footer .info ul li a {
-    text-decoration: none;
-    color: #888888;
-}
+                a {
+                    text-decoration: none;
+                    color: #888888;
+                }
+            }
+        }
 
-footer .info .scout-symbol {
-    font-family: Skaut;
-    font-size: 50px;
-    text-decoration: none;
-}
+        .scout-symbol {
+            font-family: Skaut;
+            font-size: 50px;
+            text-decoration: none;
+        }
+    }
 
-footer .copyright {
-    margin: 0 auto;
-    padding: 0px 0px 30px 0px;
-}
+    .copyright {
+        margin: 0 auto;
+        padding: 0 0 30px;
 
-footer .copyright p {
-    font-size: 13px;
+        p {
+            font-size: 13px;
+        }
+    }
 }
 
 /*****************************************************************************
@@ -301,5 +297,5 @@ footer .copyright p {
 }
 
 .container-fluid {
-    padding: 0px;
+    padding: 0;
 }
