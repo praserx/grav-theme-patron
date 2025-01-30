@@ -1,205 +1,59 @@
+# Theme metadata
 name: Patron
-version: 1.0.2
-description: "Patron theme orginaly made for non-profit organization"
+version: 2.0.0
+description: "Patron theme originally made for non-profit organization"
 icon: asterisk
+
+# Author information
 author:
   name: Praser
   email: praserx@gmail.com
   url: https://github.com/praserx
+
+# Project information
 homepage: https://github.com/praserx/grav-theme-patron
 keywords: patron, theme, core, modern, fast, responsive, html5, css3, non-profit
 bugs: https://github.com/praserx/grav-theme-patron/issues
 license: MIT
 
+# Theme dependencies
 dependencies:
+  # Grav CMS
   - { name: grav, version: '>=1.7.0' }
+  # Plugins
   - { name: form, version: '>=4.1.0' }
   - { name: login, version: '>=3.3.0' }
   - { name: pagination, version: '>=1.4.0' }
   - { name: breadcrumbs, version: '>=1.6.0' }
   - { name: unitegallery, version: '>=1.1.0' }
 
+# Form configuration
 form:
   validation: strict
   fields:
     theme.tabs:
       type: tabs
       fields:
+        # Organization tab
         organization.tab:
           type: tab
           title: Your organization
-          fields:
-            tab.columns:
-              type: columns
-              fields:
-                col1:
-                  type: column
-                  fields:
-                    organization.main_contact.name:
-                      type: text
-                      style: vertical
-                      label: Organization name
-                      placeholder: "Acme inc."
-                      help: Official organization or branch full name.
+          import@:
+            type: blueprints/theme/organization
+            context: themes://patron
 
-                    organization.main_contact.address:
-                      type: text
-                      style: vertical
-                      label: Address
-                      placeholder: "Super palm street 125"
-                      help: Official organization or branch address.
-
-                    organization.main_contact.country:
-                      type: text
-                      style: vertical
-                      label: Country
-                      placeholder: "Moria"
-                      help: Official main organization or current branch country.
-
-                    organization.main_contact.email:
-                      type: text
-                      style: vertical
-                      label: E-mail
-                      placeholder: "myorg@example.com"
-                      help: Main organization or current branch e-mail.
-
-                    organization.description:
-                      type: text
-                      style: vertical
-                      label: Description
-                      placeholder: "This is my organization and we making the world better"
-                      help: Short organization or branch description.
-                col2:
-                  type: column
-                  fields:
-                    organization.logo:
-                      name: logo
-                      type: file
-                      style: vertical
-                      label: Organization logo
-                      destination: 'theme@:/images'
-                      help: Landing page header logo.
-                      multiple: false
-                      autofocus: false
-                      accept:
-                        - image/*
-
-                    organization.background:
-                      name: background
-                      type: file
-                      style: vertical
-                      label: Background image
-                      destination: 'theme@:/images'
-                      help: Landing page header background.
-                      multiple: false
-                      autofocus: false
-                      accept:
-                        - image/*
-
-            organization.headquarters.contacts:
-              type: list
-              label: HQ Contacts
-              help: Add contact to importart peopel in your organization.
-              fields:
-                .name:
-                  type: text
-                  label: Name
-                .nickname:
-                  type: text
-                  label: Nickname
-                .title:
-                  type: text
-                  label: Title
-                .phone:
-                  type: text
-                  label: Phone
-                .email:
-                  type: text
-                  label: E-mail 
-                  validate:
-                    type: email
-                .photo:
-                  type: file
-                  label: Photo
-                  destination: 'theme@:/images'
-                  multiple: false
-                  autofocus: false
-                  accept:
-                    - image/*
-
+        # Socials & Links tab
         socials.tab:
           type: tab
-          title: Socials & Links
-          fields:
-            tab.columns:
-              type: columns
-              fields:
-                col1:
-                  type: column
-                  fields:
-                    socials.facebook:
-                      type: text
-                      style: vertical
-                      label: Organization or branch facebook link
-                      placeholder: "https://facebook.com/my-corp"
+          title: Site settings
+          import@:
+            type: blueprints/theme/settings_site
+            context: themes://patron
 
-                    socials.links:
-                      type: array
-                      style: vertical
-                      label: Important links
-                      help: Partner organization or headquarters links
-                      placeholder_key: title
-                      placeholder_value: link
-                col2:
-                  type: column
-                  fields:
-                    spacer:
-                      name: honeypot
-                      type: honeypot
-
+        # Settings tab
         settings.tab:
           type: tab
-          title: Settings
-          fields:
-            tab.columns:
-              type: columns
-              fields:
-                col1:
-                  type: column
-                  fields:
-                    settings.copyright:
-                      type: text
-                      style: vertical
-                      label: Web page copyright
-                    settings.favicon:
-                      name: favicon
-                      type: file
-                      style: vertical
-                      label: Web page favicon
-                      destination: 'theme@:/images'
-                      multiple: false
-                      autofocus: false
-                      accept:
-                        - image/*
-                    settings.show_login:
-                      type: toggle
-                      style: vertical
-                      label: Show login
-                      highlight: 1
-                      help: Show login link in main menu.
-                      default: 1
-                      options:
-                          1: Yes
-                          0: No
-                      validate:
-                          type: bool
-                    settings.additional_page_info:
-                      type: text
-                      style: vertical
-                      label: Additional page info
-                col2:
-                  type: column
-                  fields:
-                    spacer:
-                      name: honeypot
-                      type: honeypot
+          title: Modules settings
+          import@:
+            type: blueprints/theme/settings_modules
+            context: themes://patron

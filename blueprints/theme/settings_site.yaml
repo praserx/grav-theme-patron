@@ -1,0 +1,57 @@
+form:
+    fields:
+        tab.columns:
+            type: columns
+            fields:
+                col1:
+                    type: column
+                    fields:
+                        settings.site.copyright:
+                            type: text
+                            style: vertical
+                            label: Web page copyright
+                            help: Copyright is displayed in the footer.
+                        settings.site.additional_info:
+                            type: text
+                            style: vertical
+                            label: Web page additional info
+                            help: Additional information displayed in the footer.
+                        settings.site.favicon:
+                            name: favicon
+                            type: file
+                            style: vertical
+                            label: Web page favicon
+                            destination: "theme@:/images"
+                            multiple: false
+                            autofocus: false
+                            accept:
+                                - image/*
+                        settings.site.login_link_visible:
+                            type: toggle
+                            style: vertical
+                            label: Display login link
+                            highlight: 1
+                            help: Display login link in main menu.
+                            default: 1
+                            options:
+                                1: Yes
+                                0: No
+                            validate:
+                                type: bool
+
+                col2:
+                    type: column
+                    fields:
+                        settings.site.facebook:
+                            type: text
+                            style: vertical
+                            label: Organization or branch facebook link
+                            placeholder: "https://facebook.com/my-corp"
+
+                        settings.site.links:
+                            type: array
+                            style: vertical
+                            label: Important links
+                            help: Partner organization or headquarters links
+                            placeholder_key: title
+                            placeholder_value: link
