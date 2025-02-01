@@ -1,14 +1,14 @@
 <footer>
     <div class="container info">
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-12 col-md-4">
                 <h4>{{ config.site.title }}</h4>
                 <p>{{ theme.organization.description }}</p>
                 {% if theme.settings.site.facebook is not empty %}
                 <p><a class="scout-symbol" href="{{ theme.settings.site.facebook }}" target="_blank">«</a></p>
                 {% endif %}
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-12 col-md-4">
                 <h4>{{ 'THEME_PATRON.FOOTER.USEFUL_LINKS'|t }}</h4>
                 <ul>
                     {% for title, link in theme.settings.site.links %}
@@ -16,7 +16,7 @@
                     {% endfor %}
                 </ul>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-12 col-md-4">
                 <h4>{{ 'THEME_PATRON.FOOTER.CONTACT_INFORMATION'|t }}</h4>
                 <p>
                     {{ theme.organization.main_contact.name|raw }}<br/>
@@ -32,13 +32,13 @@
 
     <div class="container copyright">
         <div class="row">
-            <div class="col-sm-6 text-left">
+            <div class="col-sm-12 col-md-6 text-left">
                 <p>
                     <a href="https://github.com/praserx/grav-theme-patron" target="_blank">Theme Patron</a> made by <a href="https://github.com/praserx" target="_blank">Praser</a>. Based on Grav CMS.<br />
                     &copy; {{ theme.settings.site.copyright }}
                 </p>
             </div>
-            <div class="col-sm-6 text-right">
+            <div class="col-sm-12 col-md-6 text-right">
                 <p>{{ theme.settings.site.additional_info }}</p>
             </div>
         </div>
