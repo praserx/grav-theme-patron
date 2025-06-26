@@ -3,17 +3,6 @@ applyTo: "**"
 --
 This is Grav (getgrav.org) theme repository written in PHP and Twig.
 
-## Code Standards
-
-### Required Before Each Commit
-- Run `make fmt` before committing any changes to ensure proper code formatting
-- This will run gofmt on all Go files to maintain consistent style
-
-### Development Flow
-- Build: `make build`
-- Test: `make test`
-- Full CI check: `make ci` (includes build, fmt, lint, test)
-
 ## Repository Structure
 - `assets/`: CSS and JavaScript assets
 - `blueprints/`: YAML blueprints for admin interface
