@@ -2,6 +2,13 @@
  **************************  Global definition  ******************************
  *****************************************************************************/
 
+:root {
+    --main-blue: #20649b;
+    --footer-bg: #1c1c1c;
+    --footer-color: #888;
+    --footer-link: #ddd;
+}
+
 body {
     color: #526066;
     font-family: TheMix, sans-serif;
@@ -80,26 +87,6 @@ header.modular {
     background-position: bottom center;
     background-size: cover;
 
-    .x .menu {
-        .custom:hover {
-            border-bottom: 2px solid #ffffff;
-        }
-
-        .item,
-        .dropdown.item,
-        .link.item,
-        a.item {
-            color: #ffffff;
-        }
-
-        .item:hover,
-        .dropdown.item:hover,
-        .link.item:hover,
-        a.item:hover {
-            color: #ffffff;
-        }
-    }
-
     .organization {
         position: absolute;
         width: 100%;
@@ -123,6 +110,92 @@ header.modular {
         left: 50%;
         transform: translate(-50%, -50%);
     }
+}
+
+/*****************************************************************************
+ **************************  Navigation definitions  *************************
+ *****************************************************************************/
+
+header.modular .x .menu {
+    .custom:hover {
+        border-bottom: 2px solid #ffffff;
+    }
+
+    .item,
+    .item:hover,
+    .dropdown.item,
+    .dropdown.item:hover,
+    .link.item,
+    .link.item:hover,
+    a.item,
+    a.item:hover {
+        color: #ffffff;
+    }
+}
+
+.navigation {
+    display: flex;
+    text-align: right;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.navigation-mobile {
+    color: #000;
+    width: 100%;
+    display: none;
+}
+
+@media screen and (max-width: 992px) {
+    .navigation {
+        display: none;
+    }
+
+    .navigation-mobile {
+        display: block ;
+    }
+}
+
+.navigation-mobile-popup {
+    color: #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    overflow-y: scroll;
+    display: none;
+}
+
+.navigation-mobile-popup > .menu{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    .item .header .text {
+        color: #1c1c1c;
+    }
+
+    .item .menu a.item {
+        color: #1c1c1c;
+    }
+}
+
+.navigation-mobile .button-menu-open {
+    color: #000;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 1rem 1rem;
+}
+
+.navigation-mobile .button-menu-close {
+    position: fixed;
+    top: 0.7rem;
+    right: 0.7rem;
+    z-index: 1001;
+    color: #000;
+    font-size: 24px;
 }
 
 /*****************************************************************************
@@ -241,11 +314,11 @@ section {
 
 footer {
     width: 100%;
-    background-color: #1c1c1c !important;
-    color: #888;
+    background-color: var(--footer-bg, #1c1c1c) !important;
+    color: var(--footer-color, #888);
 
     a {
-        color: #ddd;
+        color: var(--footer-link, #ddd);
     }
 
     .info {
