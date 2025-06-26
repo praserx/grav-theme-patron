@@ -3,6 +3,7 @@
 
 1. [](#new)
     * Added modular page layout which replaced landing page layout
+    * Added better support for mobile devices 
 2. [](#bugfix)
     * Fixed facebook icon visibility if link is empty
     * Fixed login links if base URI is customized
