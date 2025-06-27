@@ -1,8 +1,5 @@
-{% extends 'partials/base.html.twig' %}
-
-{% set show_pagination = header_var('show_pagination', [page, blog])|defined(true) %}
-
-{% block content %}
+{% extends 'partials/base.html.twig' %} {% set show_pagination =
+header_var('show_pagination', [page, blog])|defined(true) %} {% block content %}
 
 <div class="container">
     <div class="row">
@@ -15,11 +12,17 @@
             <div class="ui link cards">
                 {% for child in page.collection() %}
                 <div class="card">
-                    <a href="{{ child.url }}" class="image" style="max-height:150px;overflow:hidden;">
-                        <img src="{{ (child.media.images|first).url }}">
+                    <a
+                        href="{{ child.url }}"
+                        class="image"
+                        style="max-height: 150px; overflow: hidden"
+                    >
+                        <img src="{{ (child.media.images|first).url }}" />
                     </a>
                     <div class="content">
-                        <a href="{{ child.url }}" class="header">{{ child.header.title }}</a>
+                        <a href="{{ child.url }}" class="header"
+                            >{{ child.header.title }}</a
+                        >
                         <div class="meta"></div>
                         <div class="description"></div>
                         <div class="extra content">
@@ -34,10 +37,12 @@
                 {% endfor %}
             </div>
 
-            {% if show_pagination and config.plugins.pagination.enabled and page.collection().params.pagination %}
-                <div id="listing-footer">
-                    {% include 'partials/pagination.html.twig' with {base_url: page.url, pagination: page.collection().params.pagination} %}
-                </div>
+            {% if show_pagination and config.plugins.pagination.enabled and
+            page.collection().params.pagination %}
+            <div id="listing-footer">
+                {% include 'partials/pagination.html.twig' with {base_url:
+                page.url, pagination: page.collection().params.pagination} %}
+            </div>
             {% endif %}
         </div>
     </div>

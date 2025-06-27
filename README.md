@@ -6,9 +6,8 @@
 
 ## Features
 
-- [ ] Fully responsive with full-page mobile navigation
+- [x] Fully responsive with full-page mobile navigation
 - [x] Multiple page template types
-- [ ] SCSS based CSS source files for easy customization
 - [x] Robust theme config blueprint
 
 ### Supported Page Templates
@@ -50,60 +49,76 @@ All configuration can be done via admin interface of Grav. There are multiple se
 ```
 organization:
   main_contact:
-    name: 'Acme inc.'
-    address: 'Nice st. 458'
-    country: 'USA'
-    email: info@example.com
+    name: 'Example Organization'
+    address: '123 Example Street, Example City, 12345'
+    country: 'Example Country'
+    email: contact@example.org
   headquarters:
     contacts:
       -
-        name: 'John Doe'
-        nickname: Johny
-        title: 'Branch Director'
-        phone: '+420 123 456 789'
-        email: john@example.com
+        name: 'Jane Doe'
+        nickname: JD
+        title: 'Team Leader'
+        phone: '+123 456 789'
+        email: jane.doe@example.org
+        photo: {}
+      -
+        name: 'John Smith'
+        nickname: JS
+        title: 'Assistant Leader'
+        phone: '+987 654 321'
+        email: john.smith@example.org
+        photo: {}
   logo:
-    user/themes/patron/images/my_logo.png:
-      name: my_logo.png
+    user/themes/patron/images/example_logo.png:
+      name: example_logo.png
+      full_path: example_logo.png
       type: image/png
-      size: 314060
-      path: user/themes/patron/images/my_logo.png
+      size: 123456
+      path: user/themes/patron/images/example_logo.png
   background:
-    user/themes/patron/images/header-bg.png:
-      name: header-bg.png
+    user/themes/patron/images/example_bg.png:
+      name: example_bg.png
       type: image/png
-      size: 482368
-      path: user/themes/patron/images/header-bg.png
-  description: 'Lorem ipsum dolor sit amet'
+      size: 654321
+      path: user/themes/patron/images/example_bg.png
+  description: 'This is an example description for the organization.'
 ```
 
 ## Socials & Links settings
 
 ```
 socials:
-  facebook: 'https://www.facebook.com/skautizlin'
+  facebook: 'https://www.facebook.com/example'
   links:
-    'stautizlin.cz | Středisko Impeesa Zlín': 'https://www.skautizlin.cz'
-    'skaut.cz | Oficiální skautský web': 'https://www.skaut.cz/'
-    'krizovatka.skaut.cz | Skautská křižovatka': 'https://krizovatka.skaut.cz/'
+    'example.com | Example Website': 'https://www.example.com'
+    'example.org | Example Organization': 'https://www.example.org'
+    'example.net | Example Network': 'https://www.example.net'
 ```
 
 ## Essential settings
 
 ```
 settings:
-  copyright: 'Copy here'
-  additional_page_info: 'Additional info here'
-  flash_news_path: /path/to/news
-  sticky_info: "Landing page short sticky info!"
+  copyright: 'Example Organization, All Rights Reserved.'
+  additional_info: 'This is additional information for the example organization.'
+  sticky_info: "<b>Welcome to our example organization!</b> Meetings are held every Thursday at 5 PM at our headquarters.\n<br>\n<b>Upcoming events:</b> Stay tuned for updates on our activities and events."
   favicon:
-    user/themes/patron/images/favicon.png:
-      name: favicon.png
+    user/themes/patron/images/example_favicon.png:
+      name: example_favicon.png
+      full_path: example_favicon.png
       type: image/png
-      size: 11609
-      path: user/themes/patron/images/favicon.png
-  show_login: true
-  banner_text: 'Hey! Some text here!'
+      size: 12345
+      path: user/themes/patron/images/example_favicon.png
+  login_link_visible: true
+  banner_text: 'Join us every Thursday at 5 PM!'
+```
+
+## Modules settings
+
+```
+modules:
+  news: /example/news
 ```
 
 # Found a bug?

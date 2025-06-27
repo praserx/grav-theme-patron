@@ -1,16 +1,12 @@
-{% extends 'partials/base.html.twig' %}
-
-{% block content %}
+{% extends 'partials/base.html.twig' %} {% block content %}
 <div id="error">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-12 page" style="padding-top: 20px;">
-				<h1>{{ 'ERROR'|t }} {{ page.header.http_response_code }}</h1>
-			 	<p>
-					{{ page.content|raw }}
-				</p>
-			</div>
-		</div>
-	</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 page" style="padding-top: 20px">
+                <h1>{{ 'ERROR'|t }} {{ page.header.http_response_code }}</h1>
+                <p>{{ page.content|raw }}</p>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}

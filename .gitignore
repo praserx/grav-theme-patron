@@ -1,3 +1,5 @@
 node_modules
 assets.old
 .data
+.vscode
+.instructions.md

@@ -1,0 +1,21 @@
+form:
+    fields:
+        tab.columns:
+            type: columns
+            fields:
+                col1:
+                    type: column
+                    fields:
+                        settings.modules.news:
+                            type: text
+                            style: vertical
+                            label: News module collection path
+                            placeholder: "path/to/the/collection"
+                            help: It is important to specify URI of the collection.
+
+                col2:
+                    type: column
+                    fields:
+                        spacer:
+                            name: honeypot
+                            type: honeypot
