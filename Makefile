@@ -8,3 +8,9 @@ update:
 
 prepare:
 	bash prepare.sh
+
+prettier-check:
+	npm run prettier:check
+
+prettier-fix:
+	npm run prettier:fix

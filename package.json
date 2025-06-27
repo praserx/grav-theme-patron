@@ -3,7 +3,13 @@
   "version": "2.0.0",
   "description": "Grav theme patron dependency build",
   "scripts": {
-    "build": "bash prepare.sh"
+    "build": "bash prepare.sh",
+    "prettier:check:twig": "prettier --check \"templates/**/*.twig\" --parser html",
+    "prettier:check:css": "prettier --check css/*.css",
+    "prettier:check": "npm run prettier:check:css && npm run prettier:check:twig",
+    "prettier:fix:twig": "prettier --write \"templates/**/*.twig\" --parser html",
+    "prettier:fix:css": "prettier --write css/*.css",
+    "prettier:fix": "npm run prettier:fix:css && npm run prettier:fix:twig"
   },
   "repository": {
     "type": "git",
@@ -21,5 +27,8 @@
     "bootstrap": "^5.3.7",
     "jquery": "^3.7.1",
     "semantic-ui-css": "^2.5.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.6.2"
   }
 }
