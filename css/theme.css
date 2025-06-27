@@ -3,23 +3,30 @@
  *****************************************************************************/
 
 :root {
-    --main-blue: #20649b;
-    --footer-bg: #1c1c1c;
-    --footer-color: #888;
-    --footer-link: #ddd;
+    --text: #526066;
+    --text-light: #888888;
+    --text-white: #ffffff;
+    --text-dark: #1c1c1c;
+    --link: #20649b;
+    --link-light: #dddddd;
+    --background-dark: #1c1c1c;
+    --background-light: #ffffff;
+    --footer-bg: var(--background-dark);
+    --footer-color: var(--text-light);
+    --footer-link: var(--link-light);
 }
 
 body {
-    color: #526066;
+    color: var(--text);
     font-family: TheMix, sans-serif;
-    font-size: 16px;
-    background-color: #1c1c1c;
+    font-size: 1.2rem;
+    background-color: var(--background-dark);
 }
 
 /* Font Enforcing */
 .fe {
     font-family: TheMix, sans-serif !important;
-    font-size: 16px !important;
+    font-size: 1.2rem !important;
 }
 
 h1,
@@ -38,10 +45,10 @@ p {
  *****************************************************************************/
 
 header {
-    background-color: #ffffff;
+    background-color: var(--background-light);
 
     .x .menu {
-        padding: 5px 20px 10px 0;
+        padding: 0.5rem 1.5rem 0.8rem 0;
         background: none;
         border: none;
         box-shadow: none;
@@ -55,7 +62,7 @@ header {
         }
 
         .custom:hover {
-            border-bottom: 2px solid #20649b;
+            border-bottom: 2px solid var(--link);
         }
 
         .item,
@@ -63,11 +70,11 @@ header {
         .link.item,
         a.item {
             background: none;
-            padding: 20px 0 5px 0;
-            margin: 0 0 0 30px;
+            padding: 1.5rem 0 0.8rem 0;
+            margin: 0 0 0 1.5rem;
             font-family: TheMix, sans-serif;
-            font-size: 16px;
-            color: #20649b;
+            font-size: 1.3rem;
+            color: var(--link);
         }
 
         .item:hover,
@@ -75,7 +82,7 @@ header {
         .link.item:hover,
         a.item:hover {
             background: none;
-            color: #20649b;
+            color: var(--link);
         }
     }
 }
@@ -97,9 +104,9 @@ header.modular {
         h1 {
             margin: 0;
             font-family: Skaut, sans-serif;
-            font-size: 50px;
+            font-size: 3.125rem;
             text-align: center;
-            color: #ffffff;
+            color: var(--text-white);
         }
     }
 
@@ -129,7 +136,7 @@ header.modular .x .menu {
     .link.item:hover,
     a.item,
     a.item:hover {
-        color: #ffffff;
+        color: var(--text-white);
     }
 }
 
@@ -152,12 +159,12 @@ header.modular .x .menu {
     }
 
     .navigation-mobile {
-        display: block ;
+        display: block;
     }
 }
 
 .navigation-mobile-popup {
-    color: #000;
+    color: var(--text-dark);
     position: fixed;
     top: 0;
     left: 0;
@@ -168,23 +175,24 @@ header.modular .x .menu {
     display: none;
 }
 
-.navigation-mobile-popup > .menu{
+.navigation-mobile-popup > .menu {
     width: 100%;
     margin: 0;
     padding: 0;
 
+    .item .header,
     .item .header .text {
-        color: #1c1c1c;
+        color: var(--text-dark);
     }
 
     .item .menu a.item {
-        color: #1c1c1c;
+        color: var(--link);
     }
 }
 
 .navigation-mobile .button-menu-open {
-    color: #000;
-    font-size: 24px;
+    color: var(--text-dark);
+    font-size: 2.5rem;
     cursor: pointer;
     padding: 1rem 1rem;
 }
@@ -194,8 +202,8 @@ header.modular .x .menu {
     top: 0.7rem;
     right: 0.7rem;
     z-index: 1001;
-    color: #000;
-    font-size: 24px;
+    color: var(--text-dark);
+    font-size: 2.5rem;
 }
 
 /*****************************************************************************
@@ -203,7 +211,7 @@ header.modular .x .menu {
  *****************************************************************************/
 
 section {
-    background-color: #ffffff;
+    background-color: var(--background-light);
 }
 
 .news {
@@ -217,11 +225,11 @@ section {
 }
 
 .banner-text p {
-    font-size: 36px;
+    font-size: 2.3rem;
     line-height: 48px;
     font-weight: bold;
     letter-spacing: 2px;
-    color: #ffffff;
+    color: var(--text-white);
     text-align: center;
     padding: 20px;
 }
@@ -239,23 +247,23 @@ section {
 
     h2 {
         padding: 20px 0;
-        font-size: 36px;
+        font-size: 2.3rem;
         font-weight: bold;
         font-family: Skaut, sans-serif;
         letter-spacing: 2px;
         line-height: 1.6em;
-        color: #ffffff;
+        color: var(--text-white);
     }
 }
 
 .image-background {
     background-image: url("../images/content-bg.png");
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
 }
 
 .breadcrumbs {
-    padding: 10px 14px 0;
+    padding: 1rem 1.2rem 0;
 
     #breadcrumbs {
         padding: 0;
@@ -263,7 +271,7 @@ section {
 }
 
 .page {
-    padding: 20px 14px 40px;
+    padding: 2rem 1.2rem 4rem;
 
     h1,
     h2 {
@@ -273,11 +281,11 @@ section {
     }
 
     h1 {
-        font-size: 30px;
+        font-size: 1.9rem;
     }
 
     h2 {
-        font-size: 24px;
+        font-size: 1.5rem;
     }
 
     h3,
@@ -287,12 +295,12 @@ section {
     }
 
     h3 {
-        font-size: 18px;
+        font-size: 1.4rem;
         text-transform: uppercase;
     }
 
     h4 {
-        font-size: 15px;
+        font-size: 1.3rem;
     }
 
     img {
@@ -323,11 +331,11 @@ footer {
 
     .info {
         margin: 0 auto;
-        padding-top: 30px;
-        padding-bottom: 10px;
+        padding-top: 2rem;
+        padding-bottom: 0.8rem;
 
         h4 {
-            font-size: 17px;
+            font-size: 1.1rem;
             font-weight: bold;
             text-transform: uppercase;
             text-align: left;
@@ -347,7 +355,7 @@ footer {
 
                 a {
                     text-decoration: none;
-                    color: #888888;
+                    color: var(--footer-link);
                 }
             }
         }
@@ -362,10 +370,10 @@ footer {
     .copyright {
         margin: 0 auto;
         padding-top: 0px;
-        padding-bottom: 30px;
+        padding-bottom: 2rem;
 
         p {
-            font-size: 13px;
+            font-size: 0.8rem;
         }
     }
 }
