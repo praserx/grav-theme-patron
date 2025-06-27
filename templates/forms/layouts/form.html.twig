@@ -1,7 +1,17 @@
 <form
-    {% block embed_form_core %}{% endblock %}
-    {% block embed_form_classes %}{% endblock %}
+    {%
+    block
+    embed_form_core
+    %}{%
+    endblock
+    %}
+    {%
+    block
+    embed_form_classes
+    %}{%
+    endblock
+    %}
 >
-  {% block embed_fields %}{% endblock %}
-  {% block embed_buttons %}{% endblock %}
+    {% block embed_fields %}{% endblock %} {% block embed_buttons %}{% endblock
+    %}
 </form>

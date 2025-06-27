@@ -1,6 +1,4 @@
-{% extends 'partials/base.html.twig' %}
-
-{% block content %}
+{% extends 'partials/base.html.twig' %} {% block content %}
 
 <div class="container">
     <div class="row">
@@ -10,8 +8,7 @@
     </div>
     <div class="row">
         <div class="col-sm-12 page">
-            {{ page.content|raw }}
-            {% include "forms/default/form.html.twig" %}
+            {{ page.content|raw }} {% include "forms/default/form.html.twig" %}
         </div>
     </div>
 </div>

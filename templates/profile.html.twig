@@ -1,8 +1,5 @@
-{% extends 'partials/base.html.twig' %}
-
-{% do form.setAllData(grav.user.toArray) %}
-
-{% block content %}
+{% extends 'partials/base.html.twig' %} {% do form.setAllData(grav.user.toArray)
+%} {% block content %}
 
 <div class="container">
     <div class="row">
@@ -12,8 +9,8 @@
     </div>
     <div class="row">
         <div class="col-sm-12 col-md-9 col-lg-6 profile">
-        {% include 'partials/messages.html.twig' %}
-        {% include 'forms/form.html.twig' %}
+            {% include 'partials/messages.html.twig' %} {% include
+            'forms/form.html.twig' %}
         </div>
     </div>
 </div>

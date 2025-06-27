@@ -1,67 +1,70 @@
 {% set theme_config = attribute(config.themes, config.system.pages.theme) %}
 <!DOCTYPE html>
 <html lang="{{ grav.language.getLanguage ?: 'en' }}">
-	<head>
-		{% block head %}
-			<meta charset="utf-8"/>
-			<title>
-				{% if header.title %}
-					{{ header.title }}
-					|
-				{% endif %}
-				{{ site.title }}</title>
-			{% include 'partials/metadata.html.twig' %}
-			<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-			<meta name="description" content="{{ site.metadata.description ?: site.metadata.description }}">
-			<meta name="keywords" content="{{ site.metadata.keywords ?: site.metadata.keywords }}">
-			<meta name="author" content="{{ site.author.name ?: site.author.name }}">
-			<link rel="icon" type="image/png" href="{{ base_url }}/{{ (theme.settings.site.favicon | first).path }}"/>
+    <head>
+        {% block head %}
+        <meta charset="utf-8" />
+        <title>
+            {% if header.title %} {{ header.title }} | {% endif %} {{ site.title
+            }}
+        </title>
+        {% include 'partials/metadata.html.twig' %}
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
+        <meta
+            name="description"
+            content="{{ site.metadata.description ?: site.metadata.description }}"
+        />
+        <meta
+            name="keywords"
+            content="{{ site.metadata.keywords ?: site.metadata.keywords }}"
+        />
+        <meta
+            name="author"
+            content="{{ site.author.name ?: site.author.name }}"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            href="{{ base_url }}/{{ (theme.settings.site.favicon | first).path }}"
+        />
 
-			{% block stylesheets %}
-				{% do assets.addCss('theme://assets/bootstrap/css/bootstrap.min.css',150) %}
-				{% do assets.addCss('theme://assets/semantic-ui/semantic.min.css',140) %}
-				{% do assets.addCss('theme://assets/fontawesome/css/all.min.css',130) %}
-				{% do assets.addCss('theme://css/fonts.css',110) %}
-				{% do assets.addCss('theme://css/theme.css',105) %}
-				{% do assets.addCss('theme://css/plugin-login.css',104) %}
-				{% do assets.addCss('theme://css/custom.css',100) %}
-			{% endblock %}
+        {% block stylesheets %} {% do
+        assets.addCss('theme://assets/bootstrap/css/bootstrap.min.css',150) %}
+        {% do assets.addCss('theme://assets/semantic-ui/semantic.min.css',140)
+        %} {% do assets.addCss('theme://assets/fontawesome/css/all.min.css',130)
+        %} {% do assets.addCss('theme://css/fonts.css',110) %} {% do
+        assets.addCss('theme://css/theme.css',105) %} {% do
+        assets.addCss('theme://css/plugin-login.css',104) %} {% do
+        assets.addCss('theme://css/custom.css',100) %} {% endblock %} {% block
+        javascripts %} {% do
+        assets.addJs('theme://assets/jquery/jquery.min.js',101) %} {% do
+        assets.addJs('theme://assets/semantic-ui/semantic.min.js',100) %} {% do
+        assets.addJs('theme://js/slidebars.min.js') %} {% endblock %} {% block
+        assets deferred %} {{ assets.css()|raw }} {{ assets.js()|raw }} {%
+        endblock %} {% endblock %}
+    </head>
+    <body id="top" class="{{ page.header.body_classes }}">
+        {% if page.template != 'modular' %}
+        <!-- Header -->
+        {% include 'partials/header.html.twig' %}
+        <!-- Header -->
+        {% endif %}
 
-			{% block javascripts %}
-				{% do assets.addJs('theme://assets/jquery/jquery.min.js',101) %}
-				{% do assets.addJs('theme://assets/semantic-ui/semantic.min.js',100) %}
-				{% do assets.addJs('theme://js/slidebars.min.js') %}
-			{% endblock %}
+        <!-- Content -->
+        <section>{% block content %}{% endblock %}</section>
+        <!-- Content -->
 
-			{% block assets deferred %}
-				{{ assets.css()|raw }}
-				{{ assets.js()|raw }}
-			{% endblock %}
-		{% endblock %}
-	</head>
-	<body id="top" class="{{ page.header.body_classes }}">
-		{% if page.template != 'modular' %}
-			<!-- Header -->
-			{% include 'partials/header.html.twig' %}
-			<!-- Header -->
-		{% endif %}
+        <!-- Footer -->
+        {% include 'partials/footer.html.twig' %}
+        <!-- Footer -->
 
-		<!-- Content -->
-		<section>
-			{% block content %}{% endblock %}
-		</section>
-		<!-- Content -->
+        {% block bottom %} {{ assets.js('bottom')|raw }} {% endblock %}
 
-		<!-- Footer -->
-		{% include 'partials/footer.html.twig' %}
-		<!-- Footer -->
-
-		{% block bottom %}
-			{{ assets.js('bottom')|raw }}
-		{% endblock %}
-
-		<script>
-			$('.ui.dropdown').dropdown({on: 'click', action: 'nothing'});
-		</script>
-	</body>
+        <script>
+            $(".ui.dropdown").dropdown({ on: "click", action: "nothing" });
+        </script>
+    </body>
 </html>
