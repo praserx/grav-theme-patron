@@ -6,9 +6,8 @@
 
 ## Features
 
-- [ ] Fully responsive with full-page mobile navigation
+- [x] Fully responsive with full-page mobile navigation
 - [x] Multiple page template types
-- [ ] SCSS based CSS source files for easy customization
 - [x] Robust theme config blueprint
 
 ### Supported Page Templates
