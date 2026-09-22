@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% set crumbs = breadcrumbs.get() %} {% set breadcrumbs_config =
 config.plugins.breadcrumbs %} {% set divider =
 breadcrumbs_config.icon_divider_classes %} {% if crumbs|length > 1 or
@@ -29,3 +30,35 @@ breadcrumbs_config.show_all %}
     </p>
 </div>
 {% endif %}
+=======
+{% set crumbs = breadcrumbs.get() %}
+{% set breadcrumbs_config = config.plugins.breadcrumbs %}
+{% set divider = breadcrumbs_config.icon_divider_classes %}
+
+{% if crumbs|length > 1 or breadcrumbs_config.show_all %}
+<div id="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
+    {% if breadcrumbs_config.icon_home %}
+    <i class="{{ breadcrumbs_config.icon_home|e('html_attr') }}"></i>
+    {% endif %}
+    {% for crumb in crumbs %}
+        <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+        {% if not loop.last %}
+            {% if crumb.routable %}
+                <a href="{{ crumb.url|e('html_attr') }}" itemprop="item"><span itemprop="name">{{ crumb.menu|e }}</span></a>
+            {% else  %}
+                <span itemprop="name">{{ crumb.menu|e }}</span>
+            {% endif %}
+            <i class="{{ divider|e('html_attr') }}"></i>
+        {% else %}
+            {% if breadcrumbs_config.link_trailing %}
+                <a href="{{ crumb.url|e('html_attr') }}" itemprop="item"><span itemprop="name">{{ crumb.menu|e }}</span></a>
+            {% else %}
+                <span itemprop="name">{{ crumb.menu|e }}</span>
+            {% endif %}
+        {% endif %}
+        <meta itemprop="position" content="{{ loop.index|e('html_attr') }}" />
+        </span>
+    {% endfor %}
+</div>
+{% endif %}
+>>>>>>> e2e00fb (feat: Bump version to 3.0.0-alpha and update dependencies)

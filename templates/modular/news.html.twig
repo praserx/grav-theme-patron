@@ -1,24 +1,44 @@
 <div class="container news">
-    <div class="row">
-        <div class="col-sm-12 col-md-6">
-            <div class="ui fluid vertical menu fe">
-                {# In modular page to get collection, we have to use page
-                variable #} {% for child in
-                page.find(theme.settings.modules.news).collection()|slice(0, 5)
-                %} {% set tag = child.header.taxonomy.tag|length > 0 ?
-                child.header.taxonomy.tag|first : '' %}
-                <a href="{{ child.url }}" class="item">
-                    {{ child.header.title }} {% if tag != '' %} &nbsp;<span
-                        class="ui red horizontal label"
-                        >{{ tag }}</span
-                    >
-                    {% endif %}
-                </a>
-                {% endfor %}
-            </div>
-        </div>
-        <div class="col-sm-12 col-md-6">
-            <div class="ui piled segment fe">{{ content|raw }}</div>
+    {% if module.header.title %}
+    <div class="module-heading">
+        <h2>{{ module.header.title|e }}</h2>
+    </div>
+    {% endif %}
+
+    {% set show_intro = module.header.module.show_intro|default(false) %}
+    {% if show_intro and content|trim %}
+    <div class="module-intro news-intro">
+        {{ content|raw }}
+    </div>
+    {% endif %}
+
+    <div class="news-list">
+        <div class="ui fluid vertical menu fe">
+        {% set news_source = module.header.module.source|default(module.header.flash_news_path)|default('') %}
+        {% set news_limit = module.header.module.limit|default(5) %}
+        {% set show_tags = module.header.module.show_tags is defined ? module.header.module.show_tags : true %}
+        {% set recent_days = module.header.module.recent_days|default(14) %}
+        {% set news_page = news_source ? pages.find(news_source) : null %}
+        {% if news_page %}
+            {% for child in news_page.collection()|slice(0, news_limit) %}
+            {% set tags = child.header.taxonomy.tag|default([]) %}
+            {% set tag = tags|length > 0 ? tags|first : '' %}
+            {% set child_timestamp = child.date|date('U') %}
+            {% set now_timestamp = 'now'|date('U') %}
+            {% set is_recent = child_timestamp and child_timestamp <= now_timestamp and (now_timestamp - child_timestamp) <= (recent_days * 86400) %}
+            <a href="{{ child.url|e('html_attr') }}" class="item">
+                {{ child.header.title|e }}
+                {% if is_recent %}
+                <span class="news-new">New</span>
+                {% endif %}
+                {% if show_tags and tag != '' %}
+                &nbsp;<span class="ui red horizontal label">{{ tag|e }}</span>
+                {% endif %}
+            </a>
+            {% endfor %}
+        {% else %}
+            <div class="item">{{ 'No news available.'|t|e }}</div>
+        {% endif %}
         </div>
     </div>
 </div>

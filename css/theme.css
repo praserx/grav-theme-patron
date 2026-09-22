@@ -3,17 +3,90 @@
  *****************************************************************************/
 
 :root {
-    --text: #526066;
-    --text-light: #888888;
-    --text-white: #ffffff;
-    --text-dark: #1c1c1c;
-    --link: #20649b;
-    --link-light: #dddddd;
-    --background-dark: #1c1c1c;
-    --background-light: #ffffff;
-    --footer-bg: var(--background-dark);
-    --footer-color: var(--text-light);
-    --footer-link: var(--link-light);
+    --patron-page: #ffffff;
+    --patron-surface-alt: #f5f8fa;
+    --patron-text: #526066;
+    --patron-heading: #002B49;
+    --patron-primary: #20649B;
+    --patron-accent: #008EBA;
+    --patron-border: #e2e8ea;
+    --patron-dark: #1c1c1c;
+    --patron-on-dark: #ffffff;
+    --patron-muted: #888888;
+    --patron-footer-link: #dddddd;
+    --patron-overlay: rgba(0, 43, 73, 0.62);
+    --patron-shadow: rgba(0, 43, 73, 0.08);
+}
+
+body.palette-patron {
+    --patron-page: #ffffff;
+    --patron-surface-alt: #f5f8fa;
+    --patron-text: #526066;
+    --patron-heading: #002B49;
+    --patron-primary: #20649B;
+    --patron-accent: #008EBA;
+    --patron-border: #e2e8ea;
+    --patron-dark: #1c1c1c;
+    --patron-on-dark: #ffffff;
+    --patron-muted: #888888;
+    --patron-footer-link: #dddddd;
+    --patron-overlay: rgba(0, 43, 73, 0.62);
+    --patron-shadow: rgba(0, 43, 73, 0.08);
+}
+
+body.palette-forest {
+    --patron-page: #fffdf8;
+    --patron-surface-alt: #f4f2e8;
+    --patron-text: #4c5950;
+    --patron-heading: #1f4739;
+    --patron-primary: #2f6b50;
+    --patron-accent: #a56b16;
+    --patron-border: #e6e2d7;
+    --patron-dark: #1f2a25;
+    --patron-on-dark: #ffffff;
+    --patron-muted: #aeb9b1;
+    --patron-footer-link: #e0e8e2;
+    --patron-overlay: rgba(31, 71, 57, 0.62);
+    --patron-shadow: rgba(31, 71, 57, 0.10);
+}
+
+body.palette-terracotta {
+    --patron-page: #fffaf6;
+    --patron-surface-alt: #f7ede7;
+    --patron-text: #5f5652;
+    --patron-heading: #4c2a3a;
+    --patron-primary: #854c4b;
+    --patron-accent: #aa5638;
+    --patron-border: #eaded6;
+    --patron-dark: #2d2227;
+    --patron-on-dark: #ffffff;
+    --patron-muted: #b8aaa5;
+    --patron-footer-link: #f0e3dc;
+    --patron-overlay: rgba(76, 42, 58, 0.62);
+    --patron-shadow: rgba(76, 42, 58, 0.10);
+}
+
+body.palette-slate {
+    --patron-page: #f8fbfc;
+    --patron-surface-alt: #eef4f6;
+    --patron-text: #53616b;
+    --patron-heading: #26364a;
+    --patron-primary: #3d637a;
+    --patron-accent: #c65447;
+    --patron-border: #dbe5e9;
+    --patron-dark: #202a34;
+    --patron-on-dark: #ffffff;
+    --patron-muted: #aab7bf;
+    --patron-footer-link: #e4ebee;
+    --patron-overlay: rgba(38, 54, 74, 0.62);
+    --patron-shadow: rgba(38, 54, 74, 0.10);
+}
+
+body {
+    color: var(--patron-text);
+    font-family: TheMix, sans-serif;
+    font-size: 16px;
+    background-color: var(--patron-dark);
 }
 
 body {
@@ -40,11 +113,20 @@ p {
     line-height: 1.6em;
 }
 
+a {
+    color: var(--patron-primary);
+}
+
+a:hover {
+    color: var(--patron-accent);
+}
+
 /*****************************************************************************
  *************************  Main menu definition  ****************************
  *****************************************************************************/
 
 header {
+<<<<<<< HEAD
     background-color: var(--background-light);
 
     .x .menu {
@@ -56,11 +138,38 @@ header {
         .item:before {
             background: none;
         }
+=======
+    background-color: var(--patron-page);
+}
+
+header .x > .menu {
+    padding: 5px 20px 10px 0px;
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
+header .mobile-nav-toggle {
+    display: none;
+}
+
+header:not(.modular) .x > .menu {
+    position: relative;
+    z-index: 2;
+    border-bottom: 1px solid var(--patron-border);
+    box-shadow: 0px 3px 12px var(--patron-shadow);
+}
+
+header .x .menu .item:before {
+    background: none;
+}
+>>>>>>> e2e00fb (feat: Bump version to 3.0.0-alpha and update dependencies)
 
         .custom {
             border-bottom: 2px solid rgba(0, 0, 0, 0);
         }
 
+<<<<<<< HEAD
         .custom:hover {
             border-bottom: 2px solid var(--link);
         }
@@ -85,12 +194,36 @@ header {
             color: var(--link);
         }
     }
+=======
+header .x .menu .custom:hover {
+    border-bottom: 2px solid var(--patron-primary);
 }
 
-header.modular {
+header .x .menu .item,
+header .x .menu .dropdown.item,
+header .x .menu .link.item,
+header .x .menu a.item {
+    background: none;
+    padding: 20px 0px 5px 0px;
+    margin: 0px 0px 0px 30px;
+    font-family: TheMix, sans-serif;
+    font-size: 16px;
+    color: var(--patron-primary);
+}
+
+header .x .menu .item:hover,
+header .x .menu .dropdown.item:hover,
+header .x .menu .link.item:hover,
+header .x .menu a.item:hover {
+    background: none;
+    color: var(--patron-primary);
+>>>>>>> e2e00fb (feat: Bump version to 3.0.0-alpha and update dependencies)
+}
+
+.modular-page header.modular {
     position: relative;
     width: 100%;
-    height: 700px;
+    height: 600px;
     background-position: bottom center;
     background-size: cover;
 
@@ -119,6 +252,7 @@ header.modular {
     }
 }
 
+<<<<<<< HEAD
 /*****************************************************************************
  **************************  Navigation definitions  *************************
  *****************************************************************************/
@@ -149,10 +283,52 @@ header.modular .x .menu {
 
 .navigation-mobile {
     color: #000;
+=======
+.modular-page header.modular::after {
+    position: absolute;
+    z-index: 1;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    height: 40%;
+    background-color: var(--patron-page);
+    clip-path: polygon(0px 78%, 100% 0px, 100% 100%, 0px 100%);
+    content: '';
+    pointer-events: none;
+}
+
+.modular-page header.modular .x {
+    position: relative;
+    z-index: 4;
+}
+
+.modular-page header.modular .x .menu .custom:hover {
+    border-bottom: 2px solid var(--patron-on-dark);
+}
+
+.modular-page header.modular .x .menu .item,
+.modular-page header.modular .x .menu .dropdown.item,
+.modular-page header.modular .x .menu .link.item,
+.modular-page header.modular .x .menu a.item {
+    color: var(--patron-on-dark);
+}
+
+.modular-page header.modular .x .menu .item:hover,
+.modular-page header.modular .x .menu .dropdown.item:hover,
+.modular-page header.modular .x .menu .link.item:hover,
+.modular-page header.modular .x .menu a.item:hover {
+    color: var(--patron-on-dark);
+}
+
+.modular-page header.modular .organization {
+    position: absolute;
+    z-index: 3;
+>>>>>>> e2e00fb (feat: Bump version to 3.0.0-alpha and update dependencies)
     width: 100%;
     display: none;
 }
 
+<<<<<<< HEAD
 @media screen and (max-width: 992px) {
     .navigation {
         display: none;
@@ -204,6 +380,25 @@ header.modular .x .menu {
     z-index: 1001;
     color: var(--text-dark);
     font-size: 2.5rem;
+=======
+.modular-page header.modular .organization h1 {
+    padding: 0px;
+    margin: 0px;
+    font-family: Skaut, sans-serif;
+    font-size: 50px;
+    text-align: center;
+    color: var(--patron-on-dark);
+}
+
+.modular-page header.modular img.main-logo {
+    position: absolute;
+    z-index: 4;
+    width: 200px;
+    height: auto;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+>>>>>>> e2e00fb (feat: Bump version to 3.0.0-alpha and update dependencies)
 }
 
 /*****************************************************************************
@@ -211,6 +406,7 @@ header.modular .x .menu {
  *****************************************************************************/
 
 section {
+<<<<<<< HEAD
     background-color: var(--background-light);
 }
 
@@ -230,12 +426,825 @@ section {
     font-weight: bold;
     letter-spacing: 2px;
     color: var(--text-white);
-    text-align: center;
-    padding: 20px;
+=======
+    background-color: var(--patron-page);
 }
 
+.modular-page .news {
+    padding: 65px 0px;
+}
+
+.modular-page .news .module-heading {
+    margin-bottom: 28px;
+>>>>>>> e2e00fb (feat: Bump version to 3.0.0-alpha and update dependencies)
+    text-align: center;
+}
+
+<<<<<<< HEAD
 .custom-content {
     padding: 60px 0;
+=======
+.modular-page .news .module-heading h2 {
+    color: var(--patron-heading);
+    font-family: Skaut, sans-serif;
+    font-size: 46px;
+    letter-spacing: 1px;
+}
+
+.modular-page .news-intro {
+    max-width: 980px;
+    margin: 0px auto 30px;
+    color: var(--patron-text);
+    font-size: 16px;
+    line-height: 1.6em;
+    text-align: center;
+}
+
+.modular-page .news-list {
+    max-width: 860px;
+    margin: 0px auto;
+}
+
+.modular-page .news-list .ui.menu {
+    border-top: 3px solid var(--patron-primary);
+}
+
+.modular-page .news-new {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 2px 6px;
+    border-radius: 2px;
+    background-color: var(--patron-accent);
+    color: var(--patron-on-dark);
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    line-height: 1.3em;
+    text-transform: uppercase;
+    vertical-align: middle;
+}
+
+.modular-page .banner-text {
+    background-color: var(--patron-heading);
+}
+
+.modular-page .banner-text p {
+    margin: 0px;
+    padding: 24px 20px;
+    color: var(--patron-on-dark);
+    font-size: 26px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    line-height: 1.35em;
+    text-align: center;
+}
+
+.modular-page .image-banner {
+    min-height: 420px;
+    background-color: var(--patron-heading);
+    background-position: center center;
+    background-size: cover;
+}
+
+.modular-page .image-banner-parallax {
+    background-attachment: fixed;
+}
+
+.modular-page .image-banner-overlay {
+    display: flex;
+    min-height: 420px;
+    align-items: center;
+    padding: 70px 0px;
+    background-color: var(--patron-overlay);
+}
+
+.modular-page .image-banner-content {
+    max-width: 760px;
+    margin: 0px auto;
+    color: var(--patron-on-dark);
+    text-align: center;
+}
+
+.modular-page .image-banner-content h2 {
+    margin: 0px 0px 20px;
+    color: var(--patron-on-dark);
+    font-family: Skaut, sans-serif;
+    font-size: 46px;
+    line-height: 1.2em;
+}
+
+.modular-page .image-banner-text p {
+    margin: 0px auto;
+    font-size: 18px;
+    line-height: 1.6em;
+}
+
+.modular-page .image-banner-actions {
+    margin: 28px 0px 0px;
+}
+
+.modular-page .image-banner-actions .ui.button {
+    margin: 0px 8px 10px;
+}
+
+.modular-page .image-banner-actions .ui.button.primary {
+    background-color: var(--patron-accent);
+}
+
+.modular-page .image-banner-actions .ui.button.basic {
+    border-color: var(--patron-on-dark);
+    color: var(--patron-on-dark);
+}
+
+.modular-page .custom-content {
+    padding: 60px 0px;
+>>>>>>> e2e00fb (feat: Bump version to 3.0.0-alpha and update dependencies)
+}
+
+.page blockquote,
+.modular-page .custom-content blockquote {
+    max-width: 760px;
+    margin: 28px auto 32px;
+    padding: 27px 50px 28px;
+    border: 0px;
+    border-radius: 8px;
+    background-color: var(--patron-heading);
+    color: var(--patron-on-dark);
+    font-size: 23px;
+    line-height: 1.35em;
+}
+
+.page blockquote p,
+.modular-page .custom-content blockquote p {
+    margin: 0px;
+    color: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+.page blockquote cite,
+.modular-page .custom-content blockquote cite {
+    display: block;
+    margin-top: 22px;
+    color: var(--patron-on-dark);
+    font-size: 15px;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 1.4em;
+    opacity: 0.78;
+}
+
+.modular-page .ui.button.primary {
+    background-color: var(--patron-primary);
+    color: var(--patron-on-dark);
+}
+
+.modular-page .ui.button.primary:hover {
+    background-color: var(--patron-heading);
+    color: var(--patron-on-dark);
+}
+
+.modular-page .module-heading {
+    margin-bottom: 25px;
+}
+
+.modular-page .module-heading h2 {
+    margin: 0px;
+    color: var(--patron-dark);
+    font-size: 32px;
+    line-height: 1.25em;
+}
+
+.modular-page .module-intro {
+    margin-bottom: 30px;
+}
+
+.modular-page .highlights,
+.modular-page .groups,
+.modular-page .events {
+    padding: 65px 0px;
+}
+
+.modular-page .updates {
+    padding: 65px 0px;
+}
+
+.modular-page .updates .module-heading {
+    margin-bottom: 28px;
+    text-align: center;
+}
+
+.modular-page .updates .module-heading h2 {
+    color: var(--patron-heading);
+    font-family: Skaut, sans-serif;
+    font-size: 46px;
+    letter-spacing: 1px;
+}
+
+.modular-page .updates-intro {
+    max-width: 980px;
+    margin: 0px auto 30px;
+    color: var(--patron-text);
+    font-size: 16px;
+    line-height: 1.6em;
+    text-align: center;
+}
+
+.modular-page .updates-grid {
+    display: flex;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.modular-page .updates-column {
+    flex: 1 1 0px;
+    min-width: 0px;
+    padding: 0px 30px;
+}
+
+.modular-page .updates-column + .updates-column {
+    border-left: 1px solid var(--patron-border);
+}
+
+.modular-page .updates-column-heading {
+    margin: 0px 0px 20px;
+    color: var(--patron-heading);
+    font-family: TheMix, sans-serif;
+    font-size: 23px;
+    text-align: center;
+}
+
+.modular-page .updates-news-list.ui.menu {
+    border-top: 3px solid var(--patron-primary);
+}
+
+.modular-page .updates-news-list .item {
+    line-height: 1.45em;
+}
+
+.modular-page .updates-events .event-list {
+    border-top: 3px solid var(--patron-primary);
+}
+
+.modular-page .updates-events .event-item {
+    padding: 15px 0px;
+}
+
+.modular-page .updates-events .event-item h4 {
+    margin: 0px 0px 8px;
+    color: var(--patron-dark);
+    font-family: TheMix, sans-serif;
+    font-size: 18px;
+}
+
+.modular-page .updates-more {
+    margin: 18px 0px 0px;
+    text-align: center;
+}
+
+.modular-page .updates-more a {
+    color: var(--patron-accent);
+    text-decoration: underline;
+}
+
+.modular-page .highlight-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.modular-page .highlights .module-heading {
+    margin-bottom: 28px;
+    text-align: center;
+}
+
+.modular-page .highlights .module-heading h2 {
+    color: var(--patron-heading);
+    font-family: Skaut, sans-serif;
+    font-size: 46px;
+    letter-spacing: 1px;
+}
+
+.modular-page .highlights .module-intro {
+    max-width: 980px;
+    margin: 0px auto 38px;
+    color: var(--patron-text);
+    font-size: 16px;
+    line-height: 1.6em;
+    text-align: center;
+}
+
+.modular-page .groups .module-heading {
+    margin-bottom: 44px;
+    text-align: center;
+}
+
+.modular-page .groups .module-heading h2 {
+    color: var(--patron-heading);
+    font-family: Skaut, sans-serif;
+    font-size: 46px;
+    letter-spacing: 1px;
+}
+
+.modular-page .groups .module-intro {
+    max-width: 980px;
+    margin: 0px auto 38px;
+    color: var(--patron-text);
+    font-size: 16px;
+    line-height: 1.6em;
+    text-align: center;
+}
+
+.modular-page .group-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.modular-page .group-column {
+    display: flex;
+    flex: 1 1 0px;
+    min-width: 220px;
+    padding: 0px 15px;
+    margin-bottom: 20px;
+}
+
+.modular-page .group-item {
+    width: 100%;
+    text-align: center;
+}
+
+.modular-page .group-item h3 {
+    margin: 0px 0px 25px;
+    color: var(--patron-heading);
+    font-family: TheMix, sans-serif;
+    font-size: 23px;
+    line-height: 1.25em;
+}
+
+.modular-page .group-age,
+.modular-page .group-schedule,
+.modular-page .group-location {
+    margin: 0px 0px 4px;
+    color: var(--patron-heading);
+    font-size: 18px;
+    line-height: 1.45em;
+}
+
+.modular-page .group-schedule {
+    font-style: italic;
+}
+
+.modular-page .group-text {
+    max-width: 260px;
+    margin: 15px auto 18px;
+    color: var(--patron-text);
+    font-size: 16px;
+    line-height: 1.55em;
+}
+
+.modular-page .group-item a {
+    color: var(--patron-accent);
+    font-size: 17px;
+    text-decoration: underline;
+}
+
+.modular-page .group-item a::after {
+    content: ' ›';
+    text-decoration: none;
+}
+
+.modular-page .highlight-column {
+    display: flex;
+    flex: 1 1 0px;
+    min-width: 220px;
+    padding: 0px 15px;
+    margin-bottom: 20px;
+}
+
+.modular-page .highlight-item {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 0px 10px;
+    text-align: center;
+}
+
+.modular-page .highlight-icon {
+    margin: 0px 0px 15px;
+    color: var(--patron-primary);
+    font-size: 30px;
+}
+
+.modular-page .highlight-item h3 {
+    margin: 0px 0px 18px;
+    color: var(--patron-heading);
+    font-family: TheMix, sans-serif;
+    font-size: 23px;
+    line-height: 1.25em;
+}
+
+.modular-page .event-item h3 {
+    margin: 0px 0px 12px;
+    color: var(--patron-dark);
+    font-size: 21px;
+}
+
+.modular-page .highlight-item p {
+    max-width: 260px;
+    margin: 0px 0px 18px;
+    color: var(--patron-text);
+    font-size: 17px;
+    line-height: 1.55em;
+}
+
+.modular-page .highlight-item a {
+    color: var(--patron-accent);
+    font-size: 17px;
+    font-weight: normal;
+    text-decoration: underline;
+}
+
+.modular-page .highlight-item a::after {
+    content: ' ›';
+    text-decoration: none;
+}
+
+.modular-page .event-details a {
+    color: var(--patron-primary);
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.modular-page .event-list {
+    border-top: 3px solid var(--patron-primary);
+}
+
+.modular-page .event-item {
+    display: flex;
+    gap: 25px;
+    padding: 20px 0px;
+    border-bottom: 1px solid var(--patron-border);
+}
+
+.modular-page .event-date {
+    flex: 0 0 130px;
+    color: var(--patron-primary);
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.modular-page .event-details {
+    flex: 1 1 auto;
+}
+
+.modular-page .event-details p {
+    margin-bottom: 12px;
+}
+
+.modular-page .event-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 15px;
+    margin-bottom: 10px;
+    color: var(--patron-text);
+    font-size: 14px;
+}
+
+@media (max-width: 767px) {
+    header .x > .menu {
+        display: block;
+        padding: 6px 14px 8px;
+    }
+
+    header .mobile-nav-toggle {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 4px;
+        border: 0px;
+        background: transparent;
+        color: var(--patron-primary);
+        cursor: pointer;
+        font-family: TheMix, sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: left;
+    }
+
+    header .mobile-nav-toggle:focus {
+        outline: 2px solid currentColor;
+        outline-offset: 2px;
+    }
+
+    header .mobile-nav-toggle .icon {
+        margin: 0px;
+    }
+
+    header .x > .menu > .right.menu {
+        display: none !important;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        margin: 7px 0px 0px;
+        border-top: 1px solid var(--patron-border);
+    }
+
+    header .x > .menu > .right.menu.is-open {
+        display: flex !important;
+    }
+
+    header:not(.modular) .x > .menu > .right.menu.is-open {
+        background-color: var(--patron-page);
+    }
+
+    .modular-page header.modular .mobile-nav-toggle {
+        color: var(--patron-on-dark);
+    }
+
+    .modular-page header.modular .x {
+        position: relative;
+        z-index: 10;
+    }
+
+    .modular-page header.modular .x > .menu > .right.menu.is-open {
+        background-color: var(--patron-dark);
+        border-top-color: rgba(255, 255, 255, 0.35);
+    }
+
+    .modular-page header.modular .organization {
+        z-index: 2;
+        top: 43%;
+        padding: 0px 14px;
+    }
+
+    .modular-page header.modular .organization h1 {
+        font-size: 36px;
+        line-height: 1.15em;
+    }
+
+    .modular-page header.modular img.main-logo {
+        width: 150px;
+        top: auto;
+        bottom: 28px;
+    }
+
+    header .x > .menu > .right.menu > .item,
+    header .x > .menu > .right.menu > .dropdown.item,
+    header .x > .menu > .right.menu > .link.item,
+    header .x > .menu > .right.menu > a.item {
+        width: 100%;
+        min-height: 0px;
+        margin: 0px;
+        padding: 12px 4px 10px;
+        border-bottom: 1px solid var(--patron-border);
+    }
+
+    header .x > .menu > .right.menu > .dropdown.item > .menu {
+        position: static;
+        width: 100%;
+        margin: 8px 0px 0px;
+        border: 0px;
+        box-shadow: none;
+    }
+
+    header .x > .menu > .right.menu > .dropdown.item > .menu .item {
+        margin: 0px;
+        padding: 10px 10px;
+    }
+
+    .modular-page header.modular {
+        height: 520px;
+    }
+
+    .modular-page header.modular::after {
+        height: 36%;
+        clip-path: polygon(0px 65%, 100% 0px, 100% 100%, 0px 100%);
+    }
+
+    .modular-page .image-banner,
+    .modular-page .image-banner-overlay {
+        min-height: 360px;
+    }
+
+    .modular-page .image-banner-parallax {
+        background-attachment: scroll;
+    }
+
+    .modular-page .image-banner-overlay {
+        padding: 55px 0px;
+    }
+
+    .modular-page .image-banner-content h2 {
+        font-size: 34px;
+    }
+
+    .modular-page .image-banner-text p {
+        font-size: 16px;
+    }
+
+    .page blockquote,
+    .modular-page .custom-content blockquote {
+        padding: 23px 22px 24px;
+        font-size: 20px;
+    }
+
+    .page blockquote cite,
+    .modular-page .custom-content blockquote cite {
+        margin-top: 18px;
+        font-size: 14px;
+    }
+
+    .modular-page .module-heading h2 {
+        font-size: 27px;
+    }
+
+    .modular-page .highlights .module-heading h2 {
+        font-size: 36px;
+    }
+
+    .modular-page .groups .module-heading h2 {
+        font-size: 36px;
+    }
+
+    .modular-page .news .module-heading h2 {
+        font-size: 36px;
+    }
+
+    .modular-page .updates .module-heading h2 {
+        font-size: 36px;
+    }
+
+    .modular-page .highlight-column {
+        flex-basis: 50%;
+        max-width: 50%;
+    }
+
+    .modular-page .group-column {
+        flex-basis: 50%;
+        max-width: 50%;
+    }
+
+    .modular-page .updates-grid {
+        display: block;
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+
+    .modular-page .updates-column {
+        padding: 0px;
+    }
+
+    .modular-page .updates-column + .updates-column {
+        margin-top: 40px;
+        padding-top: 40px;
+        border-top: 1px solid var(--patron-border);
+        border-left: 0px;
+    }
+
+    .modular-page .event-item {
+        display: block;
+    }
+
+    .modular-page .event-date {
+        margin-bottom: 8px;
+    }
+
+    .modular-page .quick-facts {
+        display: block;
+    }
+
+    .modular-page .quick-fact + .quick-fact {
+        border-top: 1px solid var(--patron-border);
+        border-left: 0px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .modular-page .image-banner-parallax {
+        background-attachment: scroll;
+    }
+}
+
+@media (max-width: 480px) {
+    .modular-page .highlight-column {
+        flex-basis: 100%;
+        max-width: 100%;
+    }
+
+    .modular-page .group-column {
+        flex-basis: 100%;
+        max-width: 100%;
+    }
+}
+
+/*********************** Modular custom-content helpers ***********************/
+
+.modular-page .intro-content,
+.modular-page .contact-cta {
+    color: var(--patron-text);
+}
+
+.modular-page .intro-content-compact {
+    max-width: 900px;
+    margin: 0px auto;
+    text-align: center;
+}
+
+.modular-page .intro-content.intro-content-compact h2 {
+    margin-bottom: 22px;
+    color: var(--patron-heading);
+    font-size: 38px;
+}
+
+.modular-page .intro-content-compact > p:not(.module-kicker):not(.module-actions) {
+    max-width: 760px;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 17px;
+    line-height: 1.6em;
+}
+
+.modular-page .quick-facts {
+    display: flex;
+    margin: 30px 0px 0px;
+    border-top: 1px solid var(--patron-border);
+    border-bottom: 1px solid var(--patron-border);
+}
+
+.modular-page .quick-fact {
+    flex: 1 1 0px;
+    padding: 17px 15px;
+}
+
+.modular-page .quick-fact + .quick-fact {
+    border-left: 1px solid var(--patron-border);
+}
+
+.modular-page .quick-fact strong,
+.modular-page .quick-fact span {
+    display: block;
+}
+
+.modular-page .quick-fact strong {
+    color: var(--patron-heading);
+    font-size: 17px;
+}
+
+.modular-page .quick-fact span {
+    margin-top: 4px;
+    color: var(--patron-text);
+    font-size: 14px;
+}
+
+.modular-page .intro-content h2,
+.modular-page .contact-cta h2 {
+    margin: 0px 0px 20px;
+    color: var(--patron-dark);
+    font-size: 32px;
+    line-height: 1.25em;
+}
+
+.modular-page .module-kicker {
+    margin: 0px 0px 10px;
+    color: var(--patron-primary);
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.modular-page .module-actions {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.modular-page .module-actions .ui.button {
+    margin: 0px 10px 10px 0px;
+}
+
+.modular-page .contact-cta {
+    max-width: 780px;
+    margin: 0px auto;
+    text-align: center;
+}
+
+@media (max-width: 767px) {
+    .modular-page .intro-content h2,
+    .modular-page .contact-cta h2 {
+        font-size: 27px;
+    }
+
+    .modular-page .intro-content.intro-content-compact h2 {
+        font-size: 30px;
+    }
+
 }
 
 /*****************************************************************************
@@ -245,6 +1254,7 @@ section {
 .title {
     padding: 0 14px;
 
+<<<<<<< HEAD
     h2 {
         padding: 20px 0;
         font-size: 2.3rem;
@@ -254,6 +1264,16 @@ section {
         line-height: 1.6em;
         color: var(--text-white);
     }
+=======
+.title h2 {
+    padding: 20px 0px;
+    font-size: 36px;
+    font-weight: bold;
+    font-family: Skaut, sans-serif;
+    letter-spacing: 2px;
+    line-height: 1.6em;
+    color: var(--patron-on-dark);
+>>>>>>> e2e00fb (feat: Bump version to 3.0.0-alpha and update dependencies)
 }
 
 .image-background {
@@ -265,9 +1285,26 @@ section {
 .breadcrumbs {
     padding: 1.5rem 1.2rem 0;
 
+<<<<<<< HEAD
     #breadcrumbs {
         padding: 0;
     }
+=======
+.breadcrumbs #breadcrumbs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0px;
+>>>>>>> e2e00fb (feat: Bump version to 3.0.0-alpha and update dependencies)
+}
+
+.breadcrumbs #breadcrumbs > span {
+    display: inline-flex;
+    align-items: center;
+}
+
+.breadcrumbs #breadcrumbs > span > .icon {
+    margin: 0px 8px;
 }
 
 .page {
@@ -316,18 +1353,65 @@ section {
     }
 }
 
+.page table {
+    width: 100%;
+    margin: 28px 0px 32px;
+    border-collapse: collapse;
+    color: var(--patron-text);
+    font-size: 15px;
+    line-height: 1.45em;
+}
+
+.page table th {
+    padding: 11px 14px;
+    border-bottom: 3px solid var(--patron-primary);
+    color: var(--patron-heading);
+    font-weight: bold;
+    text-align: left;
+    vertical-align: bottom;
+}
+
+.page table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--patron-border);
+    vertical-align: top;
+}
+
+.page table tbody tr:nth-child(even) {
+    background-color: var(--patron-surface-alt);
+}
+
+.page table tbody tr:hover {
+    background-color: var(--patron-surface-alt);
+}
+
+.page table tbody td:first-child {
+    color: var(--patron-heading);
+    font-weight: bold;
+}
+
 /*****************************************************************************
  **************************  Footer definition  ******************************
  *****************************************************************************/
 
 footer {
     width: 100%;
+<<<<<<< HEAD
     background-color: var(--footer-bg, #1c1c1c) !important;
     color: var(--footer-color, #888);
 
     a {
         color: var(--footer-link, #ddd);
     }
+=======
+    background-color: var(--patron-dark) !important;
+    color: var(--patron-muted);
+}
+
+footer a {
+    color: var(--patron-footer-link);
+}
+>>>>>>> e2e00fb (feat: Bump version to 3.0.0-alpha and update dependencies)
 
     .info {
         margin: 0 auto;
@@ -353,12 +1437,19 @@ footer {
                 padding-bottom: 5px;
                 list-style: none;
 
+<<<<<<< HEAD
                 a {
                     text-decoration: none;
                     color: var(--footer-link);
                 }
             }
         }
+=======
+footer .info ul li a {
+    text-decoration: none;
+    color: var(--patron-muted);
+}
+>>>>>>> e2e00fb (feat: Bump version to 3.0.0-alpha and update dependencies)
 
         .scout-symbol {
             font-family: Skaut;
@@ -387,6 +1478,7 @@ footer {
 }
 
 .container-fluid {
+<<<<<<< HEAD
     padding: 0;
 }
 
@@ -398,5 +1490,108 @@ footer {
     .container {
         padding-left: 15px;
         padding-right: 15px;
+=======
+    padding: 0px;
+}
+
+@media (max-width: 767px) {
+    html,
+    body {
+        overflow-x: hidden;
+    }
+
+    .breadcrumbs {
+        padding: 10px 14px 8px;
+    }
+
+    .breadcrumbs #breadcrumbs {
+        gap: 3px 0px;
+        line-height: 1.4em;
+    }
+
+    .page {
+        overflow-x: auto;
+        padding: 16px 14px 36px;
+        overflow-wrap: break-word;
+    }
+
+    .page h1 {
+        font-size: 26px;
+        line-height: 1.25em;
+    }
+
+    .page h2 {
+        font-size: 22px;
+        line-height: 1.3em;
+    }
+
+    .page table {
+        min-width: 540px;
+        font-size: 14px;
+    }
+
+    .page table th,
+    .page table td {
+        padding: 7px 9px;
+        vertical-align: top;
+    }
+
+    .title h2 {
+        padding: 16px 14px;
+        font-size: 28px;
+        letter-spacing: 1px;
+        line-height: 1.3em;
+    }
+
+    footer .info,
+    footer .copyright {
+        width: 100%;
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+    footer .info {
+        padding-top: 38px;
+        padding-bottom: 8px;
+    }
+
+    footer .info .row,
+    footer .copyright .row {
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+
+    footer .info .row > [class*="col-"] {
+        padding-right: 0px;
+        padding-bottom: 28px;
+        padding-left: 0px;
+        margin-bottom: 28px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    footer .info .row > [class*="col-"]:last-child {
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+        border-bottom: 0px;
+    }
+
+    footer .info h4 {
+        margin-bottom: 12px;
+    }
+
+    footer .copyright {
+        padding-top: 24px;
+        padding-bottom: 32px;
+        border-top: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    footer .copyright .text-left,
+    footer .copyright .text-right {
+        text-align: left;
+    }
+
+    footer .copyright .text-right {
+        margin-top: 18px;
+>>>>>>> e2e00fb (feat: Bump version to 3.0.0-alpha and update dependencies)
     }
 }

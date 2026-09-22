@@ -1,0 +1,50 @@
+<div class="container events">
+    {% if module.header.title %}
+    <div class="module-heading">
+        <h2>{{ module.header.title|e }}</h2>
+    </div>
+    {% endif %}
+
+    {% if content|trim %}
+    <div class="module-intro">
+        {{ content|raw }}
+    </div>
+    {% endif %}
+
+    {% set events = module.header.module.items|default([]) %}
+    {% if events %}
+    <div class="event-list">
+        {% for event in events %}
+        <article class="event-item">
+            <div class="event-date">
+                {{ event.date_label|default(event.date)|default('')|e }}
+            </div>
+            <div class="event-details">
+                {% if event.title %}
+                <h3>{{ event.title|e }}</h3>
+                {% endif %}
+                <div class="event-meta">
+                    {% if event.time %}
+                    <span>{{ event.time|e }}</span>
+                    {% endif %}
+                    {% if event.location %}
+                    <span>{{ event.location|e }}</span>
+                    {% endif %}
+                    {% if event.status %}
+                    <span class="ui horizontal label">{{ event.status|e }}</span>
+                    {% endif %}
+                </div>
+                {% if event.description %}
+                <p>{{ event.description|e }}</p>
+                {% endif %}
+                {% if event.link %}
+                <a href="{{ event.link|e('html_attr') }}">
+                    {{ event.link_label|default('More information')|e }}
+                </a>
+                {% endif %}
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>

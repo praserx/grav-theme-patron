@@ -10,6 +10,7 @@ header_var('show_pagination', [page, blog])|defined(true) %} {% block content %}
     <div class="row">
         <div class="col-sm-12 page">
             <div class="ui fluid vertical menu fe">
+<<<<<<< HEAD
                 {% for child in page.collection() %} {% set tag =
                 child.header.taxonomy.tag|length > 0 ?
                 child.header.taxonomy.tag|first : '' %}
@@ -18,16 +19,31 @@ header_var('show_pagination', [page, blog])|defined(true) %} {% block content %}
                         class="ui red horizontal label"
                         >{{ tag }}</span
                     >
+=======
+                {% for child in page.collection() %}
+                {% set tag = child.header.taxonomy.tag|length > 0 ? child.header.taxonomy.tag|first : '' %}
+                <a href="{{ child.url|e('html_attr') }}" class="item">
+                    {{ child.header.title|e }}
+                    {% if tag != '' %}
+                    &nbsp;<span class="ui red horizontal label">{{ tag|e }}</span>
+>>>>>>> e2e00fb (feat: Bump version to 3.0.0-alpha and update dependencies)
                     {% endif %}
                 </a>
                 {% endfor %}
             </div>
+<<<<<<< HEAD
             {% if show_pagination and config.plugins.pagination.enabled and
             page.collection().params.pagination %}
             <div id="listing-footer">
                 {% include 'partials/pagination.html.twig' with {base_url:
                 page.url, pagination: page.collection().params.pagination} %}
             </div>
+=======
+            {% if show_pagination and config.plugins.pagination.enabled and page.collection().params.pagination %}
+                <div id="listing-footer">
+                    {% include 'partials/pagination.html.twig' ignore missing with {base_url: page.url, pagination: page.collection().params.pagination} %}
+                </div>
+>>>>>>> e2e00fb (feat: Bump version to 3.0.0-alpha and update dependencies)
             {% endif %}
         </div>
     </div>

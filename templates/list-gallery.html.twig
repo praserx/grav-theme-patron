@@ -12,6 +12,7 @@ header_var('show_pagination', [page, blog])|defined(true) %} {% block content %}
             <div class="ui link cards">
                 {% for child in page.collection() %}
                 <div class="card">
+<<<<<<< HEAD
                     <a
                         href="{{ child.url }}"
                         class="image"
@@ -23,6 +24,16 @@ header_var('show_pagination', [page, blog])|defined(true) %} {% block content %}
                         <a href="{{ child.url }}" class="header"
                             >{{ child.header.title }}</a
                         >
+=======
+                    <a href="{{ child.url|e('html_attr') }}" class="image" style="max-height:150px;overflow:hidden;">
+                        {% set first_image = child.media.images|first %}
+                        {% if first_image %}
+                        <img src="{{ first_image.url|e('html_attr') }}">
+                        {% endif %}
+                    </a>
+                    <div class="content">
+                        <a href="{{ child.url|e('html_attr') }}" class="header">{{ child.header.title|e }}</a>
+>>>>>>> e2e00fb (feat: Bump version to 3.0.0-alpha and update dependencies)
                         <div class="meta"></div>
                         <div class="description"></div>
                         <div class="extra content">
@@ -37,12 +48,19 @@ header_var('show_pagination', [page, blog])|defined(true) %} {% block content %}
                 {% endfor %}
             </div>
 
+<<<<<<< HEAD
             {% if show_pagination and config.plugins.pagination.enabled and
             page.collection().params.pagination %}
             <div id="listing-footer">
                 {% include 'partials/pagination.html.twig' with {base_url:
                 page.url, pagination: page.collection().params.pagination} %}
             </div>
+=======
+            {% if show_pagination and config.plugins.pagination.enabled and page.collection().params.pagination %}
+                <div id="listing-footer">
+                    {% include 'partials/pagination.html.twig' ignore missing with {base_url: page.url, pagination: page.collection().params.pagination} %}
+                </div>
+>>>>>>> e2e00fb (feat: Bump version to 3.0.0-alpha and update dependencies)
             {% endif %}
         </div>
     </div>

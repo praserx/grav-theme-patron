@@ -1,6 +1,7 @@
 <footer>
     <div class="container info">
         <div class="row">
+<<<<<<< HEAD
             <div class="col-sm-12 col-md-4">
                 <h4>{{ config.site.title }}</h4>
                 <p>{{ theme.organization.description }}</p>
@@ -27,16 +28,39 @@
             </div>
             <div class="col-sm-12 col-md-4">
                 <h4>{{ 'THEME_PATRON.FOOTER.CONTACT_INFORMATION'|t }}</h4>
+=======
+            <div class="col-sm-4">
+                <h4>{{ config.site.title|e }}</h4>
+                <p>{{ theme.organization.description|e }}</p>
+                {% if theme.socials.facebook is not empty %}
+                <p><a class="scout-symbol" href="{{ theme.socials.facebook|e('html_attr') }}" target="_blank">«</a></p>
+                {% endif %}
+            </div>
+            <div class="col-sm-4">
+                <h4>{{ 'THEME_PATRON.FOOTER.USEFUL_LINKS'|t|e }}</h4>
+                <ul>
+                    {% for title, link in theme.socials.links %}
+                        <li><a href="{{ link|e('html_attr') }}" target="_blank">{{ title|e }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-sm-4">
+                <h4>{{ 'THEME_PATRON.FOOTER.CONTACT_INFORMATION'|t|e }}</h4>
+>>>>>>> e2e00fb (feat: Bump version to 3.0.0-alpha and update dependencies)
                 <p>
                     {{ theme.organization.main_contact.name|raw }}<br />
                     {{ theme.organization.main_contact.address|raw }}<br />
                     {{ theme.organization.main_contact.country|raw }}
                 </p>
                 <p>
+<<<<<<< HEAD
                     E-mail:
                     <a href="mailto:{{ theme.organization.main_contact.email }}"
                         >{{ theme.organization.main_contact.email }}</a
                     >
+=======
+                    E-mail: <a href="mailto:{{ theme.organization.main_contact.email|e('html_attr') }}">{{ theme.organization.main_contact.email|e }}</a>
+>>>>>>> e2e00fb (feat: Bump version to 3.0.0-alpha and update dependencies)
                 </p>
             </div>
         </div>

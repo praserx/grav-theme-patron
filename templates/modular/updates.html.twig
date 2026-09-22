@@ -1,0 +1,97 @@
+<div class="container updates">
+    {% if module.header.title %}
+    <div class="module-heading">
+        <h2>{{ module.header.title|e }}</h2>
+    </div>
+    {% endif %}
+
+    {% if content|trim %}
+    <div class="module-intro updates-intro">
+        {{ content|raw }}
+    </div>
+    {% endif %}
+
+    {% set news_config = module.header.module.news|default([]) %}
+    {% set news_source = news_config.source|default(module.header.flash_news_path)|default('') %}
+    {% set news_limit = news_config.limit|default(3) %}
+    {% set show_tags = news_config.show_tags is defined ? news_config.show_tags : true %}
+    {% set recent_days = news_config.recent_days|default(module.header.module.recent_days)|default(14) %}
+    {% set news_page = news_source ? pages.find(news_source) : null %}
+    {% set event_config = module.header.module.events|default([]) %}
+    {% set events = event_config.items|default([]) %}
+
+    <div class="updates-grid">
+        <section class="updates-column updates-news">
+            <h3 class="updates-column-heading">
+                {{ news_config.title|default('Latest news')|e }}
+            </h3>
+            <div class="ui fluid vertical menu fe updates-news-list">
+            {% if news_page %}
+                {% for child in news_page.collection()|slice(0, news_limit) %}
+                {% set tags = child.header.taxonomy.tag|default([]) %}
+                {% set tag = tags|length > 0 ? tags|first : '' %}
+                {% set child_timestamp = child.date|date('U') %}
+                {% set now_timestamp = 'now'|date('U') %}
+                {% set is_recent = child_timestamp and child_timestamp <= now_timestamp and (now_timestamp - child_timestamp) <= (recent_days * 86400) %}
+                <a href="{{ child.url|e('html_attr') }}" class="item">
+                    {{ child.header.title|e }}
+                    {% if is_recent %}
+                    <span class="news-new">New</span>
+                    {% endif %}
+                    {% if show_tags and tag != '' %}
+                    &nbsp;<span class="ui red horizontal label">{{ tag|e }}</span>
+                    {% endif %}
+                </a>
+                {% endfor %}
+            {% else %}
+                <div class="item">{{ 'No news available.'|t|e }}</div>
+            {% endif %}
+            </div>
+        </section>
+
+        {% if events %}
+        <section class="updates-column updates-events">
+            <h3 class="updates-column-heading">
+                {{ event_config.title|default('Upcoming events')|e }}
+            </h3>
+            <div class="event-list">
+                {% for event in events %}
+                <article class="event-item">
+                    <div class="event-date">
+                        {{ event.date_label|default(event.date)|default('')|e }}
+                    </div>
+                    <div class="event-details">
+                        {% if event.title %}
+                        <h4>{{ event.title|e }}</h4>
+                        {% endif %}
+                        <div class="event-meta">
+                            {% if event.time %}
+                            <span>{{ event.time|e }}</span>
+                            {% endif %}
+                            {% if event.location %}
+                            <span>{{ event.location|e }}</span>
+                            {% endif %}
+                        </div>
+                        {% if event.status %}
+                        <span class="ui horizontal label">{{ event.status|e }}</span>
+                        {% endif %}
+                        {% if event.link %}
+                        <a href="{{ event.link|e('html_attr') }}">
+                            {{ event.link_label|default('More information')|e }}
+                        </a>
+                        {% endif %}
+                    </div>
+                </article>
+                {% endfor %}
+            </div>
+            {% if event_config.link %}
+            <p class="updates-more">
+                <a href="{{ event_config.link|e('html_attr') }}">
+                    {{ event_config.link_label|default('View all events')|e }}
+                </a>
+            </p>
+            {% endif %}
+        </section>
+        {% endif %}
+    </div>
+</div>

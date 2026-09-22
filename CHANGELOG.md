@@ -1,3 +1,16 @@
+# v3.0.0-alpha
+## 22-09-2026
+
+1. [](#new)
+    * Added typed modular landing-page components for banners, highlights, groups, news and events.
+    * Added scoped modular-page styling for reusable landing-page sections.
+    * Added a structured groups module for meeting times, age ranges and locations.
+    * Added an optional combined news and upcoming-events module.
+    * Added recent-news markers for articles published within the configured time window.
+    * Added an image-banner module with configurable background images and calls to action.
+    * Added selectable color palette presets in the theme settings.
+    * Removed obsolete homepage demo modules and their unused styles.
+
 # v2.0.0
 ## 27-06-2025
 

@@ -1,0 +1,45 @@
+<div class="container groups">
+    {% if module.header.title %}
+    <div class="module-heading">
+        <h2>{{ module.header.title|e }}</h2>
+    </div>
+    {% endif %}
+
+    {% if content|trim %}
+    <div class="module-intro">
+        {{ content|raw }}
+    </div>
+    {% endif %}
+
+    {% set groups = module.header.module.items|default([]) %}
+    {% if groups %}
+    <div class="row group-list">
+        {% for group in groups %}
+        <div class="group-column">
+            <article class="group-item">
+                {% if group.title %}
+                <h3>{{ group.title|e }}</h3>
+                {% endif %}
+                {% if group.age %}
+                <p class="group-age">{{ group.age|e }}</p>
+                {% endif %}
+                {% if group.schedule %}
+                <p class="group-schedule">{{ group.schedule|e }}</p>
+                {% endif %}
+                {% if group.location %}
+                <p class="group-location">{{ group.location|e }}</p>
+                {% endif %}
+                {% if group.text %}
+                <p class="group-text">{{ group.text|e }}</p>
+                {% endif %}
+                {% if group.link %}
+                <a href="{{ group.link|e('html_attr') }}">
+                    {{ group.link_label|default('More information')|e }}
+                </a>
+                {% endif %}
+            </article>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>

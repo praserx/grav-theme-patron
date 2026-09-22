@@ -1,7 +1,14 @@
 # Theme metadata
 name: Patron
+<<<<<<< HEAD
 version: 2.0.0
 description: "Patron theme originally made for non-profit organization"
+=======
+slug: patron
+type: theme
+version: 3.0.0-alpha
+description: "Patron theme orginaly made for non-profit organization"
+>>>>>>> e2e00fb (feat: Bump version to 3.0.0-alpha and update dependencies)
 icon: asterisk
 
 # Author information
@@ -16,7 +23,15 @@ keywords: patron, theme, core, modern, fast, responsive, html5, css3, non-profit
 bugs: https://github.com/praserx/grav-theme-patron/issues
 license: MIT
 
+<<<<<<< HEAD
 # Theme dependencies
+=======
+compatibility:
+  grav:
+    - '1.7'
+    - '2.0'
+
+>>>>>>> e2e00fb (feat: Bump version to 3.0.0-alpha and update dependencies)
 dependencies:
   # Grav CMS
   - { name: grav, version: '>=1.7.0' }
@@ -53,7 +68,65 @@ form:
         # Settings tab
         settings.tab:
           type: tab
+<<<<<<< HEAD
           title: Modules settings
           import@:
             type: blueprints/theme/settings_modules
             context: themes://patron
+=======
+          title: Settings
+          fields:
+            tab.columns:
+              type: columns
+              fields:
+                col1:
+                  type: column
+                  fields:
+                    settings.copyright:
+                      type: text
+                      style: vertical
+                      label: Web page copyright
+                    settings.color_palette:
+                      type: select
+                      style: vertical
+                      label: Color palette
+                      help: Choose a coordinated color palette for the site.
+                      default: patron
+                      options:
+                        patron: Patron blue
+                        forest: Forest and honey
+                        terracotta: Terracotta and plum
+                        slate: Slate and coral
+                    settings.favicon:
+                      name: favicon
+                      type: file
+                      style: vertical
+                      label: Web page favicon
+                      destination: 'theme@:/images'
+                      multiple: false
+                      autofocus: false
+                      accept:
+                        - image/*
+                    settings.show_login:
+                      type: toggle
+                      style: vertical
+                      label: Show login
+                      highlight: 1
+                      help: Show login link in main menu.
+                      default: 1
+                      options:
+                          1: Yes
+                          0: No
+                      validate:
+                          type: bool
+                    settings.additional_page_info:
+                      type: text
+                      style: vertical
+                      label: Additional page info
+                col2:
+                  type: column
+                  fields:
+                    spacer:
+                      name: honeypot
+                      type: honeypot
+>>>>>>> e2e00fb (feat: Bump version to 3.0.0-alpha and update dependencies)

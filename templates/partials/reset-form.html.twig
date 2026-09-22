@@ -7,6 +7,7 @@ config.plugins.form.inline_errors(false) %}
 <section id="grav-login">
     {{ content|raw }}
 
+<<<<<<< HEAD
     <form
         method="post"
         action="{{ (base_url_relative ~ uri.path)|e }}"
@@ -20,6 +21,18 @@ config.plugins.form.inline_errors(false) %}
             'forms/fields/text/text.html.twig'] %}
         </div>
         {% endif %} {% endfor %}
+=======
+    <form method="post" action="{{ (base_url_relative ~ uri.path)|e }}" class="{{ form_outer_classes }}">
+        {% for field in form.fields %}
+            {% set value = attribute(grav.twig.twig_vars, field.name) is defined ? attribute(grav.twig.twig_vars, field.name) : null %}
+
+            {% if field.type %}
+                <div>
+                    {% include ["forms/fields/#{field.type}/#{field.type}.html.twig", 'forms/fields/text/text.html.twig'] %}
+                </div>
+            {% endif %}
+        {% endfor %}
+>>>>>>> e2e00fb (feat: Bump version to 3.0.0-alpha and update dependencies)
         <div class="form-actions secondary-accent">
             <button
                 type="submit"
