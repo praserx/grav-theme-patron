@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-<div class="navigation">
-    {% include 'partials/navigation.desktop.html.twig' %}
-</div>
-<div class="navigation-mobile">
-    {% include 'partials/navigation.mobile.html.twig' %}
-=======
 {% macro renderMenuItem(visiblePage) %}
     {% if visiblePage.children.visible is empty or visiblePage.header.showsubnav == false %}
     <a class="item custom" href="{{ visiblePage.url|e('html_attr') }}">{{ visiblePage.title|e }}</a>
@@ -56,5 +49,4 @@
 {% elseif theme.settings.show_login %}
     <a class="item custom" href="{{ base_url }}{{ config.plugins.login.route|e('html_attr') }}"><i class="fas fa-sign-in-alt"></i>&ensp;{{ 'LOGIN.LOGIN'|t }}</a>
 {% endif %}
->>>>>>> e2e00fb (feat: Bump version to 3.0.0-alpha and update dependencies)
 </div>

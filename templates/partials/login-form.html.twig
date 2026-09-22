@@ -18,19 +18,12 @@ config.plugins.form.inline_errors(false) %}
         >{{ 'PLUGIN_LOGIN.BTN_LOGOUT'|t }}</a
     >
 
-<<<<<<< HEAD
-    {% elseif user.authenticated and user.twofa_enabled %} {% include
-    'partials/login-twofa.html.twig' %} {% else %} {{ content|raw }} {# NEW WAY
-    OF INCLUDING 3RD PARTY LOGIN OPTIONS #} {% for template in
-    grav.login.getProviderLoginTemplates %} {% include template %} {% endfor %}
-=======
     {% if page.template == 'login' or show_login_form %}
         {% set user = grav.user %}
         {% if user.authenticated and user.authorized %}
             <h4>{{ 'PLUGIN_LOGIN.WELCOME'|t }} <strong>{{ (user.fullname ?: user.username)|e }}</strong></h4>
             <hr>
             <a class="button logout" href="{{ uri.addNonce(base_url_relative ~ uri.path ~ '/task' ~ config.system.param_sep ~ 'login.logout', 'logout-form', 'logout-nonce')|e }}">{{ 'PLUGIN_LOGIN.BTN_LOGOUT'|t }}</a>
->>>>>>> e2e00fb (feat: Bump version to 3.0.0-alpha and update dependencies)
 
     <form
         method="post"

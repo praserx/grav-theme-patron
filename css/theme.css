@@ -126,19 +126,6 @@ a:hover {
  *****************************************************************************/
 
 header {
-<<<<<<< HEAD
-    background-color: var(--background-light);
-
-    .x .menu {
-        padding: 0.5rem 1.5rem 0.8rem 0;
-        background: none;
-        border: none;
-        box-shadow: none;
-
-        .item:before {
-            background: none;
-        }
-=======
     background-color: var(--patron-page);
 }
 
@@ -163,38 +150,11 @@ header:not(.modular) .x > .menu {
 header .x .menu .item:before {
     background: none;
 }
->>>>>>> e2e00fb (feat: Bump version to 3.0.0-alpha and update dependencies)
 
         .custom {
             border-bottom: 2px solid rgba(0, 0, 0, 0);
         }
 
-<<<<<<< HEAD
-        .custom:hover {
-            border-bottom: 2px solid var(--link);
-        }
-
-        .item,
-        .dropdown.item,
-        .link.item,
-        a.item {
-            background: none;
-            padding: 1.5rem 0 0.8rem 0;
-            margin: 0 0 0 1.5rem;
-            font-family: TheMix, sans-serif;
-            font-size: 1.3rem;
-            color: var(--link);
-        }
-
-        .item:hover,
-        .dropdown.item:hover,
-        .link.item:hover,
-        a.item:hover {
-            background: none;
-            color: var(--link);
-        }
-    }
-=======
 header .x .menu .custom:hover {
     border-bottom: 2px solid var(--patron-primary);
 }
@@ -217,7 +177,6 @@ header .x .menu .link.item:hover,
 header .x .menu a.item:hover {
     background: none;
     color: var(--patron-primary);
->>>>>>> e2e00fb (feat: Bump version to 3.0.0-alpha and update dependencies)
 }
 
 .modular-page header.modular {
@@ -252,38 +211,6 @@ header .x .menu a.item:hover {
     }
 }
 
-<<<<<<< HEAD
-/*****************************************************************************
- **************************  Navigation definitions  *************************
- *****************************************************************************/
-
-header.modular .x .menu {
-    .custom:hover {
-        border-bottom: 2px solid #ffffff;
-    }
-
-    .item,
-    .item:hover,
-    .dropdown.item,
-    .dropdown.item:hover,
-    .link.item,
-    .link.item:hover,
-    a.item,
-    a.item:hover {
-        color: var(--text-white);
-    }
-}
-
-.navigation {
-    display: flex;
-    text-align: right;
-    align-items: flex-end;
-    justify-content: flex-end;
-}
-
-.navigation-mobile {
-    color: #000;
-=======
 .modular-page header.modular::after {
     position: absolute;
     z-index: 1;
@@ -323,64 +250,10 @@ header.modular .x .menu {
 .modular-page header.modular .organization {
     position: absolute;
     z-index: 3;
->>>>>>> e2e00fb (feat: Bump version to 3.0.0-alpha and update dependencies)
     width: 100%;
     display: none;
 }
 
-<<<<<<< HEAD
-@media screen and (max-width: 992px) {
-    .navigation {
-        display: none;
-    }
-
-    .navigation-mobile {
-        display: block;
-    }
-}
-
-.navigation-mobile-popup {
-    color: var(--text-dark);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1000;
-    overflow-y: scroll;
-    display: none;
-}
-
-.navigation-mobile-popup > .menu {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-
-    .item .header,
-    .item .header .text {
-        color: var(--text-dark);
-    }
-
-    .item .menu a.item {
-        color: var(--link);
-    }
-}
-
-.navigation-mobile .button-menu-open {
-    color: var(--text-dark);
-    font-size: 2.5rem;
-    cursor: pointer;
-    padding: 1rem 1rem;
-}
-
-.navigation-mobile .button-menu-close {
-    position: fixed;
-    top: 0.7rem;
-    right: 0.7rem;
-    z-index: 1001;
-    color: var(--text-dark);
-    font-size: 2.5rem;
-=======
 .modular-page header.modular .organization h1 {
     padding: 0px;
     margin: 0px;
@@ -398,7 +271,6 @@ header.modular .x .menu {
     bottom: 28px;
     left: 50%;
     transform: translateX(-50%);
->>>>>>> e2e00fb (feat: Bump version to 3.0.0-alpha and update dependencies)
 }
 
 /*****************************************************************************
@@ -406,27 +278,6 @@ header.modular .x .menu {
  *****************************************************************************/
 
 section {
-<<<<<<< HEAD
-    background-color: var(--background-light);
-}
-
-.news {
-    padding: 50px 0;
-
-    @media (max-width: 992px) {
-        .col-sm-12:not(:last-child) {
-            margin-bottom: 20px;
-        }
-    }
-}
-
-.banner-text p {
-    font-size: 2.3rem;
-    line-height: 48px;
-    font-weight: bold;
-    letter-spacing: 2px;
-    color: var(--text-white);
-=======
     background-color: var(--patron-page);
 }
 
@@ -436,14 +287,9 @@ section {
 
 .modular-page .news .module-heading {
     margin-bottom: 28px;
->>>>>>> e2e00fb (feat: Bump version to 3.0.0-alpha and update dependencies)
     text-align: center;
 }
 
-<<<<<<< HEAD
-.custom-content {
-    padding: 60px 0;
-=======
 .modular-page .news .module-heading h2 {
     color: var(--patron-heading);
     font-family: Skaut, sans-serif;
@@ -558,7 +404,6 @@ section {
 
 .modular-page .custom-content {
     padding: 60px 0px;
->>>>>>> e2e00fb (feat: Bump version to 3.0.0-alpha and update dependencies)
 }
 
 .page blockquote,
@@ -1254,17 +1099,6 @@ section {
 .title {
     padding: 0 14px;
 
-<<<<<<< HEAD
-    h2 {
-        padding: 20px 0;
-        font-size: 2.3rem;
-        font-weight: bold;
-        font-family: Skaut, sans-serif;
-        letter-spacing: 2px;
-        line-height: 1.6em;
-        color: var(--text-white);
-    }
-=======
 .title h2 {
     padding: 20px 0px;
     font-size: 36px;
@@ -1273,7 +1107,6 @@ section {
     letter-spacing: 2px;
     line-height: 1.6em;
     color: var(--patron-on-dark);
->>>>>>> e2e00fb (feat: Bump version to 3.0.0-alpha and update dependencies)
 }
 
 .image-background {
@@ -1285,17 +1118,11 @@ section {
 .breadcrumbs {
     padding: 1.5rem 1.2rem 0;
 
-<<<<<<< HEAD
-    #breadcrumbs {
-        padding: 0;
-    }
-=======
 .breadcrumbs #breadcrumbs {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     padding: 0px;
->>>>>>> e2e00fb (feat: Bump version to 3.0.0-alpha and update dependencies)
 }
 
 .breadcrumbs #breadcrumbs > span {
@@ -1396,14 +1223,6 @@ section {
 
 footer {
     width: 100%;
-<<<<<<< HEAD
-    background-color: var(--footer-bg, #1c1c1c) !important;
-    color: var(--footer-color, #888);
-
-    a {
-        color: var(--footer-link, #ddd);
-    }
-=======
     background-color: var(--patron-dark) !important;
     color: var(--patron-muted);
 }
@@ -1411,7 +1230,6 @@ footer {
 footer a {
     color: var(--patron-footer-link);
 }
->>>>>>> e2e00fb (feat: Bump version to 3.0.0-alpha and update dependencies)
 
     .info {
         margin: 0 auto;
@@ -1437,19 +1255,10 @@ footer a {
                 padding-bottom: 5px;
                 list-style: none;
 
-<<<<<<< HEAD
-                a {
-                    text-decoration: none;
-                    color: var(--footer-link);
-                }
-            }
-        }
-=======
 footer .info ul li a {
     text-decoration: none;
     color: var(--patron-muted);
 }
->>>>>>> e2e00fb (feat: Bump version to 3.0.0-alpha and update dependencies)
 
         .scout-symbol {
             font-family: Skaut;
@@ -1478,19 +1287,6 @@ footer .info ul li a {
 }
 
 .container-fluid {
-<<<<<<< HEAD
-    padding: 0;
-}
-
-/*****************************************************************************
- **************************  Media queries definition  ***********************
- *****************************************************************************/
-
-@media (max-width: 992px) {
-    .container {
-        padding-left: 15px;
-        padding-right: 15px;
-=======
     padding: 0px;
 }
 
@@ -1592,6 +1388,5 @@ footer .info ul li a {
 
     footer .copyright .text-right {
         margin-top: 18px;
->>>>>>> e2e00fb (feat: Bump version to 3.0.0-alpha and update dependencies)
     }
 }

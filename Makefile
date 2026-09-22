@@ -1,21 +1,3 @@
-<<<<<<< HEAD
-# Makefile for Grav theme asset management
-
-install:
-	npm install
-
-update:
-	npm update
-
-prepare:
-	bash prepare.sh
-
-prettier-check:
-	npm run prettier:check
-
-prettier-fix:
-	npm run prettier:fix
-=======
 # Variables
 PHP = php
 COMPOSER = composer
@@ -50,4 +32,3 @@ clean:
 	rm -rf assets
 
 .PHONY: all install test lint fix clean
->>>>>>> e2e00fb (feat: Bump version to 3.0.0-alpha and update dependencies)

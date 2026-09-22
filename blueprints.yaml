@@ -1,14 +1,9 @@
 # Theme metadata
 name: Patron
-<<<<<<< HEAD
-version: 2.0.0
-description: "Patron theme originally made for non-profit organization"
-=======
 slug: patron
 type: theme
 version: 3.0.0-alpha
 description: "Patron theme orginaly made for non-profit organization"
->>>>>>> e2e00fb (feat: Bump version to 3.0.0-alpha and update dependencies)
 icon: asterisk
 
 # Author information
@@ -23,15 +18,11 @@ keywords: patron, theme, core, modern, fast, responsive, html5, css3, non-profit
 bugs: https://github.com/praserx/grav-theme-patron/issues
 license: MIT
 
-<<<<<<< HEAD
-# Theme dependencies
-=======
 compatibility:
   grav:
     - '1.7'
     - '2.0'
 
->>>>>>> e2e00fb (feat: Bump version to 3.0.0-alpha and update dependencies)
 dependencies:
   # Grav CMS
   - { name: grav, version: '>=1.7.0' }
@@ -68,12 +59,6 @@ form:
         # Settings tab
         settings.tab:
           type: tab
-<<<<<<< HEAD
-          title: Modules settings
-          import@:
-            type: blueprints/theme/settings_modules
-            context: themes://patron
-=======
           title: Settings
           fields:
             tab.columns:
@@ -129,4 +114,3 @@ form:
                     spacer:
                       name: honeypot
                       type: honeypot
->>>>>>> e2e00fb (feat: Bump version to 3.0.0-alpha and update dependencies)

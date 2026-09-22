@@ -1,24 +1,10 @@
 {
-<<<<<<< HEAD
-  "name": "patron",
-  "version": "2.0.0",
-  "description": "Grav theme patron dependency build",
-  "scripts": {
-    "build": "bash prepare.sh",
-    "prettier:check:twig": "prettier --check \"templates/**/*.twig\" --parser html",
-    "prettier:check:css": "prettier --check css/*.css",
-    "prettier:check": "npm run prettier:check:css && npm run prettier:check:twig",
-    "prettier:fix:twig": "prettier --write \"templates/**/*.twig\" --parser html",
-    "prettier:fix:css": "prettier --write css/*.css",
-    "prettier:fix": "npm run prettier:fix:css && npm run prettier:fix:twig"
-=======
   "name": "grav-theme-patron",
   "version": "3.0.0-alpha",
   "description": "Grav theme patron dependency build",
   "scripts": {
     "build": "bash prepare.sh",
     "clean": "rm -rf assets node_modules"
->>>>>>> e2e00fb (feat: Bump version to 3.0.0-alpha and update dependencies)
   },
   "repository": {
     "type": "git",
@@ -31,14 +17,8 @@
   },
   "homepage": "https://github.com/praserx/grav-theme-patron#readme",
   "dependencies": {
-<<<<<<< HEAD
-    "@fortawesome/fontawesome-free": "^6.7.2",
-    "@popperjs/core": "^2.11.8",
-    "bootstrap": "^5.3.7",
-=======
     "@fortawesome/fontawesome-free": "^5.15.4",
     "bootstrap": "^4.6.0",
->>>>>>> e2e00fb (feat: Bump version to 3.0.0-alpha and update dependencies)
     "jquery": "^3.7.1",
     "semantic-ui-css": "^2.5.0"
   },
