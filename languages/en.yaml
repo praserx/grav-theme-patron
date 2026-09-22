@@ -1,12 +1,12 @@
 LOGIN:
-  LOGIN: Log In
-  LOGOUT: Log Out
-  ACCOUNT: My account
-  ADMIN: Administration
+    LOGIN: Log In
+    LOGOUT: Log Out
+    ACCOUNT: My account
+    ADMIN: Administration
 
 ERROR: Error
 
 THEME_PATRON:
-  FOOTER:
-    USEFUL_LINKS: Useful links
-    CONTACT_INFORMATION: Contact information
+    FOOTER:
+        USEFUL_LINKS: Useful links
+        CONTACT_INFORMATION: Contact information

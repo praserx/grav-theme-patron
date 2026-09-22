@@ -8,9 +8,9 @@ icon: asterisk
 
 # Author information
 author:
-  name: Praser
-  email: praserx@gmail.com
-  url: https://github.com/praserx
+    name: Praser
+    email: praserx@gmail.com
+    url: https://github.com/praserx
 
 # Project information
 homepage: https://github.com/praserx/grav-theme-patron
@@ -19,98 +19,98 @@ bugs: https://github.com/praserx/grav-theme-patron/issues
 license: MIT
 
 compatibility:
-  grav:
-    - '1.7'
-    - '2.0'
+    grav:
+        - "1.7"
+        - "2.0"
 
 dependencies:
-  # Grav CMS
-  - { name: grav, version: '>=1.7.0' }
-  # Plugins
-  - { name: form, version: '>=4.1.0' }
-  - { name: login, version: '>=3.3.0' }
-  - { name: pagination, version: '>=1.4.0' }
-  - { name: breadcrumbs, version: '>=1.6.0' }
-  - { name: unitegallery, version: '>=1.1.0' }
+    # Grav CMS
+    - { name: grav, version: ">=1.7.0" }
+    # Plugins
+    - { name: form, version: ">=4.1.0" }
+    - { name: login, version: ">=3.3.0" }
+    - { name: pagination, version: ">=1.4.0" }
+    - { name: breadcrumbs, version: ">=1.6.0" }
+    - { name: unitegallery, version: ">=1.1.0" }
 
 # Form configuration
 form:
-  validation: strict
-  fields:
-    theme.tabs:
-      type: tabs
-      fields:
-        # Organization tab
-        organization.tab:
-          type: tab
-          title: Your organization
-          import@:
-            type: blueprints/theme/organization
-            context: themes://patron
+    validation: strict
+    fields:
+        theme.tabs:
+            type: tabs
+            fields:
+                # Organization tab
+                organization.tab:
+                    type: tab
+                    title: Your organization
+                    import@:
+                        type: blueprints/theme/organization
+                        context: themes://patron
 
-        # Socials & Links tab
-        socials.tab:
-          type: tab
-          title: Site settings
-          import@:
-            type: blueprints/theme/settings_site
-            context: themes://patron
+                # Socials & Links tab
+                socials.tab:
+                    type: tab
+                    title: Site settings
+                    import@:
+                        type: blueprints/theme/settings_site
+                        context: themes://patron
 
-        # Settings tab
-        settings.tab:
-          type: tab
-          title: Settings
-          fields:
-            tab.columns:
-              type: columns
-              fields:
-                col1:
-                  type: column
-                  fields:
-                    settings.copyright:
-                      type: text
-                      style: vertical
-                      label: Web page copyright
-                    settings.color_palette:
-                      type: select
-                      style: vertical
-                      label: Color palette
-                      help: Choose a coordinated color palette for the site.
-                      default: patron
-                      options:
-                        patron: Patron blue
-                        forest: Forest and honey
-                        terracotta: Terracotta and plum
-                        slate: Slate and coral
-                    settings.favicon:
-                      name: favicon
-                      type: file
-                      style: vertical
-                      label: Web page favicon
-                      destination: 'theme@:/images'
-                      multiple: false
-                      autofocus: false
-                      accept:
-                        - image/*
-                    settings.show_login:
-                      type: toggle
-                      style: vertical
-                      label: Show login
-                      highlight: 1
-                      help: Show login link in main menu.
-                      default: 1
-                      options:
-                          1: Yes
-                          0: No
-                      validate:
-                          type: bool
-                    settings.additional_page_info:
-                      type: text
-                      style: vertical
-                      label: Additional page info
-                col2:
-                  type: column
-                  fields:
-                    spacer:
-                      name: honeypot
-                      type: honeypot
+                # Settings tab
+                settings.tab:
+                    type: tab
+                    title: Settings
+                    fields:
+                        tab.columns:
+                            type: columns
+                            fields:
+                                col1:
+                                    type: column
+                                    fields:
+                                        settings.copyright:
+                                            type: text
+                                            style: vertical
+                                            label: Web page copyright
+                                        settings.color_palette:
+                                            type: select
+                                            style: vertical
+                                            label: Color palette
+                                            help: Choose a coordinated color palette for the site.
+                                            default: patron
+                                            options:
+                                                patron: Patron blue
+                                                forest: Forest and honey
+                                                terracotta: Terracotta and plum
+                                                slate: Slate and coral
+                                        settings.favicon:
+                                            name: favicon
+                                            type: file
+                                            style: vertical
+                                            label: Web page favicon
+                                            destination: "theme@:/images"
+                                            multiple: false
+                                            autofocus: false
+                                            accept:
+                                                - image/*
+                                        settings.show_login:
+                                            type: toggle
+                                            style: vertical
+                                            label: Show login
+                                            highlight: 1
+                                            help: Show login link in main menu.
+                                            default: 1
+                                            options:
+                                                1: Yes
+                                                0: No
+                                            validate:
+                                                type: bool
+                                        settings.additional_page_info:
+                                            type: text
+                                            style: vertical
+                                            label: Additional page info
+                                col2:
+                                    type: column
+                                    fields:
+                                        spacer:
+                                            name: honeypot
+                                            type: honeypot
