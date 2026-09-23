@@ -1,4 +1,6 @@
-{% extends 'partials/base.html.twig' %} {% block content %}
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
 
 <div class="container">
     <div class="row">
@@ -13,15 +15,9 @@
                 <div class="card">
                     <div class="content">
                         {% if contact.photo|length > 0 %}
-                        <img
-                            class="right floated mini ui image"
-                            src="{{ (contact.photo|first).path  }}"
-                        />
+                        <img class="right floated mini ui image" src="{{ (contact.photo|first).path  }}">
                         {% else %}
-                        <img
-                            class="right floated mini ui image"
-                            src="{{ theme_url }}/images/avatar.jpg"
-                        />
+                        <img class="right floated mini ui image" src="{{ theme_url }}/images/avatar.jpg">
                         {% endif %}
                         <div class="header">
                             {{ contact.name|e }}

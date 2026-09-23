@@ -1,8 +1,6 @@
-{% if uri.param('token') and uri.param('task') %} {% set client_side_validation
-= form.client_side_validation is not null ? form.client_side_validation :
-config.plugins.form.client_side_validation|default(true) %} {% set inline_errors
-= form.inline_errors is not null ? form.inline_errors :
-config.plugins.form.inline_errors(false) %}
+{% if uri.param('token') and uri.param('task') %}
+{% set client_side_validation = form.client_side_validation is not null ? form.client_side_validation : config.plugins.form.client_side_validation|default(true) %}
+{% set inline_errors = form.inline_errors is not null ? form.inline_errors : config.plugins.form.inline_errors(false) %}
 
 <section id="grav-login">
     {{ content|raw }}
@@ -18,15 +16,7 @@ config.plugins.form.inline_errors(false) %}
             {% endif %}
         {% endfor %}
         <div class="form-actions secondary-accent">
-            <button
-                type="submit"
-                class="button primary"
-                name="task"
-                value="login.reset"
-            >
-                <i class="fa fa-key"></i> {{ "PLUGIN_LOGIN.BTN_RESET_PASSWORD"|t
-                }}
-            </button>
+            <button type="submit" class="button primary" name="task" value="login.reset"><i class="fa fa-key"></i> {{ "PLUGIN_LOGIN.BTN_RESET_PASSWORD"|t }}</button>
         </div>
 
         {{ nonce_field('reset-form', 'reset-form-nonce')|raw }}

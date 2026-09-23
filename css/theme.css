@@ -11,9 +11,9 @@
     --patron-page: #ffffff;
     --patron-surface-alt: #f5f8fa;
     --patron-text: #526066;
-    --patron-heading: #002b49;
-    --patron-primary: #20649b;
-    --patron-accent: #008eba;
+    --patron-heading: #002B49;
+    --patron-primary: #20649B;
+    --patron-accent: #008EBA;
     --patron-border: #e2e8ea;
     --patron-dark: #1c1c1c;
     --patron-on-dark: #ffffff;
@@ -27,9 +27,9 @@ body.palette-patron {
     --patron-page: #ffffff;
     --patron-surface-alt: #f5f8fa;
     --patron-text: #526066;
-    --patron-heading: #002b49;
-    --patron-primary: #20649b;
-    --patron-accent: #008eba;
+    --patron-heading: #002B49;
+    --patron-primary: #20649B;
+    --patron-accent: #008EBA;
     --patron-border: #e2e8ea;
     --patron-dark: #1c1c1c;
     --patron-on-dark: #ffffff;
@@ -52,7 +52,7 @@ body.palette-forest {
     --patron-muted: #aeb9b1;
     --patron-footer-link: #e0e8e2;
     --patron-overlay: rgba(31, 71, 57, 0.62);
-    --patron-shadow: rgba(31, 71, 57, 0.1);
+    --patron-shadow: rgba(31, 71, 57, 0.10);
 }
 
 body.palette-terracotta {
@@ -68,7 +68,7 @@ body.palette-terracotta {
     --patron-muted: #b8aaa5;
     --patron-footer-link: #f0e3dc;
     --patron-overlay: rgba(76, 42, 58, 0.62);
-    --patron-shadow: rgba(76, 42, 58, 0.1);
+    --patron-shadow: rgba(76, 42, 58, 0.10);
 }
 
 body.palette-slate {
@@ -84,7 +84,7 @@ body.palette-slate {
     --patron-muted: #aab7bf;
     --patron-footer-link: #e4ebee;
     --patron-overlay: rgba(38, 54, 74, 0.62);
-    --patron-shadow: rgba(38, 54, 74, 0.1);
+    --patron-shadow: rgba(38, 54, 74, 0.10);
 }
 
 body {
@@ -194,7 +194,7 @@ header .x .menu a.item:hover {
     height: 40%;
     background-color: var(--patron-page);
     clip-path: polygon(0px 78%, 100% 0px, 100% 100%, 0px 100%);
-    content: "";
+    content: '';
     pointer-events: none;
 }
 
@@ -636,7 +636,7 @@ section {
 }
 
 .modular-page .group-item a::after {
-    content: " ›";
+    content: ' ›';
     text-decoration: none;
 }
 
@@ -693,7 +693,7 @@ section {
 }
 
 .modular-page .highlight-item a::after {
-    content: " ›";
+    content: ' ›';
     text-decoration: none;
 }
 
@@ -985,9 +985,7 @@ section {
     font-size: 38px;
 }
 
-.modular-page
-    .intro-content-compact
-    > p:not(.module-kicker):not(.module-actions) {
+.modular-page .intro-content-compact > p:not(.module-kicker):not(.module-actions) {
     max-width: 760px;
     margin-right: auto;
     margin-left: auto;
@@ -1068,6 +1066,7 @@ section {
     .modular-page .intro-content.intro-content-compact h2 {
         font-size: 30px;
     }
+
 }
 
 /*****************************************************************************
@@ -1089,7 +1088,7 @@ section {
 }
 
 .image-background {
-    background-image: url("../images/content-bg.png");
+    background-image: url('../images/content-bg.png');
     background-repeat: no-repeat;
     background-size: 100%;
 }
@@ -1118,8 +1117,7 @@ section {
     padding: 20px 14px 40px 14px;
 }
 
-.page h1,
-.page h2 {
+.page h1, .page h2 {
     font-weight: bold;
     font-family: Skaut, sans-serif;
     letter-spacing: 0px;
@@ -1133,8 +1131,7 @@ section {
     font-size: 24px;
 }
 
-.page h3,
-.page h4 {
+.page h3, .page h4 {
     font-weight: bold;
     font-family: TheMix, sans-serif;
 }

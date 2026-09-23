@@ -16,13 +16,13 @@
 
 ### Supported Page Templates
 
-- Default view template `default.md`
-- Modular page view template `modular.md` (replaces legacy landing layout)
-- Contacts view template `contacts.md`
-- Error view template `error.md`
-- Articles list view template `list-articles.md`
-- Blog view template `list-gallery.md` (used for image gallery list)
-- Gallery view template `gallery.md` (used for image gallery)
+* Default view template `default.md`
+* Modular page view template `modular.md` (replaces legacy landing layout)
+* Contacts view template `contacts.md`
+* Error view template `error.md`
+* Articles list view template `list-articles.md`
+* Blog view template `list-gallery.md` (used for image gallery list)
+* Gallery view template `gallery.md` (used for image gallery)
 
 ## Modular content
 
@@ -31,24 +31,25 @@ can declare its type explicitly in the page header:
 
 ```yaml
 module:
-    type: highlights
-    items:
-        - title: Learn by doing
-          text: Practical activities and shared responsibility.
-          link: /about
+  type: highlights
+  items:
+    -
+      title: Learn by doing
+      text: Practical activities and shared responsibility.
+      link: /about
 ```
 
 The first supported module types are:
 
-- `custom` — general Markdown or custom HTML content.
-- `banner` — a simple full-width text banner.
-- `image-banner` — a configurable image-backed banner with overlay text,
+* `custom` — general Markdown or custom HTML content.
+* `banner` — a simple full-width text banner.
+* `image-banner` — a configurable image-backed banner with overlay text,
   buttons and optional parallax scrolling.
-- `highlights` — a list of manually configured feature items.
-- `groups` — a structured list of groups with age ranges and meeting details.
-- `news` — a list of child pages from a configured page path.
-- `events` — a manually configured list of events.
-- `updates` — an optional two-column news and upcoming-events section.
+* `highlights` — a list of manually configured feature items.
+* `groups` — a structured list of groups with age ranges and meeting details.
+* `news` — a list of child pages from a configured page path.
+* `events` — a manually configured list of events.
+* `updates` — an optional two-column news and upcoming-events section.
 
 Events intentionally do not depend on a calendar plugin yet. The event module
 uses normalized fields such as `date`, `title`, `time`, `location`, `status` and
@@ -62,14 +63,15 @@ where regular meetings take place.
 
 ```yaml
 module:
-    type: groups
-    items:
-        - title: Younger section
-          age: Ages 8–11
-          schedule: Wednesdays, 17:30–19:00
-          location: Club room
-          link: /join
-          link_label: How to join
+  type: groups
+  items:
+    -
+      title: Younger section
+      age: Ages 8–11
+      schedule: Wednesdays, 17:30–19:00
+      location: Club room
+      link: /join
+      link_label: How to join
 ```
 
 The `updates` module combines a short news list with optional manually
@@ -85,12 +87,13 @@ reduced motion.
 
 ```yaml
 module:
-    type: image-banner
-    image: /oddil/fotogalerie/2023-07-02-tabor/plate-01.png
-    parallax: true
-    buttons:
-        - label: See our activities
-          link: /oddil/oddilove-aktivity
+  type: image-banner
+  image: /oddil/fotogalerie/2023-07-02-tabor/plate-01.png
+  parallax: true
+  buttons:
+    -
+      label: See our activities
+      link: /oddil/oddilove-aktivity
 ```
 
 Existing modules without `module.type` continue to work based on their page
@@ -109,11 +112,11 @@ An HTML `<blockquote>` can be used when an attribution is needed.
 
 # Installation
 
-Installing the Patron theme can be done in one of two ways. The Grav GPM (Grav Package Manager) installation method enables you to quickly and easily install the theme with a simple terminal command, while the manual method enables you to do so via a zip file.
+Installing the Patron theme can be done in one of two ways. The Grav GPM (Grav Package Manager) installation method enables you to quickly and easily install the theme with a simple terminal command, while the manual method enables you to do so via a zip file. 
 
 ## GPM Installation (Preferred)
 
-The simplest way to install this theme is via the [Grav Package Manager (GPM)](http://learn.getgrav.org/advanced/grav-gpm) through your system's Terminal (also called the command line). From the root of your Grav install type:
+The simplest way to install this theme is via the [Grav Package Manager (GPM)](http://learn.getgrav.org/advanced/grav-gpm) through your system's Terminal (also called the command line).  From the root of your Grav install type:
 
     bin/gpm install patron
 
@@ -129,7 +132,7 @@ You should now have all the theme files under
 
 ### Developer Installation & Asset Compilation
 
-If you download or clone this repository directly from GitHub, you **must compile and structure the compiled assets** for the theme styling to render correctly.
+If you download or clone this repository directly from GitHub, you **must compile and structure the compiled assets** for the theme styling to render correctly. 
 
 Ensure you have [Node.js](https://nodejs.org/) installed, and run the following commands from the root directory of the theme:
 
@@ -169,7 +172,6 @@ official Skeleton Builder; the theme itself remains independently installable.
 ## Security & Performance Hardening
 
 This theme is designed and managed using secure-by-design standards:
-
 - **Output Encoding:** Complete implementation of context-aware Twig escaping filters (e.g., `|e`, `|e('html_attr')`) on all dynamic inputs, including meta tags, contact profiles, footer menus, and user account metadata to absolute block cross-site scripting (XSS).
 - **Modern Microdata:** Breadcrumb templates conform to modern Schema.org `BreadcrumbList` standards to achieve optimized SEO parsing, replacing deprecated legacy vocabulary attributes.
 - **Lean Asset Pipeline:** Re-engineered developer tasks only stage production minified versions, resulting in over 12MB savings in distribution and server packaging size.
@@ -179,51 +181,42 @@ This theme is designed and managed using secure-by-design standards:
 ```
 organization:
   main_contact:
-    name: 'Example Organization'
-    address: '123 Example Street, Example City, 12345'
-    country: 'Example Country'
-    email: contact@example.org
+    name: 'Acme inc.'
+    address: 'Nice st. 458'
+    country: 'USA'
+    email: info@example.com
   headquarters:
     contacts:
       -
-        name: 'Jane Doe'
-        nickname: JD
-        title: 'Team Leader'
-        phone: '+123 456 789'
-        email: jane.doe@example.org
-        photo: {}
-      -
-        name: 'John Smith'
-        nickname: JS
-        title: 'Assistant Leader'
-        phone: '+987 654 321'
-        email: john.smith@example.org
-        photo: {}
+        name: 'John Doe'
+        nickname: Johny
+        title: 'Branch Director'
+        phone: '+420 123 456 789'
+        email: john@example.com
   logo:
-    user/themes/patron/images/example_logo.png:
-      name: example_logo.png
-      full_path: example_logo.png
+    user/themes/patron/images/my_logo.png:
+      name: my_logo.png
       type: image/png
-      size: 123456
-      path: user/themes/patron/images/example_logo.png
+      size: 314060
+      path: user/themes/patron/images/my_logo.png
   background:
-    user/themes/patron/images/example_bg.png:
-      name: example_bg.png
+    user/themes/patron/images/header-bg.png:
+      name: header-bg.png
       type: image/png
-      size: 654321
-      path: user/themes/patron/images/example_bg.png
-  description: 'This is an example description for the organization.'
+      size: 482368
+      path: user/themes/patron/images/header-bg.png
+  description: 'Lorem ipsum dolor sit amet'
 ```
 
 ## Socials & Links settings
 
 ```
 socials:
-  facebook: 'https://www.facebook.com/example'
+  facebook: 'https://www.facebook.com/skautizlin'
   links:
-    'example.com | Example Website': 'https://www.example.com'
-    'example.org | Example Organization': 'https://www.example.org'
-    'example.net | Example Network': 'https://www.example.net'
+    'stautizlin.cz | Středisko Impeesa Zlín': 'https://www.skautizlin.cz'
+    'skaut.cz | Oficiální skautský web': 'https://www.skaut.cz/'
+    'krizovatka.skaut.cz | Skautská křižovatka': 'https://krizovatka.skaut.cz/'
 ```
 
 ## Essential settings
@@ -236,21 +229,13 @@ settings:
   flash_news_path: /path/to/news
   sticky_info: "Landing page short sticky info!"
   favicon:
-    user/themes/patron/images/example_favicon.png:
-      name: example_favicon.png
-      full_path: example_favicon.png
+    user/themes/patron/images/favicon.png:
+      name: favicon.png
       type: image/png
-      size: 12345
-      path: user/themes/patron/images/example_favicon.png
-  login_link_visible: true
-  banner_text: 'Join us every Thursday at 5 PM!'
-```
-
-## Modules settings
-
-```
-modules:
-  news: /example/news
+      size: 11609
+      path: user/themes/patron/images/favicon.png
+  show_login: true
+  banner_text: 'Hey! Some text here!'
 ```
 
 # Found a bug?
