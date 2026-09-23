@@ -16,13 +16,13 @@
 
 ### Supported Page Templates
 
-* Default view template `default.md`
-* Modular page view template `modular.md` (replaces legacy landing layout)
-* Contacts view template `contacts.md`
-* Error view template `error.md`
-* Articles list view template `list-articles.md`
-* Blog view template `list-gallery.md` (used for image gallery list)
-* Gallery view template `gallery.md` (used for image gallery)
+- Default view template `default.md`
+- Modular page view template `modular.md` (replaces legacy landing layout)
+- Contacts view template `contacts.md`
+- Error view template `error.md`
+- Articles list view template `list-articles.md`
+- Blog view template `list-gallery.md` (used for image gallery list)
+- Gallery view template `gallery.md` (used for image gallery)
 
 ## Modular content
 
@@ -31,25 +31,24 @@ can declare its type explicitly in the page header:
 
 ```yaml
 module:
-  type: highlights
-  items:
-    -
-      title: Learn by doing
-      text: Practical activities and shared responsibility.
-      link: /about
+    type: highlights
+    items:
+        - title: Learn by doing
+          text: Practical activities and shared responsibility.
+          link: /about
 ```
 
 The first supported module types are:
 
-* `custom` — general Markdown or custom HTML content.
-* `banner` — a simple full-width text banner.
-* `image-banner` — a configurable image-backed banner with overlay text,
+- `custom` — general Markdown or custom HTML content.
+- `banner` — a simple full-width text banner.
+- `image-banner` — a configurable image-backed banner with overlay text,
   buttons and optional parallax scrolling.
-* `highlights` — a list of manually configured feature items.
-* `groups` — a structured list of groups with age ranges and meeting details.
-* `news` — a list of child pages from a configured page path.
-* `events` — a manually configured list of events.
-* `updates` — an optional two-column news and upcoming-events section.
+- `highlights` — a list of manually configured feature items.
+- `groups` — a structured list of groups with age ranges and meeting details.
+- `news` — a list of child pages from a configured page path.
+- `events` — a manually configured list of events.
+- `updates` — an optional two-column news and upcoming-events section.
 
 Events intentionally do not depend on a calendar plugin yet. The event module
 uses normalized fields such as `date`, `title`, `time`, `location`, `status` and
@@ -63,15 +62,14 @@ where regular meetings take place.
 
 ```yaml
 module:
-  type: groups
-  items:
-    -
-      title: Younger section
-      age: Ages 8–11
-      schedule: Wednesdays, 17:30–19:00
-      location: Club room
-      link: /join
-      link_label: How to join
+    type: groups
+    items:
+        - title: Younger section
+          age: Ages 8–11
+          schedule: Wednesdays, 17:30–19:00
+          location: Club room
+          link: /join
+          link_label: How to join
 ```
 
 The `updates` module combines a short news list with optional manually
@@ -87,13 +85,12 @@ reduced motion.
 
 ```yaml
 module:
-  type: image-banner
-  image: /oddil/fotogalerie/2023-07-02-tabor/plate-01.png
-  parallax: true
-  buttons:
-    -
-      label: See our activities
-      link: /oddil/oddilove-aktivity
+    type: image-banner
+    image: /oddil/fotogalerie/2023-07-02-tabor/plate-01.png
+    parallax: true
+    buttons:
+        - label: See our activities
+          link: /oddil/oddilove-aktivity
 ```
 
 Existing modules without `module.type` continue to work based on their page
@@ -112,11 +109,11 @@ An HTML `<blockquote>` can be used when an attribution is needed.
 
 # Installation
 
-Installing the Patron theme can be done in one of two ways. The Grav GPM (Grav Package Manager) installation method enables you to quickly and easily install the theme with a simple terminal command, while the manual method enables you to do so via a zip file. 
+Installing the Patron theme can be done in one of two ways. The Grav GPM (Grav Package Manager) installation method enables you to quickly and easily install the theme with a simple terminal command, while the manual method enables you to do so via a zip file.
 
 ## GPM Installation (Preferred)
 
-The simplest way to install this theme is via the [Grav Package Manager (GPM)](http://learn.getgrav.org/advanced/grav-gpm) through your system's Terminal (also called the command line).  From the root of your Grav install type:
+The simplest way to install this theme is via the [Grav Package Manager (GPM)](http://learn.getgrav.org/advanced/grav-gpm) through your system's Terminal (also called the command line). From the root of your Grav install type:
 
     bin/gpm install patron
 
@@ -132,7 +129,7 @@ You should now have all the theme files under
 
 ### Developer Installation & Asset Compilation
 
-If you download or clone this repository directly from GitHub, you **must compile and structure the compiled assets** for the theme styling to render correctly. 
+If you download or clone this repository directly from GitHub, you **must compile and structure the compiled assets** for the theme styling to render correctly.
 
 Ensure you have [Node.js](https://nodejs.org/) installed, and run the following commands from the root directory of the theme:
 
@@ -172,6 +169,7 @@ official Skeleton Builder; the theme itself remains independently installable.
 ## Security & Performance Hardening
 
 This theme is designed and managed using secure-by-design standards:
+
 - **Output Encoding:** Complete implementation of context-aware Twig escaping filters (e.g., `|e`, `|e('html_attr')`) on all dynamic inputs, including meta tags, contact profiles, footer menus, and user account metadata to absolute block cross-site scripting (XSS).
 - **Modern Microdata:** Breadcrumb templates conform to modern Schema.org `BreadcrumbList` standards to achieve optimized SEO parsing, replacing deprecated legacy vocabulary attributes.
 - **Lean Asset Pipeline:** Re-engineered developer tasks only stage production minified versions, resulting in over 12MB savings in distribution and server packaging size.
