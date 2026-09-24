@@ -18,7 +18,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
         {% set favicon = theme.settings.favicon|first %}
         {% if favicon and favicon.path %}
-        <link rel="icon" type="image/png" href="{{ base_url }}/{{ favicon.path|e('html_attr') }}" />
+        <link rel="icon" type="{{ favicon.type|default('image/png')|e('html_attr') }}" href="{{ base_url }}/{{ favicon.path|e('html_attr') }}" />
         {% endif %}
 
         {% block stylesheets %}

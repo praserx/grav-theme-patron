@@ -34,7 +34,7 @@ form:
             fields:
                 organization.tab:
                     type: tab
-                    title: Your organization
+                    title: Organization profile
                     fields:
                         tab.columns:
                             type: columns
@@ -45,37 +45,38 @@ form:
                                         organization.main_contact.name:
                                             type: text
                                             style: vertical
-                                            label: Organization name
-                                            placeholder: "Acme inc."
-                                            help: Official organization or branch full name.
+                                            label: Organization or branch name
+                                            placeholder: "Northbridge Community"
+                                            help: Public name of the organization or branch.
 
                                         organization.main_contact.address:
                                             type: text
                                             style: vertical
-                                            label: Address
-                                            placeholder: "Super palm street 125"
-                                            help: Official organization or branch address.
+                                            label: Street address
+                                            placeholder: "18 Meadow Lane"
+                                            help: Street and building address for the organization or branch.
 
                                         organization.main_contact.country:
                                             type: text
                                             style: vertical
-                                            label: Country
-                                            placeholder: "Moria"
-                                            help: Official main organization or current branch country.
+                                            label: City, postal code and country
+                                            placeholder: "Northbridge, NB4 2QT, United Kingdom"
+                                            help: City, postal code, and country shown in the public contact details.
 
                                         organization.main_contact.email:
                                             type: text
                                             style: vertical
-                                            label: E-mail
-                                            placeholder: "myorg@example.com"
-                                            help: Main organization or current branch e-mail.
+                                            label: Public contact email
+                                            placeholder: "hello@example.org"
+                                            help: Public email address for the organization or current branch.
 
                                         organization.description:
-                                            type: text
+                                            type: textarea
                                             style: vertical
-                                            label: Description
-                                            placeholder: "This is my organization and we making the world better"
-                                            help: Short organization or branch description.
+                                            label: Short organization description
+                                            placeholder: "A community group in Northbridge for people who learn by doing."
+                                            help: Brief description shown in the site footer.
+                                            rows: 3
                                 col2:
                                     type: column
                                     fields:
@@ -85,7 +86,7 @@ form:
                                             style: vertical
                                             label: Organization logo
                                             destination: "theme@:/images"
-                                            help: Landing page header logo.
+                                            help: Logo shown in the landing-page header. A transparent PNG or SVG works best.
                                             multiple: false
                                             autofocus: false
                                             accept:
@@ -97,7 +98,7 @@ form:
                                             style: vertical
                                             label: Background image
                                             destination: "theme@:/images"
-                                            help: Landing page header background.
+                                            help: Image used behind the landing-page header. Use a wide image with enough contrast for text.
                                             multiple: false
                                             autofocus: false
                                             accept:
@@ -105,29 +106,35 @@ form:
 
                         organization.headquarters.contacts:
                             type: list
-                            label: HQ Contacts
-                            help: Add contact to importart peopel in your organization.
+                            label: Key contacts
+                            help: Add people who should appear on the organization contacts page.
                             fields:
                                 .name:
                                     type: text
-                                    label: Name
+                                    label: Full name
+                                    placeholder: "Morgan Reed"
                                 .nickname:
                                     type: text
-                                    label: Nickname
+                                    label: Preferred name
+                                    placeholder: "Morgan"
                                 .title:
                                     type: text
                                     label: Title
+                                    placeholder: "Branch coordinator"
                                 .phone:
                                     type: text
                                     label: Phone
+                                    placeholder: "+44 20 1234 5678"
                                 .email:
                                     type: text
-                                    label: E-mail
+                                    label: Email
+                                    placeholder: "morgan@example.org"
                                     validate:
                                         type: email
                                 .photo:
                                     type: file
                                     label: Photo
+                                    help: Optional profile photo shown on the contacts page.
                                     destination: "theme@:/images"
                                     multiple: false
                                     autofocus: false
@@ -136,7 +143,7 @@ form:
 
                 socials.tab:
                     type: tab
-                    title: Socials & Links
+                    title: Socials & links
                     fields:
                         tab.columns:
                             type: columns
@@ -147,16 +154,17 @@ form:
                                         socials.facebook:
                                             type: text
                                             style: vertical
-                                            label: Organization or branch facebook link
-                                            placeholder: "https://facebook.com/my-corp"
+                                            label: Facebook page
+                                            placeholder: "https://www.facebook.com/my-community"
+                                            help: Full URL of the organization or branch Facebook page. Leave blank if unused.
 
                                         socials.links:
                                             type: array
                                             style: vertical
-                                            label: Important links
-                                            help: Partner organization or headquarters links
-                                            placeholder_key: title
-                                            placeholder_value: link
+                                            label: Useful links
+                                            help: Add partner, headquarters, documentation, or other useful links.
+                                            placeholder_key: Link name
+                                            placeholder_value: "https://example.org"
                                 col2:
                                     type: column
                                     fields:
@@ -166,7 +174,7 @@ form:
 
                 settings.tab:
                     type: tab
-                    title: Settings
+                    title: Site settings
                     fields:
                         tab.columns:
                             type: columns
@@ -177,12 +185,24 @@ form:
                                         settings.copyright:
                                             type: text
                                             style: vertical
-                                            label: Web page copyright
+                                            label: Footer copyright text
+                                            placeholder: "2026 Northbridge Community"
+                                            help: Text shown after the copyright symbol in the footer.
+                                        settings.additional_page_info:
+                                            type: textarea
+                                            style: vertical
+                                            label: Footer note
+                                            placeholder: "All names, dates, and details on this page are fictional."
+                                            help: Optional additional note shown on the right side of the footer.
+                                            rows: 3
+                                col2:
+                                    type: column
+                                    fields:
                                         settings.color_palette:
                                             type: select
                                             style: vertical
-                                            label: Color palette
-                                            help: Choose a coordinated color palette for the site.
+                                            label: Site color palette
+                                            help: Choose a coordinated color palette for the whole site.
                                             default: patron
                                             options:
                                                 patron: Patron blue
@@ -193,31 +213,24 @@ form:
                                             name: favicon
                                             type: file
                                             style: vertical
-                                            label: Web page favicon
+                                            label: Site favicon
                                             destination: "theme@:/images"
+                                            help: Small icon shown in browser tabs. PNG, SVG, or ICO formats are supported.
                                             multiple: false
                                             autofocus: false
                                             accept:
-                                                - image/*
+                                                - image/png
+                                                - image/svg+xml
+                                                - image/x-icon
                                         settings.show_login:
                                             type: toggle
                                             style: vertical
-                                            label: Show login
+                                            label: Show login link
                                             highlight: 1
-                                            help: Show login link in main menu.
+                                            help: Show the public login link in the main menu. Signed-in users still see their account menu.
                                             default: 1
                                             options:
                                                 1: Yes
                                                 0: No
                                             validate:
                                                 type: bool
-                                        settings.additional_page_info:
-                                            type: text
-                                            style: vertical
-                                            label: Additional page info
-                                col2:
-                                    type: column
-                                    fields:
-                                        spacer:
-                                            name: honeypot
-                                            type: honeypot
