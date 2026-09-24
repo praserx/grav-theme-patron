@@ -34,7 +34,7 @@ form:
             fields:
                 organization.tab:
                     type: tab
-                    title: Organization profile
+                    title: THEME_PATRON.CONFIG.TAB_ORGANIZATION
                     fields:
                         tab.columns:
                             type: columns
@@ -45,37 +45,37 @@ form:
                                         organization.main_contact.name:
                                             type: text
                                             style: vertical
-                                            label: Organization or branch name
-                                            placeholder: "Northbridge Community"
-                                            help: Public name of the organization or branch.
+                                            label: THEME_PATRON.CONFIG.ORGANIZATION_NAME_LABEL
+                                            placeholder: THEME_PATRON.CONFIG.ORGANIZATION_NAME_PLACEHOLDER
+                                            help: THEME_PATRON.CONFIG.ORGANIZATION_NAME_HELP
 
                                         organization.main_contact.address:
                                             type: text
                                             style: vertical
-                                            label: Street address
-                                            placeholder: "18 Meadow Lane"
-                                            help: Street and building address for the organization or branch.
+                                            label: THEME_PATRON.CONFIG.ORGANIZATION_ADDRESS_LABEL
+                                            placeholder: THEME_PATRON.CONFIG.ORGANIZATION_ADDRESS_PLACEHOLDER
+                                            help: THEME_PATRON.CONFIG.ORGANIZATION_ADDRESS_HELP
 
                                         organization.main_contact.country:
                                             type: text
                                             style: vertical
-                                            label: City, postal code and country
-                                            placeholder: "Northbridge, NB4 2QT, United Kingdom"
-                                            help: City, postal code, and country shown in the public contact details.
+                                            label: THEME_PATRON.CONFIG.ORGANIZATION_LOCATION_LABEL
+                                            placeholder: THEME_PATRON.CONFIG.ORGANIZATION_LOCATION_PLACEHOLDER
+                                            help: THEME_PATRON.CONFIG.ORGANIZATION_LOCATION_HELP
 
                                         organization.main_contact.email:
                                             type: text
                                             style: vertical
-                                            label: Public contact email
-                                            placeholder: "hello@example.org"
-                                            help: Public email address for the organization or current branch.
+                                            label: THEME_PATRON.CONFIG.ORGANIZATION_EMAIL_LABEL
+                                            placeholder: THEME_PATRON.CONFIG.ORGANIZATION_EMAIL_PLACEHOLDER
+                                            help: THEME_PATRON.CONFIG.ORGANIZATION_EMAIL_HELP
 
                                         organization.description:
                                             type: textarea
                                             style: vertical
-                                            label: Short organization description
-                                            placeholder: "A community group in Northbridge for people who learn by doing."
-                                            help: Brief description shown in the site footer.
+                                            label: THEME_PATRON.CONFIG.ORGANIZATION_DESCRIPTION_LABEL
+                                            placeholder: THEME_PATRON.CONFIG.ORGANIZATION_DESCRIPTION_PLACEHOLDER
+                                            help: THEME_PATRON.CONFIG.ORGANIZATION_DESCRIPTION_HELP
                                             rows: 3
                                 col2:
                                     type: column
@@ -84,9 +84,9 @@ form:
                                             name: logo
                                             type: file
                                             style: vertical
-                                            label: Organization logo
+                                            label: THEME_PATRON.CONFIG.LOGO_LABEL
                                             destination: "theme@:/images"
-                                            help: Logo shown in the landing-page header. A transparent PNG or SVG works best.
+                                            help: THEME_PATRON.CONFIG.LOGO_HELP
                                             multiple: false
                                             autofocus: false
                                             accept:
@@ -96,9 +96,9 @@ form:
                                             name: background
                                             type: file
                                             style: vertical
-                                            label: Background image
+                                            label: THEME_PATRON.CONFIG.BACKGROUND_LABEL
                                             destination: "theme@:/images"
-                                            help: Image used behind the landing-page header. Use a wide image with enough contrast for text.
+                                            help: THEME_PATRON.CONFIG.BACKGROUND_HELP
                                             multiple: false
                                             autofocus: false
                                             accept:
@@ -106,35 +106,35 @@ form:
 
                         organization.headquarters.contacts:
                             type: list
-                            label: Key contacts
-                            help: Add people who should appear on the organization contacts page.
+                            label: THEME_PATRON.CONFIG.CONTACTS_LABEL
+                            help: THEME_PATRON.CONFIG.CONTACTS_HELP
                             fields:
                                 .name:
                                     type: text
-                                    label: Full name
-                                    placeholder: "Morgan Reed"
+                                    label: THEME_PATRON.CONFIG.CONTACT_NAME_LABEL
+                                    placeholder: THEME_PATRON.CONFIG.CONTACT_NAME_PLACEHOLDER
                                 .nickname:
                                     type: text
-                                    label: Preferred name
-                                    placeholder: "Morgan"
+                                    label: THEME_PATRON.CONFIG.CONTACT_NICKNAME_LABEL
+                                    placeholder: THEME_PATRON.CONFIG.CONTACT_NICKNAME_PLACEHOLDER
                                 .title:
                                     type: text
-                                    label: Title
-                                    placeholder: "Branch coordinator"
+                                    label: THEME_PATRON.CONFIG.CONTACT_TITLE_LABEL
+                                    placeholder: THEME_PATRON.CONFIG.CONTACT_TITLE_PLACEHOLDER
                                 .phone:
                                     type: text
-                                    label: Phone
-                                    placeholder: "+44 20 1234 5678"
+                                    label: THEME_PATRON.CONFIG.CONTACT_PHONE_LABEL
+                                    placeholder: THEME_PATRON.CONFIG.CONTACT_PHONE_PLACEHOLDER
                                 .email:
                                     type: text
-                                    label: Email
-                                    placeholder: "morgan@example.org"
+                                    label: THEME_PATRON.CONFIG.CONTACT_EMAIL_LABEL
+                                    placeholder: THEME_PATRON.CONFIG.CONTACT_EMAIL_PLACEHOLDER
                                     validate:
                                         type: email
                                 .photo:
                                     type: file
-                                    label: Photo
-                                    help: Optional profile photo shown on the contacts page.
+                                    label: THEME_PATRON.CONFIG.CONTACT_PHOTO_LABEL
+                                    help: THEME_PATRON.CONFIG.CONTACT_PHOTO_HELP
                                     destination: "theme@:/images"
                                     multiple: false
                                     autofocus: false
@@ -143,7 +143,7 @@ form:
 
                 socials.tab:
                     type: tab
-                    title: Socials & links
+                    title: THEME_PATRON.CONFIG.TAB_SOCIALS
                     fields:
                         tab.columns:
                             type: columns
@@ -154,17 +154,17 @@ form:
                                         socials.facebook:
                                             type: text
                                             style: vertical
-                                            label: Facebook page
-                                            placeholder: "https://www.facebook.com/my-community"
-                                            help: Full URL of the organization or branch Facebook page. Leave blank if unused.
+                                            label: THEME_PATRON.CONFIG.FACEBOOK_LABEL
+                                            placeholder: THEME_PATRON.CONFIG.FACEBOOK_PLACEHOLDER
+                                            help: THEME_PATRON.CONFIG.FACEBOOK_HELP
 
                                         socials.links:
                                             type: array
                                             style: vertical
-                                            label: Useful links
-                                            help: Add partner, headquarters, documentation, or other useful links.
-                                            placeholder_key: Link name
-                                            placeholder_value: "https://example.org"
+                                            label: THEME_PATRON.CONFIG.LINKS_LABEL
+                                            help: THEME_PATRON.CONFIG.LINKS_HELP
+                                            placeholder_key: THEME_PATRON.CONFIG.LINKS_PLACEHOLDER_KEY
+                                            placeholder_value: THEME_PATRON.CONFIG.LINKS_PLACEHOLDER_VALUE
                                 col2:
                                     type: column
                                     fields:
@@ -174,7 +174,7 @@ form:
 
                 settings.tab:
                     type: tab
-                    title: Site settings
+                    title: THEME_PATRON.CONFIG.TAB_SETTINGS
                     fields:
                         tab.columns:
                             type: columns
@@ -185,15 +185,15 @@ form:
                                         settings.copyright:
                                             type: text
                                             style: vertical
-                                            label: Footer copyright text
-                                            placeholder: "2026 Northbridge Community"
-                                            help: Text shown after the copyright symbol in the footer.
+                                            label: THEME_PATRON.CONFIG.COPYRIGHT_LABEL
+                                            placeholder: THEME_PATRON.CONFIG.COPYRIGHT_PLACEHOLDER
+                                            help: THEME_PATRON.CONFIG.COPYRIGHT_HELP
                                         settings.additional_page_info:
                                             type: textarea
                                             style: vertical
-                                            label: Footer note
-                                            placeholder: "All names, dates, and details on this page are fictional."
-                                            help: Optional additional note shown on the right side of the footer.
+                                            label: THEME_PATRON.CONFIG.FOOTER_NOTE_LABEL
+                                            placeholder: THEME_PATRON.CONFIG.FOOTER_NOTE_PLACEHOLDER
+                                            help: THEME_PATRON.CONFIG.FOOTER_NOTE_HELP
                                             rows: 3
                                 col2:
                                     type: column
@@ -201,21 +201,21 @@ form:
                                         settings.color_palette:
                                             type: select
                                             style: vertical
-                                            label: Site color palette
-                                            help: Choose a coordinated color palette for the whole site.
+                                            label: THEME_PATRON.CONFIG.COLOR_PALETTE_LABEL
+                                            help: THEME_PATRON.CONFIG.COLOR_PALETTE_HELP
                                             default: patron
                                             options:
-                                                patron: Patron blue
-                                                forest: Forest and honey
-                                                terracotta: Terracotta and plum
-                                                slate: Slate and coral
+                                                patron: THEME_PATRON.CONFIG.PALETTE_PATRON
+                                                forest: THEME_PATRON.CONFIG.PALETTE_FOREST
+                                                terracotta: THEME_PATRON.CONFIG.PALETTE_TERRACOTTA
+                                                slate: THEME_PATRON.CONFIG.PALETTE_SLATE
                                         settings.favicon:
                                             name: favicon
                                             type: file
                                             style: vertical
-                                            label: Site favicon
+                                            label: THEME_PATRON.CONFIG.FAVICON_LABEL
                                             destination: "theme@:/images"
-                                            help: Small icon shown in browser tabs. PNG, SVG, or ICO formats are supported.
+                                            help: THEME_PATRON.CONFIG.FAVICON_HELP
                                             multiple: false
                                             autofocus: false
                                             accept:
@@ -225,12 +225,12 @@ form:
                                         settings.show_login:
                                             type: toggle
                                             style: vertical
-                                            label: Show login link
+                                            label: THEME_PATRON.CONFIG.SHOW_LOGIN_LABEL
                                             highlight: 1
-                                            help: Show the public login link in the main menu. Signed-in users still see their account menu.
+                                            help: THEME_PATRON.CONFIG.SHOW_LOGIN_HELP
                                             default: 1
                                             options:
-                                                1: Yes
-                                                0: No
+                                                1: THEME_PATRON.CONFIG.YES
+                                                0: THEME_PATRON.CONFIG.NO
                                             validate:
                                                 type: bool
