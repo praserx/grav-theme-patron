@@ -27,7 +27,7 @@
                 <p>{{ item.text|e }}</p>
                 {% endif %}
                 {% if item.link %}
-                <a href="{{ item.link|e('html_attr') }}">
+                <a class="patron-link patron-link-arrow" href="{{ item.link|e('html_attr') }}">
                     {{ item.link_label|default('Read more')|e }}
                 </a>
                 {% endif %}

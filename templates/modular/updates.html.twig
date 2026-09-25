@@ -39,7 +39,7 @@
                     <span class="news-new">New</span>
                     {% endif %}
                     {% if show_tags and tag != '' %}
-                    &nbsp;<span class="ui red horizontal label">{{ tag|e }}</span>
+                    <span class="patron-tag patron-tag-topic">{{ tag|e }}</span>
                     {% endif %}
                 </a>
                 {% endfor %}
@@ -73,10 +73,11 @@
                             {% endif %}
                         </div>
                         {% if event.status %}
-                        <span class="ui horizontal label">{{ event.status|e }}</span>
+                        {% set status_class = event.status|lower|replace({' ': '-', '_': '-'}) %}
+                        <span class="patron-status patron-status-{{ status_class|e('html_attr') }}">{{ event.status|e }}</span>
                         {% endif %}
                         {% if event.link %}
-                        <a href="{{ event.link|e('html_attr') }}">
+                        <a class="patron-link patron-link-arrow" href="{{ event.link|e('html_attr') }}">
                             {{ event.link_label|default('More information')|e }}
                         </a>
                         {% endif %}
@@ -86,7 +87,7 @@
             </div>
             {% if event_config.link %}
             <p class="updates-more">
-                <a href="{{ event_config.link|e('html_attr') }}">
+                <a class="patron-link patron-link-arrow" href="{{ event_config.link|e('html_attr') }}">
                     {{ event_config.link_label|default('View all events')|e }}
                 </a>
             </p>

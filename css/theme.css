@@ -119,6 +119,149 @@ a:hover {
     color: var(--patron-accent);
 }
 
+/*
+ * Shared action, link, tag, and status components.
+ * Keep these separate from the navigation rules below so the menu can retain
+ * its existing visual treatment while content actions feel more intentional.
+ */
+body .ui.button {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    padding: 11px 19px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    box-shadow: none;
+    font-family: TheMix, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.25em;
+    text-align: center;
+    transition:
+        background-color 150ms ease,
+        border-color 150ms ease,
+        color 150ms ease,
+        box-shadow 150ms ease;
+}
+
+body .ui.button.primary {
+    background-color: var(--patron-primary);
+    border-color: var(--patron-primary);
+    color: var(--patron-on-dark);
+}
+
+body .ui.button.primary:hover,
+body .ui.button.primary:active {
+    background-color: var(--patron-heading);
+    border-color: var(--patron-heading);
+    color: var(--patron-on-dark);
+}
+
+body .ui.button.basic {
+    background-color: transparent;
+    border-color: var(--patron-primary);
+    color: var(--patron-primary);
+}
+
+body .ui.button.basic:hover,
+body .ui.button.basic:active {
+    background-color: var(--patron-surface-alt);
+    border-color: var(--patron-heading);
+    color: var(--patron-heading);
+}
+
+body .ui.button:focus-visible,
+.modular-page .patron-link:focus-visible,
+.modular-page a:not(.item):not(.ui.button):focus-visible,
+.page a:not(.item):not(.ui.button):focus-visible,
+footer a:focus-visible {
+    outline: 2px solid var(--patron-accent);
+    outline-offset: 3px;
+}
+
+body .ui.button:disabled,
+body .ui.button.disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+}
+
+.modular-page .patron-link {
+    color: var(--patron-accent);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    transition: color 150ms ease;
+}
+
+.modular-page .patron-link:hover {
+    color: var(--patron-heading);
+}
+
+.modular-page .patron-link-arrow::after {
+    content: " ›";
+    text-decoration: none;
+}
+
+.patron-tag,
+.patron-status,
+.news-new {
+    display: inline-flex;
+    min-height: 24px;
+    align-items: center;
+    padding: 3px 9px;
+    border: 1px solid var(--patron-border);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 0.25px;
+    line-height: 1.2em;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.patron-tag {
+    margin-left: 8px;
+    background-color: var(--patron-surface-alt);
+    border-color: var(--patron-border);
+    color: var(--patron-heading);
+}
+
+.patron-status {
+    background-color: var(--patron-surface-alt);
+    color: var(--patron-text);
+}
+
+.patron-status-open {
+    background-color: #eaf5eb;
+    border-color: #b9dabb;
+    color: #286535;
+}
+
+.patron-status-full,
+.patron-status-limited {
+    background-color: #fff5dd;
+    border-color: #e7c77f;
+    color: #704b0a;
+}
+
+.patron-status-closed,
+.patron-status-cancelled {
+    background-color: #fbeceb;
+    border-color: #e4b5b1;
+    color: #8b302b;
+}
+
+.news-new {
+    margin-left: 8px;
+    background-color: var(--patron-accent);
+    border-color: var(--patron-accent);
+    color: var(--patron-on-dark);
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
 /*****************************************************************************
  *************************  Main menu definition  ****************************
  *****************************************************************************/
@@ -292,21 +435,6 @@ section {
     border-top: 3px solid var(--patron-primary);
 }
 
-.modular-page .news-new {
-    display: inline-block;
-    margin-left: 8px;
-    padding: 2px 6px;
-    border-radius: 2px;
-    background-color: var(--patron-accent);
-    color: var(--patron-on-dark);
-    font-size: 11px;
-    font-weight: bold;
-    letter-spacing: 0.5px;
-    line-height: 1.3em;
-    text-transform: uppercase;
-    vertical-align: middle;
-}
-
 .modular-page .banner-text {
     background-color: var(--patron-heading);
 }
@@ -372,9 +500,17 @@ section {
 
 .modular-page .image-banner-actions .ui.button.primary {
     background-color: var(--patron-accent);
+    border-color: var(--patron-accent);
 }
 
 .modular-page .image-banner-actions .ui.button.basic {
+    border-color: var(--patron-on-dark);
+    color: var(--patron-on-dark);
+}
+
+.modular-page .image-banner-actions .ui.button.basic:hover,
+.modular-page .image-banner-actions .ui.button.basic:active {
+    background-color: rgba(255, 255, 255, 0.14);
     border-color: var(--patron-on-dark);
     color: var(--patron-on-dark);
 }
@@ -414,16 +550,6 @@ section {
     font-weight: bold;
     line-height: 1.4em;
     opacity: 0.78;
-}
-
-.modular-page .ui.button.primary {
-    background-color: var(--patron-primary);
-    color: var(--patron-on-dark);
-}
-
-.modular-page .ui.button.primary:hover {
-    background-color: var(--patron-heading);
-    color: var(--patron-on-dark);
 }
 
 .modular-page .module-heading {
@@ -522,11 +648,6 @@ section {
 .modular-page .updates-more {
     margin: 18px 0px 0px;
     text-align: center;
-}
-
-.modular-page .updates-more a {
-    color: var(--patron-accent);
-    text-decoration: underline;
 }
 
 .modular-page .highlight-list {
@@ -629,17 +750,6 @@ section {
     line-height: 1.55em;
 }
 
-.modular-page .group-item a {
-    color: var(--patron-accent);
-    font-size: 17px;
-    text-decoration: underline;
-}
-
-.modular-page .group-item a::after {
-    content: " ›";
-    text-decoration: none;
-}
-
 .modular-page .highlight-column {
     display: flex;
     flex: 1 1 0px;
@@ -685,21 +795,26 @@ section {
     line-height: 1.55em;
 }
 
-.modular-page .highlight-item a {
-    color: var(--patron-accent);
+.modular-page .event-details a {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.modular-page .group-item .patron-link,
+.modular-page .highlight-item .patron-link {
     font-size: 17px;
     font-weight: normal;
-    text-decoration: underline;
 }
 
-.modular-page .highlight-item a::after {
-    content: " ›";
-    text-decoration: none;
-}
-
-.modular-page .event-details a {
+.modular-page .event-details .patron-link {
     color: var(--patron-primary);
     font-size: 14px;
+    font-weight: bold;
+}
+
+.modular-page .updates-more .patron-link {
+    display: inline-block;
+    font-size: 15px;
     font-weight: bold;
 }
 
@@ -739,6 +854,12 @@ section {
 }
 
 @media (max-width: 767px) {
+    body .ui.button {
+        min-height: 48px;
+        padding-right: 17px;
+        padding-left: 17px;
+    }
+
     header .x > .menu {
         display: block;
         padding: 6px 14px 8px;
@@ -949,6 +1070,11 @@ section {
 }
 
 @media (prefers-reduced-motion: reduce) {
+    body .ui.button,
+    .modular-page .patron-link {
+        transition: none;
+    }
+
     .modular-page .image-banner-parallax {
         background-attachment: scroll;
     }

@@ -33,7 +33,7 @@
                 <p class="group-text">{{ group.text|e }}</p>
                 {% endif %}
                 {% if group.link %}
-                <a href="{{ group.link|e('html_attr') }}">
+                <a class="patron-link patron-link-arrow" href="{{ group.link|e('html_attr') }}">
                     {{ group.link_label|default('More information')|e }}
                 </a>
                 {% endif %}

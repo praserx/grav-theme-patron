@@ -31,14 +31,15 @@
                     <span>{{ event.location|e }}</span>
                     {% endif %}
                     {% if event.status %}
-                    <span class="ui horizontal label">{{ event.status|e }}</span>
+                    {% set status_class = event.status|lower|replace({' ': '-', '_': '-'}) %}
+                    <span class="patron-status patron-status-{{ status_class|e('html_attr') }}">{{ event.status|e }}</span>
                     {% endif %}
                 </div>
                 {% if event.description %}
                 <p>{{ event.description|e }}</p>
                 {% endif %}
                 {% if event.link %}
-                <a href="{{ event.link|e('html_attr') }}">
+                <a class="patron-link patron-link-arrow" href="{{ event.link|e('html_attr') }}">
                     {{ event.link_label|default('More information')|e }}
                 </a>
                 {% endif %}

@@ -18,7 +18,7 @@
                 <a href="{{ child.url|e('html_attr') }}" class="item">
                     {{ child.header.title|e }}
                     {% if tag != '' %}
-                    &nbsp;<span class="ui red horizontal label">{{ tag|e }}</span>
+                    <span class="patron-tag patron-tag-topic">{{ tag|e }}</span>
                     {% endif %}
                 </a>
                 {% endfor %}
