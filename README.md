@@ -210,11 +210,11 @@ organization:
 
 ```
 socials:
-  facebook: 'https://www.facebook.com/skautizlin'
+  facebook: 'https://example.com/facebook-page'
   links:
-    'stautizlin.cz | Středisko Impeesa Zlín': 'https://www.skautizlin.cz'
-    'skaut.cz | Oficiální skautský web': 'https://www.skaut.cz/'
-    'krizovatka.skaut.cz | Skautská křižovatka': 'https://krizovatka.skaut.cz/'
+    'example.org | Example community website': 'https://example.org/community'
+    'scouting.example.org | Example scouting network': 'https://scouting.example.org/'
+    'links.example.org | Example resource hub': 'https://links.example.org/'
 ```
 
 ## Essential settings
