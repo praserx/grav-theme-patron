@@ -1,0 +1,39 @@
+<div class="container highlights">
+    {% if module.header.title %}
+    <div class="module-heading">
+        <h2>{{ module.header.title|e }}</h2>
+    </div>
+    {% endif %}
+
+    {% if content|trim %}
+    <div class="module-intro">
+        {{ content|raw }}
+    </div>
+    {% endif %}
+
+    {% set items = module.header.module.items|default([]) %}
+    {% if items %}
+    <div class="row highlight-list">
+        {% for item in items %}
+        <div class="highlight-column">
+            <article class="highlight-item">
+                {% if item.icon %}
+                <i class="{{ item.icon|e('html_attr') }} highlight-icon" aria-hidden="true"></i>
+                {% endif %}
+                {% if item.title %}
+                <h3>{{ item.title|e }}</h3>
+                {% endif %}
+                {% if item.text %}
+                <p>{{ item.text|e }}</p>
+                {% endif %}
+                {% if item.link %}
+                <a class="patron-link patron-link-arrow" href="{{ item.link|e('html_attr') }}">
+                    {{ item.link_label|default('Read more')|e }}
+                </a>
+                {% endif %}
+            </article>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>

@@ -1,0 +1,32 @@
+{% set image = module.header.module.image|default(theme_url ~ '/images/header-bg.png') %}
+{% set parallax = module.header.module.parallax is defined ? module.header.module.parallax : true %}
+{% set buttons = module.header.module.buttons|default([]) %}
+
+<section class="image-banner{% if parallax %} image-banner-parallax{% endif %}" style="background-image: url({{ image|e('html_attr') }});">
+    <div class="image-banner-overlay">
+        <div class="container">
+            <div class="image-banner-content">
+                {% if module.header.title %}
+                <h2>{{ module.header.title|e }}</h2>
+                {% endif %}
+
+                {% if content|trim %}
+                <div class="image-banner-text">
+                    {{ content|raw }}
+                </div>
+                {% endif %}
+
+                {% if buttons %}
+                <p class="image-banner-actions">
+                    {% for button in buttons %}
+                    {% set button_style = button.style|default('primary') %}
+                    <a class="ui button patron-button{% if button_style == 'secondary' %} patron-button-secondary basic{% else %} patron-button-primary primary{% endif %}" href="{{ button.link|default('#')|e('html_attr') }}">
+                        {{ button.label|default('Learn more')|e }}
+                    </a>
+                    {% endfor %}
+                </p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>

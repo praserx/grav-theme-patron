@@ -1,16 +1,34 @@
-# Makefile for Grav theme asset management
+# Variables
+PHP = php
+COMPOSER = composer
+PHPUNIT = vendor/bin/phpunit
+PHPCS = vendor/bin/phpcs
+PHPCBF = vendor/bin/phpcbf
 
+# Default target
+all: install test
+
+# Install dependencies
 install:
-	npm install
+    $(COMPOSER) install
 
-update:
-	npm update
+# Run tests
+test:
+    $(PHPUNIT)
 
-prepare:
-	bash prepare.sh
+# Run code sniffer
+lint:
+    $(PHPCS) --standard=PSR12 src/
 
-prettier-check:
-	npm run prettier:check
+# Fix coding standards
+fix:
+    $(PHPCBF) --standard=PSR12 src/
 
-prettier-fix:
-	npm run prettier:fix
+# Clean up
+clean:
+	rm -rf vendor
+	rm -rf composer.lock
+	rm -rf node_modules
+	rm -rf assets
+
+.PHONY: all install test lint fix clean

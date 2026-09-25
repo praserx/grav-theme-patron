@@ -1,52 +1,47 @@
 {% set theme_config = attribute(config.themes, config.system.pages.theme) %}
+{% set palette_classes = {
+    'patron': 'palette-patron',
+    'forest': 'palette-forest',
+    'terracotta': 'palette-terracotta',
+    'slate': 'palette-slate'
+} %}
+{% set selected_palette = theme.settings.color_palette|default('patron') %}
+{% set palette_class = palette_classes[selected_palette]|default('palette-patron') %}
+{% set body_classes = page.header.body_classes|default('') %}
 <!DOCTYPE html>
 <html lang="{{ grav.language.getLanguage ?: 'en' }}">
     <head>
-        {% block head %}
+    {% block head %}
         <meta charset="utf-8" />
-        <title>
-            {% if header.title %} {{ header.title }} | {% endif %} {{ site.title
-            }}
-        </title>
+        <title>{% if header.title %}{{ header.title }} | {% endif %}{{ site.title }}</title>
         {% include 'partials/metadata.html.twig' %}
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
-        />
-        <meta
-            name="description"
-            content="{{ site.metadata.description ?: site.metadata.description }}"
-        />
-        <meta
-            name="keywords"
-            content="{{ site.metadata.keywords ?: site.metadata.keywords }}"
-        />
-        <meta
-            name="author"
-            content="{{ site.author.name ?: site.author.name }}"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            href="{{ base_url }}/{{ (theme.settings.site.favicon | first).path }}"
-        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        {% set favicon = theme.settings.favicon|first %}
+        {% if favicon and favicon.path %}
+        <link rel="icon" type="{{ favicon.type|default('image/png')|e('html_attr') }}" href="{{ base_url }}/{{ favicon.path|e('html_attr') }}" />
+        {% endif %}
 
-        {% block stylesheets %} {% do
-        assets.addCss('theme://assets/bootstrap/css/bootstrap.min.css',150) %}
-        {% do assets.addCss('theme://assets/semantic-ui/semantic.min.css',140)
-        %} {% do assets.addCss('theme://assets/fontawesome/css/all.min.css',130)
-        %} {% do assets.addCss('theme://css/fonts.css',110) %} {% do
-        assets.addCss('theme://css/theme.css',105) %} {% do
-        assets.addCss('theme://css/plugin-login.css',104) %} {% do
-        assets.addCss('theme://css/custom.css',100) %} {% endblock %} {% block
-        javascripts %} {% do
-        assets.addJs('theme://assets/jquery/jquery.min.js',101) %} {% do
-        assets.addJs('theme://assets/semantic-ui/semantic.min.js',100) %} {% do
-        assets.addJs('theme://js/slidebars.min.js') %} {% endblock %} {% block
-        assets deferred %} {{ assets.css()|raw }} {{ assets.js()|raw }} {%
-        endblock %} {% endblock %}
+        {% block stylesheets %}
+            {% do assets.addCss('theme://assets/bootstrap/css/bootstrap.min.css',150) %}
+            {% do assets.addCss('theme://assets/semantic-ui/semantic.min.css',140) %}
+            {% do assets.addCss('theme://assets/fontawesome/css/all.min.css',130) %}
+            {% do assets.addCss('theme://css/fonts.css',110) %}
+            {% do assets.addCss('theme://css/theme.css',105) %}
+            {% do assets.addCss('theme://css/plugin-login.css',104) %}
+        {% endblock %}
+
+         {% block javascripts %}
+            {% do assets.addJs('theme://assets/jquery/jquery.min.js',101) %}
+            {% do assets.addJs('theme://assets/semantic-ui/semantic.min.js',100) %}
+        {% endblock %}
+
+        {% block assets deferred %}
+            {{ assets.css()|raw }}
+            {{ assets.js()|raw }}
+        {% endblock %}
+    {% endblock %}
     </head>
-    <body id="top" class="{{ page.header.body_classes }}">
+    <body id="top" class="{{ (body_classes ~ ' ' ~ palette_class)|trim|e('html_attr') }}">
         {% if page.template != 'modular' %}
         <!-- Header -->
         {% include 'partials/header.html.twig' %}
@@ -54,17 +49,33 @@
         {% endif %}
 
         <!-- Content -->
-        <section>{% block content %}{% endblock %}</section>
+        <section{% if page.template == 'modular' %} class="modular-page"{% endif %}>
+        {% block content %}{% endblock %}
+        </section>
         <!-- Content -->
 
         <!-- Footer -->
         {% include 'partials/footer.html.twig' %}
         <!-- Footer -->
 
-        {% block bottom %} {{ assets.js('bottom')|raw }} {% endblock %}
+        {% block bottom %}
+            {{ assets.js('bottom')|raw }}
+        {% endblock %}
 
         <script>
-            $(".ui.dropdown").dropdown({ on: "click", action: "nothing" });
+            $('.ui.dropdown').dropdown({
+                on: 'click',
+                action: 'nothing'
+            });
+
+            $('.mobile-nav-toggle').on('click', function () {
+                var $toggle = $(this);
+                var $menu = $('#' + $toggle.attr('aria-controls'));
+                var isOpen = $toggle.attr('aria-expanded') === 'true';
+
+                $toggle.attr('aria-expanded', String(!isOpen));
+                $menu.toggleClass('is-open', !isOpen);
+            });
         </script>
     </body>
 </html>

@@ -1,59 +1,236 @@
-# Theme metadata
 name: Patron
-version: 2.0.0
-description: "Patron theme originally made for non-profit organization"
+slug: patron
+type: theme
+version: 3.0.0-alpha
+description: "Patron theme orginaly made for non-profit organization"
 icon: asterisk
-
-# Author information
 author:
-  name: Praser
-  email: praserx@gmail.com
-  url: https://github.com/praserx
-
-# Project information
+    name: Praser
+    email: praserx@gmail.com
+    url: https://github.com/praserx
 homepage: https://github.com/praserx/grav-theme-patron
 keywords: patron, theme, core, modern, fast, responsive, html5, css3, non-profit
 bugs: https://github.com/praserx/grav-theme-patron/issues
 license: MIT
 
-# Theme dependencies
+compatibility:
+    grav:
+        - "1.7"
+        - "2.0"
+
 dependencies:
-  # Grav CMS
-  - { name: grav, version: '>=1.7.0' }
-  # Plugins
-  - { name: form, version: '>=4.1.0' }
-  - { name: login, version: '>=3.3.0' }
-  - { name: pagination, version: '>=1.4.0' }
-  - { name: breadcrumbs, version: '>=1.6.0' }
-  - { name: unitegallery, version: '>=1.1.0' }
+    - { name: grav, version: ">=1.7.0" }
+    - { name: form, version: ">=4.1.0" }
+    - { name: login, version: ">=3.3.0" }
+    - { name: pagination, version: ">=1.4.0" }
+    - { name: breadcrumbs, version: ">=1.6.0" }
+    - { name: unitegallery, version: ">=1.1.0" }
 
-# Form configuration
 form:
-  validation: strict
-  fields:
-    theme.tabs:
-      type: tabs
-      fields:
-        # Organization tab
-        organization.tab:
-          type: tab
-          title: Your organization
-          import@:
-            type: blueprints/theme/organization
-            context: themes://patron
+    validation: strict
+    fields:
+        theme.tabs:
+            type: tabs
+            fields:
+                organization.tab:
+                    type: tab
+                    title: THEME_PATRON.CONFIG.TAB_ORGANIZATION
+                    fields:
+                        tab.columns:
+                            type: columns
+                            fields:
+                                col1:
+                                    type: column
+                                    fields:
+                                        organization.main_contact.name:
+                                            type: text
+                                            style: vertical
+                                            label: THEME_PATRON.CONFIG.ORGANIZATION_NAME_LABEL
+                                            placeholder: THEME_PATRON.CONFIG.ORGANIZATION_NAME_PLACEHOLDER
+                                            help: THEME_PATRON.CONFIG.ORGANIZATION_NAME_HELP
 
-        # Socials & Links tab
-        socials.tab:
-          type: tab
-          title: Site settings
-          import@:
-            type: blueprints/theme/settings_site
-            context: themes://patron
+                                        organization.main_contact.address:
+                                            type: text
+                                            style: vertical
+                                            label: THEME_PATRON.CONFIG.ORGANIZATION_ADDRESS_LABEL
+                                            placeholder: THEME_PATRON.CONFIG.ORGANIZATION_ADDRESS_PLACEHOLDER
+                                            help: THEME_PATRON.CONFIG.ORGANIZATION_ADDRESS_HELP
 
-        # Settings tab
-        settings.tab:
-          type: tab
-          title: Modules settings
-          import@:
-            type: blueprints/theme/settings_modules
-            context: themes://patron
+                                        organization.main_contact.country:
+                                            type: text
+                                            style: vertical
+                                            label: THEME_PATRON.CONFIG.ORGANIZATION_LOCATION_LABEL
+                                            placeholder: THEME_PATRON.CONFIG.ORGANIZATION_LOCATION_PLACEHOLDER
+                                            help: THEME_PATRON.CONFIG.ORGANIZATION_LOCATION_HELP
+
+                                        organization.main_contact.email:
+                                            type: text
+                                            style: vertical
+                                            label: THEME_PATRON.CONFIG.ORGANIZATION_EMAIL_LABEL
+                                            placeholder: THEME_PATRON.CONFIG.ORGANIZATION_EMAIL_PLACEHOLDER
+                                            help: THEME_PATRON.CONFIG.ORGANIZATION_EMAIL_HELP
+
+                                        organization.description:
+                                            type: textarea
+                                            style: vertical
+                                            label: THEME_PATRON.CONFIG.ORGANIZATION_DESCRIPTION_LABEL
+                                            placeholder: THEME_PATRON.CONFIG.ORGANIZATION_DESCRIPTION_PLACEHOLDER
+                                            help: THEME_PATRON.CONFIG.ORGANIZATION_DESCRIPTION_HELP
+                                            rows: 3
+                                col2:
+                                    type: column
+                                    fields:
+                                        organization.logo:
+                                            name: logo
+                                            type: file
+                                            style: vertical
+                                            label: THEME_PATRON.CONFIG.LOGO_LABEL
+                                            destination: "theme@:/images"
+                                            help: THEME_PATRON.CONFIG.LOGO_HELP
+                                            multiple: false
+                                            autofocus: false
+                                            accept:
+                                                - image/*
+
+                                        organization.background:
+                                            name: background
+                                            type: file
+                                            style: vertical
+                                            label: THEME_PATRON.CONFIG.BACKGROUND_LABEL
+                                            destination: "theme@:/images"
+                                            help: THEME_PATRON.CONFIG.BACKGROUND_HELP
+                                            multiple: false
+                                            autofocus: false
+                                            accept:
+                                                - image/*
+
+                        organization.headquarters.contacts:
+                            type: list
+                            label: THEME_PATRON.CONFIG.CONTACTS_LABEL
+                            help: THEME_PATRON.CONFIG.CONTACTS_HELP
+                            fields:
+                                .name:
+                                    type: text
+                                    label: THEME_PATRON.CONFIG.CONTACT_NAME_LABEL
+                                    placeholder: THEME_PATRON.CONFIG.CONTACT_NAME_PLACEHOLDER
+                                .nickname:
+                                    type: text
+                                    label: THEME_PATRON.CONFIG.CONTACT_NICKNAME_LABEL
+                                    placeholder: THEME_PATRON.CONFIG.CONTACT_NICKNAME_PLACEHOLDER
+                                .title:
+                                    type: text
+                                    label: THEME_PATRON.CONFIG.CONTACT_TITLE_LABEL
+                                    placeholder: THEME_PATRON.CONFIG.CONTACT_TITLE_PLACEHOLDER
+                                .phone:
+                                    type: text
+                                    label: THEME_PATRON.CONFIG.CONTACT_PHONE_LABEL
+                                    placeholder: THEME_PATRON.CONFIG.CONTACT_PHONE_PLACEHOLDER
+                                .email:
+                                    type: text
+                                    label: THEME_PATRON.CONFIG.CONTACT_EMAIL_LABEL
+                                    placeholder: THEME_PATRON.CONFIG.CONTACT_EMAIL_PLACEHOLDER
+                                    validate:
+                                        type: email
+                                .photo:
+                                    type: file
+                                    label: THEME_PATRON.CONFIG.CONTACT_PHOTO_LABEL
+                                    help: THEME_PATRON.CONFIG.CONTACT_PHOTO_HELP
+                                    destination: "theme@:/images"
+                                    multiple: false
+                                    autofocus: false
+                                    accept:
+                                        - image/*
+
+                socials.tab:
+                    type: tab
+                    title: THEME_PATRON.CONFIG.TAB_SOCIALS
+                    fields:
+                        tab.columns:
+                            type: columns
+                            fields:
+                                col1:
+                                    type: column
+                                    fields:
+                                        socials.facebook:
+                                            type: text
+                                            style: vertical
+                                            label: THEME_PATRON.CONFIG.FACEBOOK_LABEL
+                                            placeholder: THEME_PATRON.CONFIG.FACEBOOK_PLACEHOLDER
+                                            help: THEME_PATRON.CONFIG.FACEBOOK_HELP
+
+                                        socials.links:
+                                            type: array
+                                            style: vertical
+                                            label: THEME_PATRON.CONFIG.LINKS_LABEL
+                                            help: THEME_PATRON.CONFIG.LINKS_HELP
+                                            placeholder_key: THEME_PATRON.CONFIG.LINKS_PLACEHOLDER_KEY
+                                            placeholder_value: THEME_PATRON.CONFIG.LINKS_PLACEHOLDER_VALUE
+                                col2:
+                                    type: column
+                                    fields:
+                                        spacer:
+                                            name: honeypot
+                                            type: honeypot
+
+                settings.tab:
+                    type: tab
+                    title: THEME_PATRON.CONFIG.TAB_SETTINGS
+                    fields:
+                        tab.columns:
+                            type: columns
+                            fields:
+                                col1:
+                                    type: column
+                                    fields:
+                                        settings.copyright:
+                                            type: text
+                                            style: vertical
+                                            label: THEME_PATRON.CONFIG.COPYRIGHT_LABEL
+                                            placeholder: THEME_PATRON.CONFIG.COPYRIGHT_PLACEHOLDER
+                                            help: THEME_PATRON.CONFIG.COPYRIGHT_HELP
+                                        settings.additional_page_info:
+                                            type: textarea
+                                            style: vertical
+                                            label: THEME_PATRON.CONFIG.FOOTER_NOTE_LABEL
+                                            placeholder: THEME_PATRON.CONFIG.FOOTER_NOTE_PLACEHOLDER
+                                            help: THEME_PATRON.CONFIG.FOOTER_NOTE_HELP
+                                            rows: 3
+                                col2:
+                                    type: column
+                                    fields:
+                                        settings.color_palette:
+                                            type: select
+                                            style: vertical
+                                            label: THEME_PATRON.CONFIG.COLOR_PALETTE_LABEL
+                                            help: THEME_PATRON.CONFIG.COLOR_PALETTE_HELP
+                                            default: patron
+                                            options:
+                                                patron: THEME_PATRON.CONFIG.PALETTE_PATRON
+                                                forest: THEME_PATRON.CONFIG.PALETTE_FOREST
+                                                terracotta: THEME_PATRON.CONFIG.PALETTE_TERRACOTTA
+                                                slate: THEME_PATRON.CONFIG.PALETTE_SLATE
+                                        settings.favicon:
+                                            name: favicon
+                                            type: file
+                                            style: vertical
+                                            label: THEME_PATRON.CONFIG.FAVICON_LABEL
+                                            destination: "theme@:/images"
+                                            help: THEME_PATRON.CONFIG.FAVICON_HELP
+                                            multiple: false
+                                            autofocus: false
+                                            accept:
+                                                - image/png
+                                                - image/svg+xml
+                                                - image/x-icon
+                                        settings.show_login:
+                                            type: toggle
+                                            style: vertical
+                                            label: THEME_PATRON.CONFIG.SHOW_LOGIN_LABEL
+                                            highlight: 1
+                                            help: THEME_PATRON.CONFIG.SHOW_LOGIN_HELP
+                                            default: 1
+                                            options:
+                                                1: THEME_PATRON.CONFIG.YES
+                                                0: THEME_PATRON.CONFIG.NO
+                                            validate:
+                                                type: bool

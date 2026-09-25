@@ -1,43 +1,64 @@
-{% extends 'partials/base.html.twig' %} {% set show_onpage_menu =
-header.onpage_menu == true or header.onpage_menu is null %} {% macro
-pageLinkName(text) %} {{ text|lower|replace({' ':'_'}) }} {% endmacro %} {%
-block content %}
-<!-- Header -->
-{% if theme.organization.background|length > 0 %}
-<header
-    class="modular"
-    style="background-image: url({{ (theme.organization.background | first).path }});"
->
+{% extends 'partials/base.html.twig' %}
+
+{% set show_onpage_menu = header.onpage_menu == true or header.onpage_menu is null %}
+{% macro pageLinkName(text) %}{{ text|lower|replace({' ':'_'}) }}{% endmacro %}
+
+{% block content %}
+    <!-- Header -->
+    {% if theme.organization.background|length > 0 %}
+    <header class="modular" style="background-image: url({{ (theme.organization.background | first).path|e('html_attr') }});">
     {% else %}
-    <header
-        class="modular"
-        style="background-image: url({{ theme_url }}/images/header-bg.png);"
-    >
-        {% endif %}
+    <header class="modular" style="background-image: url({{ theme_url|e('html_attr') }}/images/header-bg.png);">
+    {% endif %}
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-12 x">
-                    {% include 'partials/navigation.html.twig' %}
+                    <div class="ui menu">
+                        {% include 'partials/navigation.html.twig' %}
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Organization name -->
         <div class="organization">
-            <h1>{{ site.title }}</h1>
+            <h1>{{ site.title|e }}</h1>
         </div>
 
         <!-- Organization logo -->
         {% if theme.organization.logo|length > 0 %}
-        <img
-            class="main-logo"
-            src="{{ (theme.organization.logo | first).path }}"
-        />
+        <img class="main-logo" src="{{ (theme.organization.logo | first).path|e('html_attr') }}" />
         {% else %}
-        <img class="main-logo" src="{{ theme_url }}/images/default-logo.png" />
+        <img class="main-logo" src="{{ theme_url|e('html_attr') }}/images/default-logo.png" />
         {% endif %}
     </header>
 
-    {% for module in page.collection() %} {{ module.content|raw }} {% endfor %}
-    {% endblock %}
-</header>
+    {% for module in page.collection() %}
+        {# Keep module templates on a fixed whitelist. #}
+        {% set module_type = module.header.module.type|default(module.template)|default('custom') %}
+        {% set module_template = 'modular/custom.html.twig' %}
+
+        {% if module_type == 'banner' %}
+            {% set module_template = 'modular/banner.html.twig' %}
+        {% elseif module_type == 'image-banner' %}
+            {% set module_template = 'modular/image-banner.html.twig' %}
+        {% elseif module_type == 'news' %}
+            {% set module_template = 'modular/news.html.twig' %}
+        {% elseif module_type == 'updates' %}
+            {% set module_template = 'modular/updates.html.twig' %}
+        {% elseif module_type == 'highlights' %}
+            {% set module_template = 'modular/highlights.html.twig' %}
+        {% elseif module_type == 'groups' %}
+            {% set module_template = 'modular/groups.html.twig' %}
+        {% elseif module_type == 'events' %}
+            {% set module_template = 'modular/events.html.twig' %}
+        {% elseif module_type == 'form' %}
+            {% set module_template = 'modular/form.html.twig' %}
+        {% endif %}
+
+        {# module.content is already rendered by Grav. Typed modules need the
+         * source body so their template does not render itself recursively. #}
+        {% set module_content = module.rawMarkdown|markdown %}
+        {% include module_template with {module: module, content: module_content} %}
+    {% endfor %}
+{% endblock %}

@@ -1,4 +1,6 @@
-{% extends 'partials/base.html.twig' %} {% block content %}
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
 
 <div class="container">
     <div class="row">
@@ -9,13 +11,10 @@
     <div class="row">
         <div class="col-sm-12 page">
             <p>{{ page.content|raw }}</p>
-            <div class="gallery-container {{ page.header.class }}">
-                {% if page.header.unitegallery.gallery_theme is not defined %}
-                {{ unite_gallery(page.media.images,
-                '{"gallery_theme":"tiles"}')|raw }} {% else %} {{
-                unite_gallery(page.media.images, '{"gallery_theme":"' ~
-                page.header.unitegallery.gallery_theme ~ '"}')|raw }} {% endif
-                %}
+            <div class="gallery-container {{ page.header.class|e('html_attr') }}">
+            {% set gallery_theme = page.header.unitegallery.gallery_theme|default('tiles') %}
+            {% set gallery_config = { gallery_theme: gallery_theme } %}
+            {{ unite_gallery(page.media.images, gallery_config|json_encode)|raw }}
             </div>
         </div>
     </div>
