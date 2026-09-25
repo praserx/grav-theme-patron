@@ -508,6 +508,14 @@ section {
     color: var(--patron-on-dark);
 }
 
+.modular-page .image-banner-actions a.ui.button.basic,
+.modular-page .image-banner-actions a.ui.button.basic:visited,
+.modular-page .image-banner-actions a.ui.button.basic:hover,
+.modular-page .image-banner-actions a.ui.button.basic:focus,
+.modular-page .image-banner-actions a.ui.button.basic:active {
+    color: var(--patron-on-dark);
+}
+
 .modular-page .image-banner-actions .ui.button.basic:hover,
 .modular-page .image-banner-actions .ui.button.basic:active {
     background-color: rgba(255, 255, 255, 0.14);
